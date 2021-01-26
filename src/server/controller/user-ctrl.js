@@ -42,9 +42,32 @@ const createUser = async (req, res, next) => {
   });
 };
 
-const updateUser = async (req, res) => {};
+const updateUser = async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+  if (!user) {
+    return next(new AppError("No user found with this id!", 404));
+  }
 
-const deleteUser = async (req, res) => {};
+  return res.status(200).json({
+    status: "success",
+    data: { user },
+  });
+};
+
+const deleteUser = async (req, res) => {
+  const deleted = await User.findByIdAndRemove(req.params.id);
+  if (!deleted) {
+    return new AppError("User deletion failed", 404);
+  }
+
+  return res.status(200).json({
+    status: "success",
+    id: req.params.id,
+  });
+};
 
 module.exports.getAllUsersInfo = getAllUsersInfo;
 module.exports.getUserInfo = getUserInfo;
