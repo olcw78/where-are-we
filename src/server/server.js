@@ -10,7 +10,6 @@ const app = require("./app");
     "<PASSWORD>",
     process.env.DATABASE_PASSWORD
   );
-  console.log(dbURL);
 
   const connectOptions = {
     useNewUrlParser: true,

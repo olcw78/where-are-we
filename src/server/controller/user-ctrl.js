@@ -1,30 +1,44 @@
 const mongoose = require("mongoose");
 const User = require("../model/user-model");
 const AppError = require("../util/app-error");
+const catchAsync = require("../util/async-catch");
 
-class UserCtrl {
-  static async getAllUsersInfo(req, res) {
-    const users = await User.find();
-    if (!users) {
-      return next(new AppError("No users exists", 404));
-    }
-
-    return res.status(200).json({
-      status: "success",
-      amount: users.length,
-      data: { users },
-    });
+const getAllUsersInfo = catchAsync(async (req, res) => {
+  const users = await User.find();
+  if (!users) {
+    return next(new AppError("No users exist", 404));
   }
 
-  static getUserInfo(req, res) {}
+  return res.status(200).json({
+    status: "success",
+    amount: users.length,
+    data: { users },
+  });
+});
 
-  static async createUser(req, res, next) {}
+const getUserInfo = async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    return next(new AppError("No user exists", 404));
+  }
 
-  static updateUser(req, res) {}
+  return res.status(200).json({
+    status: "success",
+    data: { user },
+  });
+};
 
-  static deleteUser(req, res) {}
+const createUser = async (req, res, next) => {};
 
-  static login(req, res) {}
-}
+const updateUser = async (req, res) => {};
 
-module.exports = UserCtrl;
+const deleteUser = async (req, res) => {};
+
+const login = async (req, res) => {};
+
+module.exports.getAllUsersInfo = getAllUsersInfo;
+module.exports.getUserInfo = getUserInfo;
+module.exports.createUser = createUser;
+module.exports.updateUser = updateUser;
+module.exports.deleteUser = deleteUser;
+module.exports.login = login;
