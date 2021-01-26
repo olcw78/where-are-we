@@ -6,12 +6,15 @@ const router = express.Router();
 router.route("/login").post();
 
 // signup request
-router.route("/signup").post();
+router.route("/signup").post(UserCtrl.createUser);
 
 // query all the user info
 router.route("/user").get(UserCtrl.getAllUsersInfo);
 
-// query specific user info
-router.route("/user/:id").get(UserCtrl.getUserInfo);
+router
+  .route("/user/:id")
+  .get(UserCtrl.getUserInfo) // query specific user info
+  .patch(UserCtrl.updateUser) // update user info
+  .delete(UserCtrl.deleteUser); // delete user info
 
 module.exports = router;
