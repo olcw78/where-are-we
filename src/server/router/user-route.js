@@ -2,15 +2,16 @@ const express = require("express");
 const UserCtrl = require("../controller/user-ctrl");
 const router = express.Router();
 
-router.route("/login")
-.post(); // login request
+// login request
+router.route("/login").post();
 
-router.route("/signup")
-.post(); // signup request
+// signup request
+router.route("/signup").post();
 
-router.route("/:user").get(UserCtrl.getAllUsersInfo); // query all the user info
+// query all the user info
+router.route("/user").get(UserCtrl.getAllUsersInfo);
 
-router.route("/:id")
-.get() // query specific user info
+// query specific user info
+router.route("/user/:id").get(UserCtrl.getUserInfo);
 
 module.exports = router;
