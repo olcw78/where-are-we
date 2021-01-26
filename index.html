@@ -1,21 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+  <head>
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="author" content="yoonsang Lee" />
+    <meta name="description" content="..." />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="viewport"
+      content="width=device-width, 
+                                   height=device-height,
+                                   initial-scale=1.0,
+                                   user-scalable=no,
+                                   maximum-scale=1.0,
+                                   minimum-scale=1.0,"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <script async type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75ede18b29f8152dd61ad3182f0a5ac9"></script>
-    <script defer src="./src/test.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Between Us</title>
-</head>
+    <!-- http://ogp.me/ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="WhereAreWe" />
+    <meta property="og:title" content="Let's meet at there" />
+    <meta property="og:description" content="..." />
+    <meta property="og:image" content="img/logo_200x200.png" />
+    <!-- <meta property="og:url" content="https://github.com"> -->
 
-<body>
-    <h1>Hello! it's a landing page!</h1>
+    <!-- https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="WhereAreWe" />
+    <meta property="twitter:title" content="Let's meet at there" />
+    <meta property="twitter:description" content="..." />
+    <meta property="twitter:image" content="img/logo_200x200.png" />
+    <!-- <meta property="twitter:url" content="https://github.com"> -->
 
-    <div id="map-display"></div>
-</body>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/logo_200x200.png" type="image/x-icon" />
 
+    <!-- fonts -->
+    <!-- Nanum Gothic fonts (400, 700) 나눔고딕체 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Where Are We?</title>
+
+    <!-- scss -->
+    <link rel="stylesheet" href="./css/main.scss" />
+
+    <!-- javascript -->
+    <!-- font awesome(icon) -->
+    <script
+      async
+      src="https://kit.fontawesome.com/bfbd1bc052.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- map sdk -->
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b7579268247ae625255701ea3475d6b"></script>
+
+    <script defer src="./src/entry.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <!-- main title (logo and caligraphy image) -->
+      <h1 id="main-title"></h1>
+      <nav>
+        <section id="auth">
+          <!-- 1. login -->
+          <form action="/login">
+            <label for="id">아이디</label>
+            <input
+              type="text"
+              name="id"
+              id="input-id"
+              placeholder="아이디 입력해듀데요..."
+              autofocus
+            />
+
+            <label for="pw">비밀번호</label>
+            <input
+              type="password"
+              name="pw"
+              id="input-pw"
+              placeholder="비밀번호 입력해듀데요..."
+            />
+
+            <input
+              type="submit"
+              name="login"
+              value="로그인"
+              class="btn btn--primary"
+            />
+          </form>
+
+          <!-- 2. signup -->
+          <form action="/signup">
+            <input
+              type="submit"
+              name="signup"
+              value="가입"
+              class="btn btn--sub"
+            />
+          </form>
+        </section>
+      </nav>
+    </header>
+
+    <!-- root container -->
+    <div id="root-container">
+      <section id="app">
+        <!-- 1. map display -->
+        <section class="map-contaier">
+          <!-- 1-1. map -->
+          <div class="map map-curtain">
+            Need to login! <i class="fas fa-plug"></i>
+          </div>
+
+          <!-- 1-2. zoom control -->
+          <div class="zoom-feature">
+            <div id="zoom-set">
+              <button id="zoom-in">+</button>
+              <button id="zoom-out">-</button>
+            </div>
+            <div id="zoom-level">-</div>
+          </div>
+
+          <!-- 1-3. drag lock -->
+          <div class="drag-lock">
+            <!-- unlocked -->
+            <i class="fas fa-lock-open drag-pos"></i>
+            <!-- locked -->
+            <!-- <i class="fas fa-lock drag-pos drag-locked"></i> -->
+          </div>
+        </section>
+
+        <!-- 2. side bar -->
+        <section class="side-bar">
+          <div class="btn btn--primary"></div>
+        </section>
+      </section>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <!-- 1. info card goes here! -->
+      <!-- 
+                <template id="footer-card-template">
+                <ul id="info">
+                    <li id="card">
+                        <div class="card-layout card-title">E-mail</div>
+                        <div class="card-layout card-content">highp0912@protonmail.ch</div>
+                    </li>
+                </ul>        
+            </template> 
+        -->
+
+      <!-- 2. copyright -->
+      <div id="copyright">© Copyright to Yoonsang Lee. 2021</div>
+    </footer>
+  </body>
 </html>

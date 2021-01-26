@@ -1,0 +1,23 @@
+@import '../etc/cfg';
+
+.map-contaier {
+  display: flex;
+  position: relative;
+  flex-grow: 7;
+
+  @include put-line-separator(bottom);
+
+  .map {
+    flex-grow: 1;
+    height: 1024px;
+
+    margin: 5px;
+    box-sizing: border-box;
+    
+    text-indent: -9999;
+  }
+}
+
+.logout {
+  visibility: hidden;
+}

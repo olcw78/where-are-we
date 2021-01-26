@@ -1,0 +1,19 @@
+@import '../etc/cfg';
+
+header {
+  // height: 100px;
+
+  #main-title {
+    width: auto;
+    height: 300px;
+
+    text-indent: -9999;
+    background: url('../img/logo_200x200.png') no-repeat ;    
+    background-position: 50% 50%;
+
+    // &::after {
+    //   background-color: rgba(0, 30, 60, 0.7);
+    //   background-position: 0 0;
+    // }
+  }
+}

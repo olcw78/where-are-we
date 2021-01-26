@@ -1,0 +1,45 @@
+@import '../etc/cfg';
+
+.zoom-feature {
+  height: 100px;
+
+  position: absolute;
+  right: 20px;
+  bottom: -50px;
+
+  display: flex;
+
+  z-index: 1;
+  font-size: 200%;
+
+  #zoom-set {
+    display: flex;
+    flex-direction: column;
+
+    #zoom-in {
+      width: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 5px;
+    }
+
+    #zoom-out {
+      width: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 5px;
+    }
+  }
+
+  #zoom-level {
+    margin: 1px 0 0 10px;
+    height: 35%;
+    border: 2px solid black;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.6);
+  }
+}

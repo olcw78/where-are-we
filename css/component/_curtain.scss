@@ -1,0 +1,15 @@
+.map-curtain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-grow: 1;
+  height: 1024px;
+
+  margin: 5px;
+  box-sizing: border-box;
+
+  background: #fff;
+
+  font-size: 5rem;
+}

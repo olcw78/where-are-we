@@ -1,0 +1,8 @@
+@import '../etc/cfg';
+
+.side-bar {
+  display: flex;
+  flex-grow: 3;
+  @include put-line-separator(left);
+  @include put-line-separator(bottom);
+}

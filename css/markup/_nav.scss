@@ -1,0 +1,52 @@
+@import "../etc/cfg";
+@import "../component/button";
+
+nav {
+  width: auto;
+  height: 50px;
+
+  @include put-line-separator(bottom);
+
+  #auth {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    line-height: 1.6;
+    font-weight: 700;
+
+    label {
+      margin-right: 10px;
+    }
+
+    #input-id {
+      margin-right: 10px;
+    }
+
+    #input-pw {
+      margin-right: 10px;
+    }
+
+    input[type="submit"] {
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include make-btn(60px, 35px);
+      color: #fff;
+
+      &.btn--primary {
+        background: #55a532 linear-gradient(#91dd70, #55a532);
+      }
+
+      &.btn--sub {
+        background: #0677ac linear-gradient(#0da0e4, #0677ac);
+      }
+    }
+  }
+}
