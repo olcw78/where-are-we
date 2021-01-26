@@ -3,6 +3,8 @@ const User = require("../model/user-model");
 const AppError = require("../util/app-error");
 const catchAsync = require("../util/async-catch");
 
+// const login = catchAsync();
+
 const getAllUsersInfo = catchAsync(async (req, res) => {
   const users = await User.find();
   if (!users) {
@@ -28,17 +30,24 @@ const getUserInfo = async (req, res) => {
   });
 };
 
-const createUser = async (req, res, next) => {};
+const createUser = async (req, res, next) => {
+  const user = await User.create(req.body);
+  if (!user) {
+    return next(new AppError("User Creation failed", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    data: { user },
+  });
+};
 
 const updateUser = async (req, res) => {};
 
 const deleteUser = async (req, res) => {};
-
-const login = async (req, res) => {};
 
 module.exports.getAllUsersInfo = getAllUsersInfo;
 module.exports.getUserInfo = getUserInfo;
 module.exports.createUser = createUser;
 module.exports.updateUser = updateUser;
 module.exports.deleteUser = deleteUser;
-module.exports.login = login;
