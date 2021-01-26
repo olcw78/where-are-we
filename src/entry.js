@@ -1,5 +1,5 @@
 // core import
-import { async } from 'regenerator-runtime';
+import { async } from "regenerator-runtime";
 
 // feature import
 import { initZoomLevel } from "./util/cfg";
@@ -11,17 +11,16 @@ import { KakaoMapMarker } from "./kakao-map/kakao-map-marker.js";
 import { KakaoMapDrag } from "./kakao-map/kakao-map-drag.js";
 import { Curtain } from "./util/curtain";
 
-
 // import { SidebarCurtain } from "./side-bar/side-bar-curtain";
 //
 // IIFE async
 //
 (async function () {
-
   // add html templates
   Footer.init();
 
-  Curtain.toggleCurtain(false);
+  Curtain.toggleCurtain("map", "map--curtain", false);
+  Curtain.toggleCurtain("side-bar", "side-bar--curtain", false);
 
   // init map
   const map = await KakaoMap.load(initZoomLevel);
@@ -37,5 +36,4 @@ import { Curtain } from "./util/curtain";
   // init map drag
   const drag = new KakaoMapDrag();
   drag.init(map);
-
 })();

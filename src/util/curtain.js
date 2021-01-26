@@ -12,14 +12,16 @@ export class Curtain {
       console.error("curtain must be string");
     }
 
-    const curtainPosition = document.querySelector(positionClassname);
+    const curtainPosition = document.querySelector(`.${positionClassname}`);
 
     if (isConnected) {
       curtainPosition.classList.add(positionClassname);
       curtainPosition.classList.remove(curtainClassname);
+      curtainPosition.classList.remove('curtain');
     } else {
       curtainPosition.classList.remove(positionClassname);
       curtainPosition.classList.add(curtainClassname);
+      curtainPosition.classList.add('curtain');
     }
   }
 }
