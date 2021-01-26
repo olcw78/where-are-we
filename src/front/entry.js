@@ -19,7 +19,7 @@ import { Curtain } from "./util/curtain";
   // add html templates
   Footer.init();
 
-  Curtain.toggleCurtain("map", "map--curtain", false);
+  Curtain.toggleCurtain("map", "map--curtain", true);
   Curtain.toggleCurtain("side-bar", "side-bar--curtain", false);
 
   // init map
