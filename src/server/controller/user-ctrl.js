@@ -30,17 +30,17 @@ const getUserInfo = async (req, res) => {
   });
 };
 
-const createUser = async (req, res, next) => {
-  const user = await User.create(req.body);
-  if (!user) {
-    return next(new AppError("User Creation failed", 404));
-  }
+// const createUser = async (req, res, next) => {
+//   const user = await User.create(req.body);
+//   if (!user) {
+//     return next(new AppError("User Creation failed", 404));
+//   }
 
-  return res.status(200).json({
-    status: "success",
-    data: { user },
-  });
-};
+//   return res.status(200).json({
+//     status: "success",
+//     data: { user },
+//   });
+// };
 
 const updateUser = async (req, res, next) => {
   const user = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -57,20 +57,19 @@ const updateUser = async (req, res, next) => {
   });
 };
 
-const deleteUser = async (req, res) => {
-  const deleted = await User.findByIdAndRemove(req.params.id);
-  if (!deleted) {
-    return new AppError("User deletion failed", 404);
-  }
+// const deleteUser = async (req, res) => {
+//   const deleted = await User.findByIdAndRemove(req.params.id);
+//   if (!deleted) {
+//     return new AppError("User deletion failed", 404);
+//   }
 
-  return res.status(200).json({
-    status: "success",
-    id: req.params.id,
-  });
-};
+//   return res.status(200).json({
+//     status: "success",
+//     id: req.params.id,
+//   });
+// };
 
 module.exports.getAllUsersInfo = getAllUsersInfo;
 module.exports.getUserInfo = getUserInfo;
-module.exports.createUser = createUser;
 module.exports.updateUser = updateUser;
-module.exports.deleteUser = deleteUser;
+// module.exports.deleteUser = deleteUser;
