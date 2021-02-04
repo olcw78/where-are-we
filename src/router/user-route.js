@@ -16,7 +16,10 @@ router.route("/user").get(userCtrl.getAllUsersInfo);
 router
   .route("/user/:id")
   .get(userCtrl.getUserInfo) // query specific user info
-  .patch(userCtrl.updateUser); // update user info
-// .delete(userCtrl.deleteUser); // delete user info
+  .patch(userCtrl.updateUser) // update user info
+  .delete(
+    authCtrl.protect,
+    authCtrl.restrictTo("admin"),
+    userCtrl.deleteUser); // delete user info
 
 module.exports = router;

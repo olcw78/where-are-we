@@ -13,7 +13,7 @@
                                    initial-scale=1.0,
                                    user-scalable=no,
                                    maximum-scale=1.0,
-                                   minimum-scale=1.0,"
+                                   minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -47,7 +47,7 @@
     <title>Where Are We?</title>
 
     <!-- scss -->
-    <link rel="stylesheet" href="./css/main.scss" />
+    <link type="text/css" rel="stylesheet" href="./css/main.scss" />
 
     <!-- javascript -->
     <!-- font awesome(icon) -->
@@ -60,7 +60,7 @@
     <!-- map sdk -->
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b7579268247ae625255701ea3475d6b"></script>
 
-    <script type="module" defer src="./src/front/entry.js"></script>
+    <script type="module" defer src="./src/entry.js"></script>
   </head>
 
   <body>
@@ -70,7 +70,7 @@
       <nav>
         <section id="auth">
           <!-- 1. login -->
-          <form action="/login">
+          <form action="/login" method="POST">
             <label for="id">아이디</label>
             <input
               type="text"
@@ -97,7 +97,7 @@
           </form>
 
           <!-- 2. signup -->
-          <form action="/signup">
+          <form action="/signup" method="POST">
             <input
               type="submit"
               name="signup"

@@ -1,3 +1,4 @@
+import { async } from "regenerator-runtime";
 /**
  * wait until the sec and trigger error!
  * @param {Number} sec 

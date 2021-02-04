@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const path = require("path");
 
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
@@ -15,11 +16,15 @@ const app = express();
 // middlewares - mounst routers.
 
 // 1. Secured HTTP headers
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 // 2. Limit request from the same IP
 const limiter = rateLimit({
-  max: 20,
+  max: 1000,
   windowMs: 60 * 60 * 1000,
   message:
     "Too many requests from the same IP address, please try again in 1 hour.",
@@ -43,6 +48,12 @@ app.use(xss());
 
 // Prevent parameter pollution
 app.use(hpp({ whitelist: [] }));
+
+// static files
+
+const frontPath = path.join(__dirname, "../dist");
+// const staticFilePath = path.resolve(`${__dirname}/../public`);
+app.use(express.static(frontPath));
 
 // route
 app.use("/", userRouter);

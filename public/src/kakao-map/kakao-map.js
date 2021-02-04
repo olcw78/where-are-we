@@ -1,3 +1,5 @@
+import { async } from "regenerator-runtime";
+
 export class KakaoMap {
   static _init() {
     if (!navigator.geolocation) return;

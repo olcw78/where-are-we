@@ -4,9 +4,9 @@
   "description": "decision helper for the appointment location",
   "default": "index.html",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist",
-    "server:start": "nodemon ./src/server/server.js"
+    "start": "parcel ./public/index.html",
+    "build": "parcel build ./public/index.html --dist-dir ./dist",
+    "server:start": "nodemon ./src/server.js"
   },
   "author": "Yoonsang Lee",
   "license": "ISC",
