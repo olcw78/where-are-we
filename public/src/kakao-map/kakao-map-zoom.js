@@ -1,4 +1,3 @@
-
 export class KakaoMapZoom {
   _zoomLevelElement;
   _zoomInBtn;
@@ -9,17 +8,17 @@ export class KakaoMapZoom {
 
   constructor(initZoomLevel) {
     this._initZoomLevel = initZoomLevel;
-    this._zoomLevelElement = document.getElementById('zoom-level');
-    this._zoomInBtn = document.getElementById('zoom-in');
-    this._zoomOutBtn = document.getElementById('zoom-out');
+    this._zoomLevelElement = document.getElementById("zoom-level");
+    this._zoomInBtn = document.getElementById("zoom-in");
+    this._zoomOutBtn = document.getElementById("zoom-out");
   }
 
   init(map) {
     this._map = map;
 
     // 1. bind the callbacks
-    this._zoomInBtn.addEventListener('click', this._zoomIn.bind(this));
-    this._zoomOutBtn.addEventListener('click', this._zoomOut.bind(this));
+    this._zoomInBtn.addEventListener("click", this._zoomIn.bind(this));
+    this._zoomOutBtn.addEventListener("click", this._zoomOut.bind(this));
 
     // 2.
     this._displayZoomLevel();

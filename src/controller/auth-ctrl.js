@@ -38,6 +38,7 @@ const createAndSendToken = (user, statusCode, res) => {
 };
 
 const signup = catchAsync(async (req, res, _) => {
+  console.log("signup clicked!");
   const user = await User.create({
     username: req.body.username,
     name: req.body.name,
@@ -56,6 +57,7 @@ const signup = catchAsync(async (req, res, _) => {
 });
 
 const login = catchAsync(async (req, res, next) => {
+  console.log("login clicked!");
   const { email, password } = req.body;
 
   // Check if user exists and password is correct

@@ -51,8 +51,8 @@ app.use(hpp({ whitelist: [] }));
 
 // static files
 
-const frontPath = path.join(__dirname, "../dist");
 // const staticFilePath = path.resolve(`${__dirname}/../public`);
+const frontPath = path.join(__dirname, "../dist");
 app.use(express.static(frontPath));
 
 // route

@@ -2,21 +2,21 @@
 @import "../component/button";
 
 nav {
-  width: auto;
-  height: 50px;
-
   @include put-line-separator(bottom);
 
   #auth {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
 
-    line-height: 1.6;
-    font-weight: 700;
+    form {
+      display: flex;
+      justify-content: center;
+    }
 
     label {
       margin-right: 10px;
+      align-self: center;
+      font-weight: 700;
     }
 
     #input-id {
@@ -27,18 +27,14 @@ nav {
       margin-right: 10px;
     }
 
-    input[type="submit"] {
-      font-size: 1rem;
-      margin-right: 10px;
-    }
-
     .btn {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      @include make-btn(60px, 35px);
+      @include make-btn(80px, 35px);
       color: #fff;
+      font-size: 1rem;
 
       &.btn--primary {
         background: #55a532 linear-gradient(#91dd70, #55a532);

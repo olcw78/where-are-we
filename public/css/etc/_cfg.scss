@@ -1,7 +1,7 @@
 @mixin put-line-separator($dir, $style: solid, $width: 3px) {
   @if ($dir == 'all') {
-    border: $width $style hsl(0, 0%, 94%);
+    border: $width $style #efefef69;
   } @else {
-    border-#{$dir}: $width $style #efefef;
+    border-#{$dir}: $width $style rgb(109, 109, 109);
   }
 }

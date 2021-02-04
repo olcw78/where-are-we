@@ -1,4 +1,3 @@
-
 export class KakaoMapMarker {
   _marker;
   _map;
@@ -10,18 +9,16 @@ export class KakaoMapMarker {
 
     // 1. create and locate the first marker at first and once
     this._marker = new kakao.maps.Marker({
-      position: map.getCenter()
+      position: map.getCenter(),
     });
     this._marker.setMap(map);
 
-    // bind the creating marker callback 
-    kakao.maps.event.addListener(map, 'click',
-      clickEvent => {
-        // locate the marker only to the new position,
-        // not creating and replacing it
-        const latlng = clickEvent.latLng;
-        this._marker.setPosition(latlng);
-      });
+    // bind the creating marker callback
+    kakao.maps.event.addListener(map, "click", clickEvent => {
+      // locate the marker only to the new position,
+      // not creating and replacing it
+      const latlng = clickEvent.latLng;
+      this._marker.setPosition(latlng);
+    });
   }
 }
-

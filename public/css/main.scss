@@ -1,21 +1,22 @@
-@import './etc/reset';
-@import './etc/cfg';
+@import "./etc/reset";
+@import "./etc/cfg";
 
-@import './markup/header';
-@import './markup/title';
-@import './markup/nav';
-@import './markup/side-bar';
-@import './markup/footer';
+@import "./markup/header";
+@import "./markup/title";
+@import "./markup/nav";
+@import "./markup/side-bar";
+@import "./markup/footer";
 
-@import './map/map';
-@import './map/map-zoom';
-@import './map/map-drag-lock';
+@import "./map/map";
+@import "./map/map-zoom";
+@import "./map/map-drag-lock";
 
-@import './component/button';
-@import './component/curtain';
+@import "./component/button";
+@import "./component/curtain";
+@import "./component/signup";
 
 #root-container {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
 }
 
 #app {

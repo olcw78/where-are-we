@@ -88,26 +88,71 @@
               placeholder="비밀번호 입력해듀데요..."
             />
 
-            <input
-              type="submit"
-              name="login"
-              value="로그인"
-              class="btn btn--primary"
-            />
+            <button type="submit" name="login" class="btn btn--primary">
+              로그인
+            </button>
           </form>
 
           <!-- 2. signup -->
-          <form action="/signup" method="POST">
-            <input
-              type="submit"
-              name="signup"
-              value="가입"
-              class="btn btn--sub"
-            />
-          </form>
+          <!-- <button class="btn btn--sub"><a href="/signup">가입</a></button> -->
+          <!-- <form action="/signup" method="POST">
+            
+          </form> -->
+          <button class="btn btn--sub">가입</button>
         </section>
       </nav>
     </header>
+
+    <div class="signup-popup-bg">
+      <span class="signup-popup-helper"></span>
+      <div class="signup-popup-body">
+
+        <h2>회원 가입</h2>
+        <!-- signup form -->
+        <form action="/signup" method="POST">
+          <div>
+            <!-- 1. ID -->
+            <label for="id">ID</label>
+            <input type="text" name="id" id="signup-placeholder" />
+            <br />
+
+            <!-- 2. 비밀번호 -->
+            <label for="password">비밀번호</label>
+            <input type="password" name="password" id="signup-placeholder" />
+            <br />
+
+            <!-- 3. 비밀번호 확인 -->
+            <label for="passwordConfirm">비밀번호 확인</label>
+            <input
+              type="password"
+              name="passwordConfirm"
+              id="signup-placeholder"
+            />
+            <br />
+          </div>
+
+          <div>
+            <!-- 4. 이름 -->
+            <label for="name">이름</label>
+            <input type="text" name="name" id="signup-placeholder" />
+            <br />
+
+            <!-- 5. 이메일 -->
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="signup-placeholder" />
+            <br />
+
+            <!-- 6. 연락처 -->
+            <label for="contact">연락처</label>
+            <input type="tel" name="contact" id="signup-placeholder" />
+            <br />
+          </div>
+        </form>
+
+        <!-- 닫기 버튼 -->
+        <div class="signup-popup-close">X</div>
+      </div>
+    </div>
 
     <!-- root container -->
     <div id="root-container">

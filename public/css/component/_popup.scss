@@ -1,0 +1,11 @@
+@import "../etc/cfg";
+
+@mixin make-popup($w: 100%, $h: 100%) {
+  width: $w;
+  height: $h;
+  border-radius: 10px;
+
+  font-size: 12px;
+  // box-sizing: border-box;
+  position: relative;
+}

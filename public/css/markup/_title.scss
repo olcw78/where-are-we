@@ -11,6 +11,8 @@ header {
     background: url('../img/logo_200x200.png') no-repeat ;    
     background-position: 50% 50%;
 
+    @include put-line-separator(bottom);
+
     // &::after {
     //   background-color: rgba(0, 30, 60, 0.7);
     //   background-position: 0 0;
