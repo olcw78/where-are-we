@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
+const bodyParser = require("body-parser");
 
 const userRouter = require("./router/user-route");
 const errCtrl = require("./controller/error-ctrl");
@@ -38,7 +39,10 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Body parser, reading data from body into req.body
-app.use(express.json({ limit: "10kb" }));
+// app.use(express.json({ limit: "10kb" }));
+// app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Sanitize data against NoSQL query injection
 app.use(mongoSanitize());

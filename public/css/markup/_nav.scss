@@ -28,9 +28,7 @@ nav {
     }
 
     .btn {
-      
-
-      @include make-btn(80px, 35px);          
+      @include make-btn(80px, 35px);
     }
   }
 }

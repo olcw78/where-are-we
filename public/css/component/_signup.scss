@@ -54,7 +54,7 @@
       @include put-line-separator(bottom);
     }
 
-    form {
+    form .signup {
       display: flex;
 
       justify-content: space-around;
@@ -62,7 +62,7 @@
 
       text-align: start;
       margin-top: 30px;
-      padding-bottom: 20px;
+      padding-bottom: 20px;      
 
       @include put-line-separator(bottom);
     }
@@ -116,9 +116,12 @@
     }
   }
 
-  .signup-popup-body .btn--sub {
+  .signup-popup-body .btn {
+    margin-top: 15px;
+  }
+
+  .signup-popup-body .btn--signup {
     @include make-btn(120px, 35px);
-    margin-top: 30px;
     display: inline-block;
   }
 

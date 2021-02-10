@@ -38,15 +38,15 @@ const createAndSendToken = (user, statusCode, res) => {
 };
 
 const signup = catchAsync(async (req, res, _) => {
-  console.log("signup clicked!");
+  console.log(req.body);
   const user = await User.create({
-    username: req.body.username,
+    id: req.body.id,
     name: req.body.name,
     email: req.body.email,
     phoneNum: req.body.phoneNum,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
-    passwordChangedAt: req.body.passwordChangedAt,
+    // passwordChangedAt: req.body.passwordChangedAt,
   });
 
   if (!user) {

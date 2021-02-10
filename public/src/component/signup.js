@@ -1,8 +1,9 @@
 export class Signup {
   closeSignupPopupEl = document.querySelector(".signup-popup-close");
   signupPopupEl = document.querySelector(".signup-popup-bg");
-  openSignupBtnEl = document.querySelector(".btn--sub");
+  openSignupBtnEl = document.querySelector(".btn--signup");
   cancleBtnEl = document.getElementById("signup-cancel");
+  signupEl = document.getElementById("signup");
 
   constructor() {
     this._bind();
@@ -27,7 +28,10 @@ export class Signup {
     // );
 
     // signup open button
-    this.openSignupBtnEl.addEventListener("click", this.openSignupPopup.bind(this));
+    this.openSignupBtnEl.addEventListener(
+      "click",
+      this.openSignupPopup.bind(this)
+    );
   }
 
   openSignupPopup() {

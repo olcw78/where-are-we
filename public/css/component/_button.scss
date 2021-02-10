@@ -3,7 +3,7 @@
 @mixin make-btn($w, $h) {
   width: $w;
   height: $h;
-  
+
   border-radius: 4px;
   padding: 0 12px;
 
@@ -34,7 +34,7 @@
     background: #55a532 linear-gradient(#91dd70, #55a532);
   }
 
-  &.btn--sub {
+  &.btn--signup {
     background: #0677ac linear-gradient(#0da0e4, #0677ac);
   }
 

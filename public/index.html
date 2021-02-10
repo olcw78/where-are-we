@@ -93,56 +93,48 @@
             </button>
           </form>
 
-          <!-- 2. signup -->
-          <!-- <button class="btn btn--sub"><a href="/signup">가입</a></button> -->
-          <!-- <form action="/signup" method="POST">
-            
-          </form> -->
-          <button class="btn btn--sub">가입</button>
+          <button class="btn btn--signup">가입</button>
         </section>
       </nav>
     </header>
 
     <div class="signup-popup-bg">
       <div class="signup-popup-body">
+        <!-- signup form -->
         <h2>회원 가입</h2>
 
-        <!-- signup form -->
-        <form action="/signup" method="POST">
-          <div class="label-textfields">
-            <!-- 1. ID -->
-            <p>ID</p>
-            <!-- 2. 비밀번호 -->
-            <p>비밀번호</p>
-            <!-- 3. 비밀번호 확인 -->
-            <p>비밀번호 확인</p>
-          </div>
+        <form action="/signup" method="POST" id="signup-form">
+          <section class="signup">
+            <div class="label-textfields">
+              <p>ID</p>
+              <p>비밀번호</p>
+              <p>비밀번호 확인</p>
+            </div>
 
-          <div class="textfields">
-            <input type="text" name="id" />
-            <input type="password" name="password" />
-            <input type="password" name="passwordConfirm" />
-          </div>
+            <div class="textfields">
+              <input type="text" name="id" />
+              <input type="password" name="password" />
+              <input type="password" name="passwordConfirm" />
+            </div>
 
-          <div class="label-textfields">
-            <!-- 4. 이름 -->
-            <p>이름</p>
-            <!-- 5. 이메일 -->
-            <p>이메일</p>
-            <!-- 6. 연락처 -->
-            <p>연락처</p>
-          </div>
+            <div class="label-textfields">
+              <p>이름</p>
+              <p>이메일</p>
+              <p>연락처</p>
+            </div>
 
-          <div class="textfields">
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <input type="tel" name="contact" />
-          </div>
+            <div class="textfields">
+              <input type="text" name="name" />
+              <input type="email" name="email" />
+              <input type="tel" name="contact" />
+            </div>
+          </section>
+
+          <button type="submit" class="btn btn--signup" id="signup">가입</button>
+          <button type="button" class="btn btn--cancel" id="signup-cancel">
+            취소
+          </button>
         </form>
-
-        <button class="btn btn--sub">가입</button>
-
-        <button class="btn btn--cancel" id="signup-cancel">취소</button>
 
         <!-- 닫기 버튼 -->
         <div class="signup-popup-close">X</div>
