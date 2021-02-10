@@ -2,7 +2,7 @@
 
 .signup-popup-bg {
   visibility: hidden;
-  z-index: 10000;
+  z-index: 100;
 
   position: fixed;
   top: 0;
@@ -10,7 +10,7 @@
   width: 100%;
   height: 100%;
 
-  background: #3636365e;
+  background: #2f2f2f5e;
   text-align: center;
 
   &.active {
@@ -19,41 +19,39 @@
 
   .signup-popup-body {
     display: inline-block;
+    // display: block;
     position: absolute;
-    top: 70%;
+
+    top: 80%;
     left: 20%;
 
     width: 60%;
     height: 100%;
 
     background: #fff;
-    box-shadow: 10px 10px 50px #555;
-    font-size: 150%;
+    box-shadow: 10px 10px 20px #555;
+    font-size: 130%;
+    font-weight: bold;
 
     h2 {
-      // position: absolute;
-      // top: 3%;
-      // left: 50%;
+      display: inline-block;
 
       text-align: center;
       font-size: 60px;
       font-weight: 700;
+
+      margin-top: 20px;
+
       color: rgb(17, 0, 255);
     }
 
     form {
-      // display: inline-block;
       display: flex;
-      // flex-direction: column;
-
-      position: absolute;
-      top: 10%;
-      left: 30%;
-
-      width: 100%;
-      height: 100%;
+      justify-content: center;
+      align-items: center;
 
       text-align: start;
+      margin-top: 30px;
     }
 
     div:nth-child(1) {
@@ -62,8 +60,6 @@
   }
 
   .signup-popup-close {
-    display: inline-block;
-
     position: absolute;
     top: -1.2%;
     left: 99%;
@@ -81,5 +77,16 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  .signup-popup-body .btn--sub {
+    @include make-btn(100px, 35px);
+    margin-top: 30px;
+    display: inline-block;
+  }
+
+  .signup-popup-body .btn--primary {
+    @include make-btn(100px, 35px);
+    display: inline-block;
   }
 }

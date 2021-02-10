@@ -28,21 +28,9 @@ nav {
     }
 
     .btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      
 
-      @include make-btn(80px, 35px);
-      color: #fff;
-      font-size: 1rem;
-
-      &.btn--primary {
-        background: #55a532 linear-gradient(#91dd70, #55a532);
-      }
-
-      &.btn--sub {
-        background: #0677ac linear-gradient(#0da0e4, #0677ac);
-      }
+      @include make-btn(80px, 35px);          
     }
   }
 }
