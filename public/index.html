@@ -104,53 +104,45 @@
     </header>
 
     <div class="signup-popup-bg">
-      <span class="signup-popup-helper"></span>
       <div class="signup-popup-body">
         <h2>회원 가입</h2>
+
         <!-- signup form -->
         <form action="/signup" method="POST">
-          <div>
+          <div class="label-textfields">
             <!-- 1. ID -->
-            <label for="id">ID</label>
-            <input type="text" name="id" id="signup-placeholder" />
-            <br />
-
+            <p>ID</p>
             <!-- 2. 비밀번호 -->
-            <label for="password">비밀번호</label>
-            <input type="password" name="password" id="signup-placeholder" />
-            <br />
-
+            <p>비밀번호</p>
             <!-- 3. 비밀번호 확인 -->
-            <label for="passwordConfirm">비밀번호 확인</label>
-            <input
-              type="password"
-              name="passwordConfirm"
-              id="signup-placeholder"
-            />
-            <br />
+            <p>비밀번호 확인</p>
           </div>
 
-          <div>
+          <div class="textfields">
+            <input type="text" name="id" />
+            <input type="password" name="password" />
+            <input type="password" name="passwordConfirm" />
+          </div>
+
+          <div class="label-textfields">
             <!-- 4. 이름 -->
-            <label for="name">이름</label>
-            <input type="text" name="name" id="signup-placeholder" />
-            <br />
-
+            <p>이름</p>
             <!-- 5. 이메일 -->
-            <label for="email">이메일</label>
-            <input type="email" name="email" id="signup-placeholder" />
-            <br />
-
+            <p>이메일</p>
             <!-- 6. 연락처 -->
-            <label for="contact">연락처</label>
-            <input type="tel" name="contact" id="signup-placeholder" />
-            <br />
+            <p>연락처</p>
+          </div>
+
+          <div class="textfields">
+            <input type="text" name="name" />
+            <input type="email" name="email" />
+            <input type="tel" name="contact" />
           </div>
         </form>
 
         <button class="btn btn--sub">가입</button>
-        
-        <button class="btn btn--primary">취소</button>
+
+        <button class="btn btn--cancel" id="signup-cancel">취소</button>
 
         <!-- 닫기 버튼 -->
         <div class="signup-popup-close">X</div>

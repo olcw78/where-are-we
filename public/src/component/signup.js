@@ -1,22 +1,40 @@
 export class Signup {
-  closeSignupPopupElement = document.querySelector(".signup-popup-close");
-  signupPopup = document.querySelector(".signup-popup-bg");
-  signupBtn = document.querySelector(".btn--sub");
+  closeSignupPopupEl = document.querySelector(".signup-popup-close");
+  signupPopupEl = document.querySelector(".signup-popup-bg");
+  openSignupBtnEl = document.querySelector(".btn--sub");
+  cancleBtnEl = document.getElementById("signup-cancel");
 
   constructor() {
-    this.closeSignupPopupElement.addEventListener(
+    this._bind();
+  }
+
+  _bind() {
+    // signup close button
+    this.closeSignupPopupEl.addEventListener(
       "click",
       this.closeSignupPopup.bind(this)
     );
 
-    this.signupBtn.addEventListener("click", this.openSignupPopup.bind(this));
+    this.cancleBtnEl.addEventListener(
+      "click",
+      this.closeSignupPopup.bind(this)
+    );
+
+    // when you touch other places
+    // this.signupPopupEl.addEventListener(
+    //   "click",
+    //   this.closeSignupPopup.bind(this)
+    // );
+
+    // signup open button
+    this.openSignupBtnEl.addEventListener("click", this.openSignupPopup.bind(this));
   }
 
   openSignupPopup() {
-    this.signupPopup?.classList.add("active");
+    this.signupPopupEl?.classList.add("active");
   }
 
   closeSignupPopup() {
-    this.signupPopup?.classList.remove("active");
+    this.signupPopupEl?.classList.remove("active");
   }
 }
