@@ -5,6 +5,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Edge",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:1234",
+      "webRoot": "${workspaceFolder}"
+    },
+  {
+    "name": "Attach to Edge",
+    "port": 3000,
+    "request": "attach",
+    "type": "pwa-msedge",
+    "webRoot": "${workspaceFolder}"
+  },
+    {
       "name": "Attach by Process ID",
       "processId": "${command:PickProcess}",
       "request": "attach",

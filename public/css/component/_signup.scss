@@ -1,7 +1,7 @@
 @import "./popup";
 
 .signup-popup-bg {
-  // visibility: hidden;
+  visibility: hidden;
   z-index: 10000;
 
   position: fixed;
@@ -12,6 +12,10 @@
 
   background: #3636365e;
   text-align: center;
+
+  &.active {
+    visibility: visible;
+  }
 
   .signup-popup-body {
     display: inline-block;

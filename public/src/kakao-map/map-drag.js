@@ -1,6 +1,4 @@
-import { async } from "regenerator-runtime";
-
-export class KakaoMapDrag {
+export class MapDrag {
   _isAdjustable = true;
   _map;
   _lockIcon;

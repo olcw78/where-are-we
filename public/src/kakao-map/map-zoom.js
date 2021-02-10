@@ -1,4 +1,4 @@
-export class KakaoMapZoom {
+export class MapZoom {
   _zoomLevelElement;
   _zoomInBtn;
   _zoomOutBtn;

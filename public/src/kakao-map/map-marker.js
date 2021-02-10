@@ -1,4 +1,4 @@
-export class KakaoMapMarker {
+export class MapMarker {
   _marker;
   _map;
 
