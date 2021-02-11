@@ -9,11 +9,22 @@ export class UI {
     Footer.init();
 
     // curtain
-    Curtain.toggleCurtain("map", "map--curtain", false);
-    Curtain.toggleCurtain("side-bar", "side-bar--curtain", false);
 
     // add login features
-    const login = new Login();
+    const login = new Login(
+      function onLogin() {
+        Curtain.toggleCurtain("map", true);
+        Curtain.toggleCurtain("side-bar", true);
+        console.log("curtain off!");
+      },
+      function onLogout() {
+        Curtain.toggleCurtain("map", false);
+        Curtain.toggleCurtain("side-bar", false);
+        console.log("curtain on!");
+      }
+    );
+
+    login.autoLogin();
 
     // add signup features
     const signup = new Signup();

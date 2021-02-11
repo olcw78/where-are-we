@@ -1,4 +1,4 @@
-@import '../etc/cfg';
+@import "../etc/cfg";
 
 .map-contaier {
   display: flex;
@@ -13,8 +13,12 @@
 
     margin: 5px;
     box-sizing: border-box;
-    
+
     text-indent: -9999;
+  }
+
+  .map.curtain {
+    visibility: hidden;
   }
 }
 

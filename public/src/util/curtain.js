@@ -1,5 +1,5 @@
 export class Curtain {
-  static toggleCurtain(positionClassname, curtainClassname, isConnected) {
+  static toggleCurtain(positionClassname, isConnected) {
     if (typeof isConnected !== "boolean") {
       console.error("isConnected must be boolean");
     }
@@ -8,20 +8,11 @@ export class Curtain {
       console.error("position must be string");
     }
 
-    if (typeof curtainClassname !== "string") {
-      console.error("curtain must be string");
-    }
-
-    const curtainPosition = document.querySelector(`.${positionClassname}`);
-
+    const pos = document.querySelector(`.${positionClassname}`);
     if (isConnected) {
-      curtainPosition.classList.add(positionClassname);
-      curtainPosition.classList.remove(curtainClassname);
-      curtainPosition.classList.remove("curtain");
+      pos.classList.remove("curtain");
     } else {
-      curtainPosition.classList.remove(positionClassname);
-      curtainPosition.classList.add(curtainClassname);
-      curtainPosition.classList.add("curtain");
+      pos.classList.add("curtain");
     }
   }
 }

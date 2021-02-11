@@ -1,9 +1,9 @@
 export class Signup {
-  closeSignupPopupEl = document.querySelector(".signup-popup-close");
-  signupPopupEl = document.querySelector(".signup-popup-bg");
-  openSignupBtnEl = document.querySelector(".btn--signup");
-  cancleBtnEl = document.getElementById("signup-cancel");
-  signupEl = document.getElementById("signup");
+  _closeSignupPopupEl = document.querySelector(".signup-popup-close");
+  _signupPopupEl = document.querySelector(".signup-popup-bg");
+  _openSignupBtnEl = document.querySelector(".btn--signup");
+  _cancelBtnEl = document.getElementById("signup-cancel");
+  _signupEl = document.getElementById("signup");
 
   constructor() {
     this._bind();
@@ -11,12 +11,12 @@ export class Signup {
 
   _bind() {
     // signup close button
-    this.closeSignupPopupEl.addEventListener(
+    this._closeSignupPopupEl.addEventListener(
       "click",
       this.closeSignupPopup.bind(this)
     );
 
-    this.cancleBtnEl.addEventListener(
+    this._cancelBtnEl.addEventListener(
       "click",
       this.closeSignupPopup.bind(this)
     );
@@ -28,17 +28,17 @@ export class Signup {
     // );
 
     // signup open button
-    this.openSignupBtnEl.addEventListener(
+    this._openSignupBtnEl.addEventListener(
       "click",
       this.openSignupPopup.bind(this)
     );
   }
 
   openSignupPopup() {
-    this.signupPopupEl?.classList.add("active");
+    this._signupPopupEl?.classList.add("active");
   }
 
   closeSignupPopup() {
-    this.signupPopupEl?.classList.remove("active");
+    this._signupPopupEl?.classList.remove("active");
   }
 }

@@ -1,18 +1,22 @@
 export class Login {
-  loginBtnEl = document.getElementById("login");
-  loginLayoutPositionEl = document.getElementById("auth");
-  logoutBtnEl;
+  _loginBtnEl = document.getElementById("login");
+  _loginLayoutPositionEl = document.getElementById("auth");
+  _logoutBtnEl;
 
-  constructor() {
+  _onLogin;
+  _onLogout;
+
+  constructor(onLogin, onLogout) {
     this._bind();
-    this._autoLogin();
+    this._onLogin = onLogin;
+    this._onLogout = onLogout;
   }
 
   _bind() {
-    this.loginBtnEl.addEventListener("submit", this._logIn.bind(this));
+    this._loginBtnEl.addEventListener("submit", this._logIn.bind(this));
   }
 
-  _autoLogin() {
+  autoLogin() {
     let secret;
     const cookies = document.cookie;
     cookies
@@ -57,13 +61,14 @@ export class Login {
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 
-    this.loginLayoutPositionEl.innerHTML = "";
-    this.loginLayoutPositionEl.insertBefore(
+    this._loginLayoutPositionEl.innerHTML = "";
+    this._loginLayoutPositionEl.insertBefore(
       node,
-      this.loginLayoutPositionEl.firstChild
+      this._loginLayoutPositionEl.firstChild
     );
-    this.logoutBtnEl ??= document.querySelector(".btn--logout");
-    this.logoutBtnEl.addEventListener("click", this._logOut.bind(this));
+    this._logoutBtnEl ??= document.querySelector(".btn--logout");
+    this._logoutBtnEl.addEventListener("click", this._logOut.bind(this));
+    this._onLogin();
   }
 
   _logOut(e) {
@@ -97,11 +102,12 @@ export class Login {
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 
-    this.loginLayoutPositionEl.innerHTML = "";
-    this.loginLayoutPositionEl.insertBefore(
+    this._loginLayoutPositionEl.innerHTML = "";
+    this._loginLayoutPositionEl.insertBefore(
       node,
-      this.loginLayoutPositionEl.firstChild
+      this._loginLayoutPositionEl.firstChild
     );
     node.insertAdjacentHTML("afterend", signupBtn);
+    this._onLogout();
   }
 }
