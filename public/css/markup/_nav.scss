@@ -28,7 +28,23 @@ nav {
     }
   }
 
+  div {
+    display: flex;
+    justify-content: center;
+
+    p {
+      margin-right: 10px;
+      align-self: center;
+      font-weight: 700;
+    }
+
+    .btn {
+      margin-right: 10px;
+    }
+  }
+
   .btn {
-    @include make-btn(80px, 35px);
+    @include make-btn(100px, 35px);
+    margin-right: 10px;
   }
 }

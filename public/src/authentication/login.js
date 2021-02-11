@@ -5,29 +5,51 @@ export class Login {
 
   constructor() {
     this._bind();
+    this._autoLogin();
   }
 
   _bind() {
     this.loginBtnEl.addEventListener("submit", this._logIn.bind(this));
   }
 
+  _autoLogin() {
+    let secret;
+    const cookies = document.cookie;
+    cookies
+      .trim()
+      .split(";")
+      .forEach(cookie => {
+        const splitted = cookie.split("=");
+        if (splitted[0].trim() === "jwt") {
+          secret = splitted[1].trim();
+        }
+      });
+
+    if (secret !== undefined) {
+      this._logIn();
+    }
+  }
+
   _logIn(e) {
-    e.preventDefault();
+    // e.preventDefault();
+
     let userName;
-    const cookies = document.cookie.split(";");
-    cookies.forEach(cookie => {
-      const splitted = cookie.split("=");
-      if (splitted[0] === "name") {
-        userName = splitted[1];
-      }
-    });
+    document.cookie
+      .trim()
+      .split(";")
+      .forEach(cookie => {
+        const splitted = cookie.split("=");
+        if (splitted[0].trim() === "name") {
+          userName = splitted[1].trim();
+        }
+      });
 
     const template = `<p>안녕하세요 ${userName}님!</p>
       <button class="btn btn--primary">정보</button>
       <button class="btn btn--logout">로그아웃</button>
     `;
 
-    const node = document.createElement("span");
+    const node = document.createElement("div");
     // const node = document.createElement("form");
     // node.setAttribute("action", "/me");
     // node.setAttribute("method", "POST");
@@ -71,6 +93,7 @@ export class Login {
     const node = document.createElement("form");
     node.setAttribute("action", "/login");
     node.setAttribute("method", "POST");
+    node.setAttribute("id", "login");
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 

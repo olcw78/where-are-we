@@ -12,21 +12,21 @@ const signToken = id => {
   });
 };
 
-const createAndSendToken = (user, statusCode, res, additionalData) => {
+const createAndSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
 
   const expiresIn = parseInt(process.env.JWT_EXPIRES_IN);
   const cookieOptions = {
     expires: new Date(Date.now() + expiresIn * 24 * 60 * 60 * 1000),
-    httpOnly: true,
+    // httpOnly: true,
   };
 
-  if (process.env.NODE_ENV === "production") {
-    cookieOptions.secure = true;
-  }
+  // if (process.env.NODE_ENV === "production") {
+  //   cookieOptions.secure = true;
+  // }
 
   res.cookie("jwt", token, cookieOptions);
-  res.cookie("name", user.name);  
+  res.cookie("name", user.name, cookieOptions);
 
   // Remove the password from the output
   user.password = undefined;
@@ -84,7 +84,7 @@ const login = catchAsync(async (req, res, next) => {
 });
 
 const protect = catchAsync(async (req, res, next) => {
-  let token; 
+  let token;
 
   if (
     req.headers.authorization &&
