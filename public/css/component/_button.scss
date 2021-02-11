@@ -41,6 +41,10 @@
   &.btn--cancel {
     background: #444444 linear-gradient(#808080, #444444);
   }
+
+  &.btn--logout {
+    background: #ff9101 linear-gradient(#ff9101, #9b5800);
+  }  
 }
 
 // .btn {

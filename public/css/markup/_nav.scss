@@ -26,9 +26,9 @@ nav {
     #input-pw {
       margin-right: 10px;
     }
+  }
 
-    .btn {
-      @include make-btn(80px, 35px);
-    }
+  .btn {
+    @include make-btn(80px, 35px);
   }
 }

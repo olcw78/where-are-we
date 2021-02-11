@@ -12,7 +12,7 @@ const signToken = id => {
   });
 };
 
-const createAndSendToken = (user, statusCode, res) => {
+const createAndSendToken = (user, statusCode, res, additionalData) => {
   const token = signToken(user._id);
 
   const expiresIn = parseInt(process.env.JWT_EXPIRES_IN);
@@ -26,6 +26,7 @@ const createAndSendToken = (user, statusCode, res) => {
   }
 
   res.cookie("jwt", token, cookieOptions);
+  res.cookie("name", user.name);  
 
   // Remove the password from the output
   user.password = undefined;
@@ -56,11 +57,14 @@ const signup = catchAsync(async (req, res, _) => {
 });
 
 const login = catchAsync(async (req, res, next) => {
-  console.log("login clicked!");
+  console.log("log in!");
   const { id, email, pw: password } = req.body;
 
   // Check if user exists and password is correct
-  if (!password || (!id && !email)) {
+  let isGoodtoGo = (id ?? email) !== "";
+  isGoodtoGo = password !== "";
+
+  if (!isGoodtoGo) {
     return next(
       new AppError("Please provide (email or id) and password!", 400)
     );
@@ -80,7 +84,7 @@ const login = catchAsync(async (req, res, next) => {
 });
 
 const protect = catchAsync(async (req, res, next) => {
-  let token;
+  let token; 
 
   if (
     req.headers.authorization &&
