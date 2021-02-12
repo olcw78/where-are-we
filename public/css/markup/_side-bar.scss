@@ -1,5 +1,4 @@
 @import "../etc/cfg";
-@import "../component/curtain";
 
 .side-bar {
   display: flex;
@@ -23,3 +22,4 @@
   @include put-line-separator(left);
   @include put-line-separator(bottom);
 }
+ 

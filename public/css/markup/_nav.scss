@@ -19,6 +19,14 @@ nav {
       font-weight: 700;
     }
 
+    button.btn--signup {
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+    }
+
     #input-id {
       margin-right: 10px;
     }

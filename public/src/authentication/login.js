@@ -1,6 +1,7 @@
 export class Login {
   _loginBtnEl = document.getElementById("login");
-  _loginLayoutPositionEl = document.getElementById("auth");
+  _loginLayoutPositionEl = document.getElementById("login-form-pos");
+  _openSignupBtnEl = document.querySelector(".btn--signup");
   _logoutBtnEl;
 
   _onLogin;
@@ -69,6 +70,7 @@ export class Login {
     this._logoutBtnEl ??= document.querySelector(".btn--logout");
     this._logoutBtnEl.addEventListener("click", this._logOut.bind(this));
     this._onLogin();
+    this._toggleSignupBtn(false);
   }
 
   _logOut(e) {
@@ -93,7 +95,6 @@ export class Login {
             <button type="submit" name="login" class="btn btn--primary">
               로그인
             </button>`;
-    const signupBtn = `<button class="btn btn--signup">가입</button>`;
 
     const node = document.createElement("form");
     node.setAttribute("action", "/login");
@@ -107,7 +108,15 @@ export class Login {
       node,
       this._loginLayoutPositionEl.firstChild
     );
-    node.insertAdjacentHTML("afterend", signupBtn);
     this._onLogout();
+    this._toggleSignupBtn(true);
+  }
+
+  _toggleSignupBtn(isOn) {
+    if (isOn) {
+      this._openSignupBtnEl.classList.add("active");
+    } else {
+      this._openSignupBtnEl.classList.remove("active");
+    }
   }
 }
