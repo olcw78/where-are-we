@@ -16,7 +16,6 @@ const userSchema = new mongoose.Schema(
 
     name: {
       type: String,
-      unique: true,
       trim: true,
       require: [true, "Please provide a name"],
       validate: {

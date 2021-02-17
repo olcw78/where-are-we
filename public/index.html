@@ -64,41 +64,38 @@
   </head>
 
   <body>
+    <!-- main title (logo and caligraphy image) -->
     <header>
-      <!-- main title (logo and caligraphy image) -->
       <h1 id="main-title"></h1>
-      <nav>
-        <section id="auth">
-          <div id="login-form-pos">
-            <!-- 1. login -->
-            <form action="/login" method="POST" id="login">
-              <label for="id">아이디</label>
-              <input
-                type="text"
-                name="id"
-                id="input-id"
-                placeholder="아이디 입력해듀데요..."
-                autofocus
-              />
-
-              <label for="pw">비밀번호</label>
-              <input
-                type="password"
-                name="pw"
-                id="input-pw"
-                placeholder="비밀번호 입력해듀데요..."
-              />
-
-              <button type="submit" name="login" class="btn btn--primary">
-                로그인
-              </button>
-            </form>
-          </div>
-
-          <button class="btn btn--signup active">가입</button>
-        </section>
-      </nav>
     </header>
+
+    <nav>
+      <section id="auth">
+        <div id="login-form-pos">
+          <!-- 1. login -->
+          <label
+            >자동 로그인<input type="checkbox" id="check-auto-login"
+          /></label>
+
+          <form action="/login" method="POST">
+            <label>아이디</label>
+            <input type="text" placeholder="아이디 입력해듀데요..." />
+
+            <label>비밀번호</label>
+            <input type="password" placeholder="비밀번호 입력해듀데요..." />
+
+            <input
+              type="button"
+              class="btn btn--primary"
+              value="로그인"
+              id="login"
+            />
+          </form>
+        </div>
+
+        <button class="btn btn--signup active">가입</button>
+      </section>
+    </nav>
 
     <div class="signup-popup-bg">
       <div class="signup-popup-body">
@@ -128,7 +125,7 @@
             <div class="textfields">
               <input type="text" name="name" />
               <input type="email" name="email" />
-              <input type="tel" name="contact" />
+              <input type="tel" name="phoneNum" />
             </div>
           </section>
 

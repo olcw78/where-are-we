@@ -2,22 +2,51 @@ export class Login {
   _loginBtnEl = document.getElementById("login");
   _loginLayoutPositionEl = document.getElementById("login-form-pos");
   _openSignupBtnEl = document.querySelector(".btn--signup");
+  _checkAutoLoginEl = document.getElementById("check-auto-login");
+
+  _loginBtn;
   _logoutBtnEl;
 
   _onLogin;
   _onLogout;
 
+  _isAutoLoginChecked = false;
+
   constructor(onLogin, onLogout) {
+    // set checkbox from saved status
+    this._isAutoLoginChecked =
+      localStorage.getItem("isAutoLoginChecked") === "yes" ? true : false;
+    this._checkAutoLoginEl.checked = this._isAutoLoginChecked;
+
     this._bind();
     this._onLogin = onLogin;
     this._onLogout = onLogout;
   }
 
   _bind() {
-    this._loginBtnEl.addEventListener("submit", this._logIn.bind(this));
+    this._loginBtnEl.addEventListener("click", e => this._logIn(e));
+    // check auto login checkbox and set to local storage
+    this._checkAutoLoginEl.addEventListener("change", e =>
+      this._isCheckedAutoLogin(e)
+    );
+  }
+
+  _isCheckedAutoLogin(e) {
+    e.preventDefault();
+    
+    this._isAutoLoginChecked = this._checkAutoLoginEl.checked;
+    localStorage.setItem(
+      "isAutoLoginChecked",
+      this._checkAutoLoginEl.checked ? "yes" : "no"
+    );
+    e.stopPropagation();
   }
 
   autoLogin() {
+    if (!this._isAutoLoginChecked) {
+      return;
+    }
+
     let secret;
     const cookies = document.cookie;
     cookies
@@ -36,7 +65,8 @@ export class Login {
   }
 
   _logIn(e) {
-    // e.preventDefault();
+    console.log(e);
+    e.preventDefault();
 
     let userName;
     document.cookie
@@ -59,6 +89,7 @@ export class Login {
     // node.setAttribute("action", "/me");
     // node.setAttribute("method", "POST");
     // node.setAttribute("id", "login");
+
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 
@@ -68,14 +99,23 @@ export class Login {
       this._loginLayoutPositionEl.firstChild
     );
     this._logoutBtnEl ??= document.querySelector(".btn--logout");
-    this._logoutBtnEl.addEventListener("click", this._logOut.bind(this));
+    this._logoutBtnEl.addEventListener("click", e => this._logOut(e));
+
     this._onLogin();
+
+    // this._loginBtnEl.submit();
     this._toggleSignupBtn(false);
+    e.stopPropagation();
   }
 
   _logOut(e) {
     e.preventDefault();
-    const template = `<label for="id">아이디</label>
+
+    const template = `
+          <label
+            >자동 로그인<input type="checkbox" id="check-auto-login"
+          /></label>
+          <label for="id">아이디</label>
             <input
               type="text"
               name="id"
@@ -108,8 +148,11 @@ export class Login {
       node,
       this._loginLayoutPositionEl.firstChild
     );
+    this._checkAutoLoginEl.checked = this._isAutoLoginChecked;
+
     this._onLogout();
     this._toggleSignupBtn(true);
+    e.stopPropagation();
   }
 
   _toggleSignupBtn(isOn) {
