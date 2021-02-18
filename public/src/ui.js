@@ -25,9 +25,10 @@ export class UI {
     login.autoLogin();
 
     // add signup features
+    // TODO: no more operations with Signup, except for showing/hiding signup screen
     const signup = new Signup();
 
-    //
+    // sidebar initialization
     const sideBar = new SideBar();
     login.onLogin.register(() => {
       sideBar.show();

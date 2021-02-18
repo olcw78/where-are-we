@@ -2,12 +2,22 @@ import { CallbackChain } from "../util/callback-chain";
 export class SideBar {
   _sideBarCurtainEl = document.querySelector(".side-bar");
 
+  constructor() {
+    this._init();
+  }
+
+  _init() {}
+
+  _populateBoilerPlate() {}
+
   show() {
     const template = `
-      <p>Logined!</p>
-    `;
+      <li>
+        <i class="fas fa-plus-square"></i>사람을 추가하세요!
+      </li>`;
 
-    const node = document.createElement("div");
+    const node = document.createElement("ul");
+    node.setAttribute("class", "add-new-person");
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 
@@ -21,9 +31,10 @@ export class SideBar {
   }
 
   hide() {
-    const template = `Need to login! <i class="fas fa-plug"></i>`;
+    const template = `로그인 해주세요! <i class="fas fa-plug"></i>`;
 
     const node = document.createElement("div");
+    node.setAttribute("class", "side-bar curtain");
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 

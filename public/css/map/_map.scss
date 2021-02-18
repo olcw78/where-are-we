@@ -3,12 +3,11 @@
 .map-contaier {
   display: flex;
   position: relative;
-  flex-grow: 2;
-
+  width: 70vw;
   @include put-line-separator(bottom);
 
   .map {
-    flex-grow: 1;
+    width: 70vw;
     height: 1024px;
 
     margin: 5px;
