@@ -1,25 +1,26 @@
 @import "../etc/cfg";
 
-.side-bar {
+.side-bar-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 3;
+  flex-grow: 1;
 
   height: 1024px;
 
-  margin: 5px;
-  box-sizing: border-box;
-
-  background: rgb(236, 236, 236);
-  // color: white;
-  font-size: 2rem;
-
-  &.curtain {
-    color: black;
-  }
-
   @include put-line-separator(left);
   @include put-line-separator(bottom);
+
+  .side-bar {
+    margin: 5px;
+    box-sizing: border-box;
+
+    background: rgb(236, 236, 236);
+    font-size: 2rem;
+
+    &.curtain {
+      transition: all 1.0s ease;
+      color: black;
+    }
+  }
 }
- 

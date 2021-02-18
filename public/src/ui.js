@@ -12,12 +12,12 @@ export class UI {
     // add login features
     const login = new Login();
 
-    login.onLogin.add(() => {
+    login.onLogin.register(() => {
       Curtain.toggleCurtain("map", true);
       Curtain.toggleCurtain("side-bar", true);
     });
 
-    login.onLogout.add(() => {
+    login.onLogout.register(() => {
       Curtain.toggleCurtain("map", false);
       Curtain.toggleCurtain("side-bar", false);
     });
@@ -29,5 +29,11 @@ export class UI {
 
     //
     const sideBar = new SideBar();
+    login.onLogin.register(() => {
+      sideBar.show();
+    });
+    login.onLogout.register(() => {
+      sideBar.hide();
+    });
   }
 }

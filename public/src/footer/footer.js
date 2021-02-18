@@ -37,7 +37,7 @@ export class Footer {
       {
         // 3. mobile
         title: `<i class="fas fa-phone"></i>`,
-        content: "010-H7A3-4VB5",
+        content: "010-2753-4365",
       },
       {
         // 4. github
