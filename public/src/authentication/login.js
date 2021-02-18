@@ -1,3 +1,5 @@
+import { CallbackChain } from "../util/callback-chain";
+
 export class Login {
   _loginBtnEl = document.getElementById("login");
   _loginLayoutPositionEl = document.getElementById("login-form-pos");
@@ -7,25 +9,37 @@ export class Login {
   _loginBtn;
   _logoutBtnEl;
 
-  _onLogin;
-  _onLogout;
-
   _isAutoLoginChecked = false;
 
-  constructor(onLogin, onLogout) {
-    // set checkbox from saved status
-    this._isAutoLoginChecked =
-      localStorage.getItem("isAutoLoginChecked") === "yes" ? true : false;
-    this._checkAutoLoginEl.checked = this._isAutoLoginChecked;
+  _onLogin = new CallbackChain();
 
-    this._bind();
-    this._onLogin = onLogin;
-    this._onLogout = onLogout;
+  get onLogin() {
+    return this._onLogin;
   }
 
-  _bind() {
+  _onLogout = new CallbackChain();
+
+  get onLogout() {
+    return this._onLogout;
+  }
+
+  constructor() {
+    this._init();
+  }
+
+  _init() {
+    // 1. init op
+    // retrieve checkbox from saved status
+    this._isAutoLoginChecked =
+      localStorage.getItem("isAutoLoginChecked") === "yes" ? true : false;
+    // update the current state of auto login
+    this._checkAutoLoginEl.checked = this._isAutoLoginChecked;
+
+    // 2. bind
+    // bind the login button
     this._loginBtnEl.addEventListener("click", e => this._logIn(e));
-    // check auto login checkbox and set to local storage
+
+    // bind the check auto login checkbox and set to local storage
     this._checkAutoLoginEl.addEventListener("change", e =>
       this._isCheckedAutoLogin(e)
     );
@@ -33,8 +47,10 @@ export class Login {
 
   _isCheckedAutoLogin(e) {
     e.preventDefault();
-    
+
+    // update whether isAutoLoginChecked form the checkbox
     this._isAutoLoginChecked = this._checkAutoLoginEl.checked;
+    // also for the localStorage -> no need to make secure
     localStorage.setItem(
       "isAutoLoginChecked",
       this._checkAutoLoginEl.checked ? "yes" : "no"
@@ -43,10 +59,13 @@ export class Login {
   }
 
   autoLogin() {
+    // Can't go further without isAutoLoginChecked
     if (!this._isAutoLoginChecked) {
       return;
     }
 
+    // check the jwt exists only
+    // TODO: need to add the actual authentication with jwt
     let secret;
     const cookies = document.cookie;
     cookies
@@ -59,6 +78,7 @@ export class Login {
         }
       });
 
+    // login when you find the secret
     if (secret !== undefined) {
       this._logIn();
     }
@@ -68,6 +88,7 @@ export class Login {
     console.log(e);
     e.preventDefault();
 
+    // load username from the cookie
     let userName;
     document.cookie
       .trim()
@@ -79,6 +100,7 @@ export class Login {
         }
       });
 
+    // changed form after login
     const template = `<p>안녕하세요 ${userName}님!</p>
       <button class="btn btn--primary">정보</button>
       <button class="btn btn--logout">로그아웃</button>
@@ -98,12 +120,18 @@ export class Login {
       node,
       this._loginLayoutPositionEl.firstChild
     );
+
+    // register again the logout button
+    // TODO: need to implement the about page
     this._logoutBtnEl ??= document.querySelector(".btn--logout");
     this._logoutBtnEl.addEventListener("click", e => this._logOut(e));
 
-    this._onLogin();
+    // invoke the onLogin() callback
+    this._onLogin.invoke();
 
     // this._loginBtnEl.submit();
+
+    // hide the signup button on;
     this._toggleSignupBtn(false);
     e.stopPropagation();
   }
@@ -111,6 +139,7 @@ export class Login {
   _logOut(e) {
     e.preventDefault();
 
+    // changed form after logout
     const template = `
           <label
             >자동 로그인<input type="checkbox" id="check-auto-login"
@@ -148,13 +177,23 @@ export class Login {
       node,
       this._loginLayoutPositionEl.firstChild
     );
+
+    // update whether the auto login is checked or not
     this._checkAutoLoginEl.checked = this._isAutoLoginChecked;
 
-    this._onLogout();
+    // invoke the onLogout() callback
+    this._onLogout.invoke();
+
+    // show the signup button
     this._toggleSignupBtn(true);
     e.stopPropagation();
   }
 
+  /**
+   * Toggle the visibility of the Signup button so you don't need to
+   * register again when you login and logout
+   * @param {*} isOn
+   */
   _toggleSignupBtn(isOn) {
     if (isOn) {
       this._openSignupBtnEl.classList.add("active");

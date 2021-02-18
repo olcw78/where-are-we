@@ -28,4 +28,10 @@ const app = require("./app");
     console.log(`App is running on port ${process.env.PORT}...`);
   });
   errCtrl.UnhandledRejection(server);
+
+  process.on("SIGTERM", () => {
+    server.close(() => {
+      console.log("Process terminated");
+    });
+  });
 })();

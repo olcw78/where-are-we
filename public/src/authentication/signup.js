@@ -1,8 +1,15 @@
+import {CallbackChain } from '../util/callback-chain';
+
 export class Signup {
   _closeSignupPopupEl = document.querySelector(".signup-popup-close");
   _signupPopupEl = document.querySelector(".signup-popup-bg");
   _openSignupBtnEl = document.querySelector(".btn--signup");
   _cancelBtnEl = document.getElementById("signup-cancel");
+
+  // _onSignupSucceed = new CallbackChain();
+  // get onSignupSucceed() {
+  //   return this._onSignupSucceed;
+  // }
 
   constructor() {
     // signup close button
