@@ -1,25 +1,36 @@
 import { CallbackChain } from "../util/callback-chain";
 
 class Login {
-  _loginBtnEl = document.getElementById("login");
-  _loginLayoutPositionEl = document.getElementById("login-form-pos");
-  _openSignupBtnEl = document.querySelector(".btn--signup");
-  _checkAutoLoginEl = document.getElementById("check-auto-login");
+  _loginBtnEl: HTMLInputElement = document.getElementById(
+    "login"
+  )! as HTMLInputElement;
 
-  _loginBtn;
-  _logoutBtnEl;
+  _loginLayoutPositionEl: HTMLDivElement = document.getElementById(
+    "login-form-pos"
+  )! as HTMLDivElement;
 
-  _isAutoLoginChecked = false;
+  _openSignupBtnEl: HTMLButtonElement = document.querySelector(
+    ".btn--signup"
+  )! as HTMLButtonElement;
 
-  _onLogin = new CallbackChain();
+  _checkAutoLoginEl: HTMLInputElement = document.getElementById(
+    "check-auto-login"
+  )! as HTMLInputElement;
 
-  get onLogin() {
+  // _loginBtn;
+  _logoutBtnEl: HTMLButtonElement | undefined;
+
+  _isAutoLoginChecked: boolean = false;
+
+  _onLogin: CallbackChain = new CallbackChain();
+
+  get onLogin(): CallbackChain {
     return this._onLogin;
   }
 
-  _onLogout = new CallbackChain();
+  _onLogout: CallbackChain = new CallbackChain();
 
-  get onLogout() {
+  get onLogout(): CallbackChain {
     return this._onLogout;
   }
 
@@ -27,11 +38,11 @@ class Login {
     this._init();
   }
 
-  _init() {
+  _init(): void {
     // 1. init op
     // retrieve checkbox from saved status
     this._isAutoLoginChecked =
-      localStorage.getItem("isAutoLoginChecked") === "yes" ? true : false;
+      localStorage.getItem("isAutoLoginChecked") === "yes";
     // update the current state of auto login
     this._checkAutoLoginEl.checked = this._isAutoLoginChecked;
 
@@ -46,7 +57,7 @@ class Login {
     );
   }
 
-  _isCheckedAutoLogin() {
+  _isCheckedAutoLogin(): void {
     // update whether isAutoLoginChecked form the checkbox
     this._isAutoLoginChecked = this._checkAutoLoginEl.checked;
 
@@ -57,7 +68,7 @@ class Login {
     );
   }
 
-  autoLogin() {
+  autoLogin(): void {
     // Can't go further without isAutoLoginChecked
     if (!this._isAutoLoginChecked) {
       return;
@@ -65,44 +76,44 @@ class Login {
 
     // check the jwt exists only
     // TODO: need to add the actual authentication with jwt
-    let secret;
-    const cookies = document.cookie;
-    cookies
+    let secret: string = "";
+    const cookieStr: string = document.cookie;
+    cookieStr
       .trim()
       .split(";")
-      .forEach(cookie => {
-        const splitted = cookie.split("=");
-        if (splitted[0].trim() === "jwt") {
-          secret = splitted[1].trim();
+      .forEach((cookie: string) => {
+        const splitted: string[] = cookie.split("=");
+        if (splitted[0]?.trim() === "jwt") {
+          secret = splitted[1]?.trim() ?? "";
         }
       });
 
     // login when you find the secret
-    if (secret !== undefined) {
+    if (secret === "") {
       this._logIn();
     }
   }
 
-  _logIn() {
+  _logIn(): void {
     // load username from the cookie
-    let userName = "";
+    let userName: string = "";
     document.cookie
       .trim()
       .split(";")
-      .forEach(cookie => {
-        const splitted = cookie.split("=");
-        if (splitted[0].trim() === "name") {
-          userName = splitted[1].trim();
+      .forEach((cookie: string) => {
+        const splitted: string[] = cookie.split("=");
+        if (splitted[0]?.trim() === "name") {
+          userName = splitted[1]?.trim() ?? "";
         }
       });
 
     // changed form after login
-    const template = `<p>안녕하세요 ${userName}님!</p>
+    const template: string = `<p>안녕하세요 ${userName}님!</p>
       <button class="btn btn--primary">정보</button>
       <button class="btn btn--logout">로그아웃</button>
     `;
 
-    const node = document.createElement("div");
+    const node: HTMLDivElement = document.createElement("div");
     // const node = document.createElement("form");
     // node.setAttribute("action", "/me");
     // node.setAttribute("method", "POST");
@@ -119,7 +130,9 @@ class Login {
 
     // register again the logout button
     // TODO: need to implement the about page
-    this._logoutBtnEl ??= document.querySelector(".btn--logout");
+    this._logoutBtnEl ??= document.querySelector(
+      ".btn--logout"
+    )! as HTMLButtonElement;
     this._logoutBtnEl.addEventListener("click", this._logOut.bind(this));
 
     // invoke the onLogin() callback
@@ -131,9 +144,9 @@ class Login {
     this._toggleSignupBtn(false);
   }
 
-  _logOut() {
+  _logOut(): void {
     // changed form after logout
-    const template = `
+    const template: string = `
           <label
             >자동 로그인<input type="checkbox" id="check-auto-login"
           /></label>
@@ -158,7 +171,7 @@ class Login {
               로그인
             </button>`;
 
-    const node = document.createElement("form");
+    const node: HTMLFormElement = document.createElement("form");
     node.setAttribute("action", "/login");
     node.setAttribute("method", "POST");
     node.setAttribute("id", "login");
@@ -186,7 +199,7 @@ class Login {
    * register again when you login and logout
    * @param {*} isOn
    */
-  _toggleSignupBtn(isOn) {
+  _toggleSignupBtn(isOn: boolean): void {
     if (isOn) {
       this._openSignupBtnEl.classList.add("active");
     } else {

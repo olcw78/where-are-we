@@ -1,8 +1,10 @@
 import { async } from "regenerator-runtime";
 
+import CardType from "./CardType";
+
 class Footer {
-  static createFooterInfocard(...card) {
-    let template = "";
+  static createFooterInfocard(...card: CardType[]): void {
+    let template: string = "";
     for (const i of card) {
       template += `
           <li class="card">
@@ -12,17 +14,21 @@ class Footer {
         `;
     }
 
-    const node = document.createElement("ul");
+    const node: HTMLUListElement = document.createElement(
+      "ul"
+    )! as HTMLUListElement;
     node.setAttribute("class", "info");
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 
-    const footer = document.querySelector("footer");
+    const footer: HTMLElement = document.querySelector(
+      "footer"
+    )! as HTMLElement;
     // footer.appendChild(node);
     footer.insertBefore(node, footer.firstChild);
   }
 
-  static init() {
+  static init(): void {
     Footer.createFooterInfocard(
       {
         // 1. e-mail
@@ -49,3 +55,13 @@ class Footer {
 }
 
 export default Footer;
+
+// footer card template!
+//     <template id="footer-card-template">
+//     <ul id="info">
+//         <li id="card">
+//             <div class="card-layout card-title">E-mail</div>
+//             <div class="card-layout card-content">highp0912@protonmail.ch</div>
+//         </li>
+//     </ul>
+// </template>

@@ -22,7 +22,7 @@ header {
     // text-indent: -9999;
     z-index: 9;
     background: url("../img/logo_200x200.png") no-repeat;
-    background-position: 50% 50%;    
+    background-position: 50% 50%;
     transition: height 1s ease;
 
     @include put-line-separator(bottom);
@@ -46,6 +46,13 @@ header {
 
     z-index: 10;
     background-color: #ccc;
+    opacity: 0.3;
     font-size: 120%;
+
+    transition: opacity 1s ease;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

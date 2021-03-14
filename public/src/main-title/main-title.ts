@@ -1,17 +1,26 @@
 class MainTitle {
-  _mainTitleEl = document.querySelector(".main-title");
-  _toggleBtnEl = document.querySelector(".main-title-toggle");
-  _arrowEl = document.querySelector(".main-title-toggle").querySelector(".fas");
-  _isToggled = false;
+  _mainTitleEl: HTMLHeadElement = document.querySelector(
+    ".main-title"
+  )! as HTMLHeadElement;
 
-  constructor() {    
+  _toggleBtnEl: HTMLDivElement = document.querySelector(
+    ".main-title-toggle"
+  )! as HTMLHeadingElement;
+
+  _arrowEl: HTMLDivElement = document
+    .querySelector(".main-title-toggle")
+    ?.querySelector(".fas")! as HTMLDivElement;
+
+  _isToggled: boolean = false;
+
+  constructor() {
     this._toggleBtnEl.addEventListener(
       "click",
       this._onToggleMainTitle.bind(this)
     );
   }
 
-  _onToggleMainTitle() {
+  _onToggleMainTitle(): void {
     this._mainTitleEl.classList.toggle("hidden");
     if (this._isToggled) {
       this._isToggled = false;

@@ -1,9 +1,20 @@
 // import { CallbackChain } from "../util/callback-chain";
 class Signup {
-  _closeSignupPopupEl = document.querySelector(".signup-popup-close");
-  _signupPopupEl = document.querySelector(".signup-popup-bg");
-  _openSignupBtnEl = document.querySelector(".btn--signup");
-  _cancelBtnEl = document.getElementById("signup-cancel");
+  _closeSignupPopupEl: HTMLDivElement = document.querySelector(
+    ".signup-popup-close"
+  )! as HTMLDivElement;
+
+  _signupPopupEl: HTMLDivElement = document.querySelector(
+    ".signup-popup-bg"
+  )! as HTMLDivElement;
+
+  _openSignupBtnEl: HTMLButtonElement = document.querySelector(
+    ".btn--signup"
+  )! as HTMLButtonElement;
+
+  _cancelBtnEl: HTMLButtonElement = document.getElementById(
+    "signup-cancel"
+  )! as HTMLButtonElement;
 
   // _onSignupSucceed = new CallbackChain();
   // get onSignupSucceed() {
@@ -26,12 +37,12 @@ class Signup {
     this._openSignupBtnEl.addEventListener("click", this.show.bind(this));
   }
 
-  show() {
+  show(): void {
     this._signupPopupEl.classList.add("active");
     // TODO: When the user signup, then the user happen to want to automatically login!
   }
 
-  hide() {
+  hide(): void {
     this._signupPopupEl.classList.remove("active");
   }
 }

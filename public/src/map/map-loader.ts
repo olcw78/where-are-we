@@ -1,13 +1,15 @@
-import { async } from "regenerator-runtime";
+// import MapMarker from "./map-marker";
+// import MapLock from "./map-lock";
 
-import { MapMarker } from "./map-marker";
-import { MapLock } from "./map-lock";
+declare let naver: any;
 
 class MapLoader {
-  static _init() {
-    if (!navigator.geolocation) return;
+  static _init(): Promise<unknown> | undefined {
+    if (!navigator.geolocation) {
+      return undefined;
+    }
 
-    return new Promise((resolve, reject) =>
+    return new Promise((resolve: Function, reject: Function) =>
       navigator.geolocation.getCurrentPosition(
         (pos) => resolve(pos),
         (err) => reject(err)
@@ -17,10 +19,10 @@ class MapLoader {
 
   // create a kakao map instance
   // retrieve current position information from the Web API
-  static async load() {
-    const pos = await this._init();
+  static async load(): Promise<void> {
+    const pos: any = await this._init();
     // console.log(pos);
-    const { latitude: lat, longitude: lng } = pos.coords;
+    const { latitude: lat, longitude: lng } = pos?.coords;
     // console.log(lat, lng);
 
     const mapOptions = {
@@ -31,7 +33,7 @@ class MapLoader {
       // size: { width: 2048, height: 1024 },
       zoomControl: true,
       zoomControlOptions: {
-        position: naver.maps.Position.TOP_RIGHT,
+        position: naver?.maps.Position.TOP_RIGHT,
       },
     };
     const map = new naver.maps.Map(document.querySelector(".map"), mapOptions);

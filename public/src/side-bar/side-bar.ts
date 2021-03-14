@@ -1,22 +1,26 @@
 // import { CallbackChain } from "../util/callback-chain";
 class SideBar {
-  _sideBarCurtainEl = document.querySelector(".side-bar");
+  _sideBarCurtainEl: HTMLElement = document.querySelector(
+    ".side-bar"
+  )! as HTMLElement;
 
   constructor() {
     this._init();
   }
 
-  _init() {}
+  _init(): void {}
 
-  _populateBoilerPlate() {}
+  _populateBoilerPlate(): void {}
 
   show() {
-    const template = `
+    const template: string = `
       <li>
         <i class="fas fa-plus-square"></i>사람을 추가하세요!
       </li>`;
 
-    const node = document.createElement("ul");
+    const node: HTMLUListElement = document.createElement(
+      "ul"
+    )! as HTMLUListElement;
     node.setAttribute("class", "add-new-person");
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
@@ -47,7 +51,7 @@ class SideBar {
     this._toggleSidebar(false);
   }
 
-  _toggleSidebar(isOn) {
+  _toggleSidebar(isOn: boolean): void {
     if (isOn) {
       this._sideBarCurtainEl.classList.remove("curtain");
     } else {
