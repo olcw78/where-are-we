@@ -2,18 +2,13 @@
 
 .drag-lock {
   position: absolute;
-  right: 80px;
-  bottom: 20px;
-
-  display: flex;
-
+  right: 20px;
+  
+  top: 250px;  
   z-index: 1;
   font-size: 120%;  
 
   .drag-pos {
-    position: relative;
-    top: 0;
-    left: 0;
     transition: 2s;    
   }    
 }

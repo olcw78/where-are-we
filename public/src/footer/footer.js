@@ -1,6 +1,6 @@
 import { async } from "regenerator-runtime";
 
-export class Footer {
+class Footer {
   static createFooterInfocard(...card) {
     let template = "";
     for (let i of card) {
@@ -47,3 +47,5 @@ export class Footer {
     );
   }
 }
+
+export default Footer;

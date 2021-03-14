@@ -1,17 +1,16 @@
 import { async } from "regenerator-runtime";
 
-import { MapZoom } from "./map-zoom";
 import { MapMarker } from "./map-marker";
-import { MapDrag } from "./map-drag";
+import { MapLock } from "./map-lock";
 
-export class MapLoader {
+class MapLoader {
   static _init() {
     if (!navigator.geolocation) return;
 
     return new Promise((resolve, reject) =>
       navigator.geolocation.getCurrentPosition(
-        pos => resolve(pos),
-        err => reject(err)
+        (pos) => resolve(pos),
+        (err) => reject(err)
       )
     );
   }
@@ -29,13 +28,13 @@ export class MapLoader {
       center: { lat, lng },
       zoom: 15,
       // size: new naver.maps.Size(2048, 1024),
-      size: { width: 2048, height: 1024 },
+      // size: { width: 2048, height: 1024 },
+      zoomControl: true,
+      zoomControlOptions: {
+        position: naver.maps.Position.TOP_RIGHT,
+      },
     };
     const map = new naver.maps.Map(document.querySelector(".map"), mapOptions);
-
-    // // init zoom
-    // const zoom = new MapZoom(initZoomLevel);
-    // zoom.init(map);
 
     // // init map marker
     // const marker = new MapMarker();
@@ -46,3 +45,5 @@ export class MapLoader {
     // drag.init(map);
   }
 }
+
+export default MapLoader;

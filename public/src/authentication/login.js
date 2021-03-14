@@ -1,6 +1,6 @@
 import { CallbackChain } from "../util/callback-chain";
 
-export class Login {
+class Login {
   _loginBtnEl = document.getElementById("login");
   _loginLayoutPositionEl = document.getElementById("login-form-pos");
   _openSignupBtnEl = document.querySelector(".btn--signup");
@@ -119,7 +119,7 @@ export class Login {
 
     // register again the logout button
     // TODO: need to implement the about page
-    this._logoutBtnEl = document.querySelector(".btn--logout");
+    this._logoutBtnEl ??= document.querySelector(".btn--logout");
     this._logoutBtnEl.addEventListener("click", this._logOut.bind(this));
 
     // invoke the onLogin() callback
@@ -194,3 +194,5 @@ export class Login {
     }
   }
 }
+
+export default Login;

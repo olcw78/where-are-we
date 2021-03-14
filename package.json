@@ -4,7 +4,7 @@
   "description": "decision helper for the appointment location",
   "default": "index.html",
   "scripts": {
-    "deploy": "parcel ./public/index.html",
+    "front": "parcel ./public/index.html",
     "build": "parcel build ./public/index.html --dist-dir ./dist",
     "serve": "nodemon ./src/server.js"
   },

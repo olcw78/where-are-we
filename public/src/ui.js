@@ -1,13 +1,17 @@
-import { Curtain } from "./util/curtain";
-import { Login } from "./authentication/login";
-import { Signup } from "./authentication/signup";
-import { Footer } from "./footer/footer";
-import { SideBar } from "./side-bar/side-bar";
+import Curtain from "./util/curtain";
+import Login from "./authentication/login";
+import Signup from "./authentication/signup";
+import Footer from "./footer/footer";
+import SideBar from "./side-bar/side-bar";
+import MainTitle from "./main-title/main-title";
 
-export class UI {
+class UI {
   static init() {
     // add html templates - footer
     Footer.init();
+
+    // main title toggler
+    const title = new MainTitle();
 
     // add login features
     const login = new Login();
@@ -38,3 +42,5 @@ export class UI {
     });
   }
 }
+
+export default UI;

@@ -1,8 +1,8 @@
 // feature import
-import { UI } from "./ui";
-import { MapLoader } from "./kakao-map/map-loader";
+import UI from "./ui";
+import MapLoader from "./map/map-loader";
 
 // init map
 MapLoader.load()?.then(() => {
-  // UI.init();
+  UI.init();
 });

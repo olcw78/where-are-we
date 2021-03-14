@@ -1,5 +1,5 @@
 // import { CallbackChain } from "../util/callback-chain";
-export class SideBar {
+class SideBar {
   _sideBarCurtainEl = document.querySelector(".side-bar");
 
   constructor() {
@@ -55,3 +55,5 @@ export class SideBar {
     }
   }
 }
+
+export default SideBar;

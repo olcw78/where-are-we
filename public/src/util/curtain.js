@@ -1,4 +1,4 @@
-export class Curtain {
+class Curtain {
   static toggleCurtain(positionClassname, isConnected) {
     if (typeof isConnected !== "boolean") {
       console.error("isConnected must be boolean");
@@ -16,3 +16,5 @@ export class Curtain {
     }
   }
 }
+
+export default Curtain;
