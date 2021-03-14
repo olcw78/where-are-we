@@ -1,18 +1,19 @@
-@import '../etc/cfg';
+@import "../etc/cfg";
 
 footer {
   margin-top: 5px;
 
-  #info {
+  .info {
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 
-    #card {
+    .card {
       text-align: center;
       font-size: 130%;
       font-weight: 700;
       display: flex;
+
       border: 2px solid #e5e5e5;
       border-radius: 10px;
       box-sizing: border-box;
@@ -34,7 +35,7 @@ footer {
       font-size: 25px;
       font-weight: 300;
       background: linear-gradient(to right, #e5e5e5, #fff);
-    }    
+    }
   }
 
   #copyright {

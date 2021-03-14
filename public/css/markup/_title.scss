@@ -23,7 +23,7 @@ header {
     z-index: 9;
     background: url("../img/logo_200x200.png") no-repeat;
     background-position: 50% 50%;    
-    transition: all 1s ease;
+    transition: height 1s ease;
 
     @include put-line-separator(bottom);
 

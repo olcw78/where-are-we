@@ -3,17 +3,19 @@
 .map-contaier {
   display: flex;
   position: relative;
-  width: 70vw;
+  width: 70vw;  
+  height: 100vh;
+
   @include put-line-separator(bottom);
 
   .map {
-  width: 100%;  
+    width: 100%;
 
-  margin: 5px;
-  box-sizing: border-box;
+    margin: 5px;
+    box-sizing: border-box;
 
-  text-indent: -9999;
-}
+    // text-indent: -9999;
+  }
 
   .map.curtain {
     visibility: hidden;

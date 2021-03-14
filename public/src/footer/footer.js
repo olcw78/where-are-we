@@ -3,9 +3,9 @@ import { async } from "regenerator-runtime";
 class Footer {
   static createFooterInfocard(...card) {
     let template = "";
-    for (let i of card) {
+    for (const i of card) {
       template += `
-          <li id="card">
+          <li class="card">
             <div class="card-layout card-title">${i.title}</div>
             <div class="card-layout card-content">${i.content}</div>
           </li>
@@ -13,7 +13,7 @@ class Footer {
     }
 
     const node = document.createElement("ul");
-    node.setAttribute("id", "info");
+    node.setAttribute("class", "info");
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 
