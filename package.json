@@ -4,13 +4,14 @@
   "description": "decision helper for the appointment location",
   "default": "index.html",
   "scripts": {
-    "start": "parcel ./public/index.html",
+    "deploy": "parcel ./public/index.html",
     "build": "parcel build ./public/index.html --dist-dir ./dist",
-    "server:start": "nodemon ./src/server.js"
+    "serve": "nodemon ./src/server.js"
   },
   "author": "Yoonsang Lee",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "corejs": "^1.0.0",

@@ -37,25 +37,24 @@ export class Login {
 
     // 2. bind
     // bind the login button
-    this._loginBtnEl.addEventListener("click", e => this._logIn(e));
+    this._loginBtnEl.addEventListener("click", this._logIn.bind(this));
 
     // bind the check auto login checkbox and set to local storage
-    this._checkAutoLoginEl.addEventListener("change", e =>
-      this._isCheckedAutoLogin(e)
+    this._checkAutoLoginEl.addEventListener(
+      "change",
+      this._isCheckedAutoLogin.bind(this)
     );
   }
 
-  _isCheckedAutoLogin(e) {
-    e.preventDefault();
-
+  _isCheckedAutoLogin() {
     // update whether isAutoLoginChecked form the checkbox
     this._isAutoLoginChecked = this._checkAutoLoginEl.checked;
+
     // also for the localStorage -> no need to make secure
     localStorage.setItem(
       "isAutoLoginChecked",
       this._checkAutoLoginEl.checked ? "yes" : "no"
     );
-    e.stopPropagation();
   }
 
   autoLogin() {
@@ -84,12 +83,9 @@ export class Login {
     }
   }
 
-  _logIn(e) {
-    console.log(e);
-    e.preventDefault();
-
+  _logIn() {
     // load username from the cookie
-    let userName;
+    let userName = "";
     document.cookie
       .trim()
       .split(";")
@@ -123,8 +119,8 @@ export class Login {
 
     // register again the logout button
     // TODO: need to implement the about page
-    this._logoutBtnEl ??= document.querySelector(".btn--logout");
-    this._logoutBtnEl.addEventListener("click", e => this._logOut(e));
+    this._logoutBtnEl = document.querySelector(".btn--logout");
+    this._logoutBtnEl.addEventListener("click", this._logOut.bind(this));
 
     // invoke the onLogin() callback
     this._onLogin.invoke();
@@ -133,12 +129,9 @@ export class Login {
 
     // hide the signup button on;
     this._toggleSignupBtn(false);
-    e.stopPropagation();
   }
 
-  _logOut(e) {
-    e.preventDefault();
-
+  _logOut() {
     // changed form after logout
     const template = `
           <label
@@ -186,7 +179,6 @@ export class Login {
 
     // show the signup button
     this._toggleSignupBtn(true);
-    e.stopPropagation();
   }
 
   /**

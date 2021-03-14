@@ -6,19 +6,19 @@
   width: 70vw;
   @include put-line-separator(bottom);
 
-  .map {
-    width: 70vw;
-    height: 1024px;
-
-    margin: 5px;
-    box-sizing: border-box;
-
-    text-indent: -9999;
-  }
-
   .map.curtain {
     visibility: hidden;
   }
+}
+
+#map {
+  width: 70vw;
+  height: 1024px;
+
+  margin: 5px;
+  box-sizing: border-box;
+
+  text-indent: -9999;
 }
 
 .logout {

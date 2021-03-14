@@ -1,4 +1,4 @@
-import { CallbackChain } from "../util/callback-chain";
+// import { CallbackChain } from "../util/callback-chain";
 export class SideBar {
   _sideBarCurtainEl = document.querySelector(".side-bar");
 

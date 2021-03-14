@@ -6,6 +6,7 @@ export class MapDrag {
   init(map) {
     this._map = map;
     this._lockIcon = document.querySelector(".drag-pos");
+    
     //  bind class 'this' to utilise it inside the callback
     this._lockIcon.addEventListener("click", this._toggleDraggable.bind(this));
   }

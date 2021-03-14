@@ -58,9 +58,17 @@
     ></script>
 
     <!-- map sdk -->
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b7579268247ae625255701ea3475d6b&libraries=services,clusterer,drawing"></script>
+    <!-- &libraries=services,clusterer,drawing -->
+    <!-- <script
+      type="text/javascript"
+      src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=09aaa1c5f05869b8941fb59a75669fa3"
+    ></script> -->
+    <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=k51u0l3bfo"
+    ></script>
 
-    <script type="module" defer src="./src/entry.js"></script>
+    <script type="module" src="./src/entry.js" defer></script>
   </head>
 
   <body>
@@ -77,7 +85,8 @@
             >자동 로그인<input type="checkbox" id="check-auto-login"
           /></label>
 
-          <form action="/login" method="POST">
+          <!-- <form action="/login" method="POST"> -->
+          <form>
             <label>아이디</label>
             <input type="text" placeholder="아이디 입력해듀데요..." />
 
@@ -102,7 +111,8 @@
         <!-- signup form -->
         <h2>회원 가입</h2>
 
-        <form action="/signup" method="POST" id="signup-form">
+        <!-- <form action="/signup" method="POST" id="signup-form"> -->
+        <form id="signup-form">
           <section class="signup">
             <div class="label-textfields">
               <p>ID</p>
@@ -147,10 +157,9 @@
       <section id="app">
         <!-- 1. map display -->
         <section class="map-contaier">
-          <!-- 1-1. map -->
-          <div class="map curtain">
-            Need to login! <i class="fas fa-plug"></i>
-          </div>
+          <!-- 1-1. map curtain-->
+          <!-- Need to login! <i class="fas fa-plug"></i> -->
+          <div class="map"></div>
 
           <!-- 1-2. zoom control -->
           <div class="zoom-feature">
