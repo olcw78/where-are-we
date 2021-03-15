@@ -4,34 +4,16 @@
   "description": "decision helper for the appointment location",
   "default": "index.html",
   "scripts": {
-    "front": "parcel ./public/index.html",
-    "build": "parcel build ./public/index.html --dist-dir ./dist",
-    "serve": "nodemon ./src/server.js"
+    "start": "parcel ./index.html",
+    "build": "parcel build ./index.html --dist-dir ./dist"
   },
   "author": "Yoonsang Lee",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "corejs": "^1.0.0",
-    "express": "^4.17.1",
-    "express-mongo-sanitize": "^2.0.2",
-    "express-rate-limit": "^5.2.3",
-    "git-open": "^2.1.0",
-    "helmet": "^4.4.1",
-    "hpp": "^0.2.3",
-    "jsonwebtoken": "^8.5.1",
-    "leaflet": "^1.7.1",
-    "mongoose": "^5.11.13",
-    "morgan": "^1.10.0",
-    "nodemailer": "^6.4.17",
     "parcel": "^1.12.4",
     "regenerator-runtime": "^0.13.7",
-    "scss": "^0.2.4",
-    "slugify": "^1.4.6",
-    "validator": "^13.5.2",
-    "xss-clean": "^0.1.1"
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@types/regenerator-runtime": "^0.13.0",

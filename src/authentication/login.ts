@@ -63,10 +63,13 @@ class Login {
     this.checkAutoLoginEl.checked = this.isAutoLoginChecked;
 
     // bind the login button
-    this.loginBtnEl.addEventListener("click", this.logIn.bind(this));
+    this.loginBtnEl.addEventListener("click", this.login.bind(this));
 
     // bind the check auto login checkbox and set to local storage
-    this.checkAutoLoginEl.addEventListener("change", this.checkAutoLoginAndSet.bind(this));
+    this.checkAutoLoginEl.addEventListener(
+      "change",
+      this.checkAutoLoginAndSet.bind(this)
+    );
 
     // auto login!
     this.autoLogin();
@@ -88,7 +91,7 @@ class Login {
 
   /**
    *
-   * @returns
+   * @returns void
    */
   private autoLogin(): void {
     // Can't go further without isAutoLoginChecked
@@ -112,14 +115,14 @@ class Login {
 
     // login when you find the secret
     if (secret === "") {
-      this.logIn();
+      this.login();
     }
   }
 
   /**
    *
    */
-  private logIn(): void {
+  private login(): void {
     // load username from the cookie
     let userName: string = "";
     document.cookie

@@ -25,7 +25,10 @@ class MainTitle {
       .querySelector(".main-title-toggle")
       ?.querySelector(".fas")! as HTMLSpanElement;
 
-    this.toggleBtnEl.addEventListener("click", this.onToggleMainTitle.bind(this));
+    this.toggleBtnEl.addEventListener(
+      "click",
+      this.onToggleMainTitle.bind(this)
+    );
   }
 
   /**
