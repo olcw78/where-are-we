@@ -13,7 +13,4 @@ if (module.hot) {
   module.hot.accept();
 }
 
-// init map
-MapLoader.load()?.then(() => {
-  UI.init();
-});
+window.addEventListener("load", MapLoader.onLoadWebsite);

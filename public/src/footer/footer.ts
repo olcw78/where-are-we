@@ -1,5 +1,3 @@
-import { async } from "regenerator-runtime";
-
 import CardType from "./CardType";
 
 class Footer {

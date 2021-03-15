@@ -1,4 +1,3 @@
-import "regenerator-runtime";
 const errCtrl = require("./controller/error-ctrl");
 errCtrl.UncaughtException();
 
