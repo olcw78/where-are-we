@@ -3,12 +3,10 @@ class Curtain {
     const pos: HTMLElement = document.querySelector(
       `.${positionClassname}`
     )! as HTMLElement;
-    
-    if (isConnected) {
-      pos?.classList.remove("curtain");
-    } else {
-      pos?.classList.add("curtain");
-    }
+
+    isConnected
+      ? pos.classList.remove("curtain")
+      : pos.classList.add("curtain");
   }
 }
 

@@ -1,19 +1,14 @@
-// import { CallbackChain } from "../util/callback-chain";
 class SideBar {
-  _sideBarCurtainEl: HTMLElement = document.querySelector(
-    ".side-bar"
-  )! as HTMLElement;
+  private sideBarCurtainEl: HTMLElement;
 
   constructor() {
-    this._init();
+    this.sideBarCurtainEl = document.querySelector(".side-bar")! as HTMLElement;
   }
 
-  _init(): void {}
-
-  _populateBoilerPlate(): void {}
+  // _populateBoilerPlate(): void {}
 
   show() {
-    const template: string = `
+    const template = `
       <li>
         <i class="fas fa-plus-square"></i>사람을 추가하세요!
       </li>`;
@@ -21,17 +16,15 @@ class SideBar {
     const node: HTMLUListElement = document.createElement(
       "ul"
     )! as HTMLUListElement;
+
     node.setAttribute("class", "add-new-person");
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 
-    this._sideBarCurtainEl.innerHTML = "";
-    this._sideBarCurtainEl.insertBefore(
-      node,
-      this._sideBarCurtainEl.firstChild
-    );
+    this.sideBarCurtainEl.innerHTML = "";
+    this.sideBarCurtainEl.insertBefore(node, this.sideBarCurtainEl.firstChild);
 
-    this._toggleSidebar(true);
+    this.toggleSidebar(true);
   }
 
   hide() {
@@ -42,20 +35,17 @@ class SideBar {
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
 
-    this._sideBarCurtainEl.innerHTML = "";
-    this._sideBarCurtainEl.insertBefore(
-      node,
-      this._sideBarCurtainEl.firstChild
-    );
+    this.sideBarCurtainEl.innerHTML = "";
+    this.sideBarCurtainEl.insertBefore(node, this.sideBarCurtainEl.firstChild);
 
-    this._toggleSidebar(false);
+    this.toggleSidebar(false);
   }
 
-  _toggleSidebar(isOn: boolean): void {
+  private toggleSidebar(isOn: boolean): void {
     if (isOn) {
-      this._sideBarCurtainEl.classList.remove("curtain");
+      this.sideBarCurtainEl.classList.remove("curtain");
     } else {
-      this._sideBarCurtainEl.classList.remove("curtain");
+      this.sideBarCurtainEl.classList.remove("curtain");
     }
   }
 }

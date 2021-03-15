@@ -1,4 +1,4 @@
-export class CallbackChain {
+class CallbackChain {
   _callbacks: Function[] = [];
 
   register(fn: Function) {
@@ -11,3 +11,5 @@ export class CallbackChain {
     return this;
   }
 }
+
+export default CallbackChain;

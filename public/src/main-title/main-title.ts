@@ -1,36 +1,48 @@
 class MainTitle {
-  _mainTitleEl: HTMLHeadElement = document.querySelector(
-    ".main-title"
-  )! as HTMLHeadElement;
+  /**
+   *
+   */
+  private mainTitleEl: HTMLHeadingElement;
+  /**
+   *
+   */
+  private toggleBtnEl: HTMLDivElement;
 
-  _toggleBtnEl: HTMLDivElement = document.querySelector(
-    ".main-title-toggle"
-  )! as HTMLHeadingElement;
+  private arrowEl: HTMLSpanElement;
 
-  _arrowEl: HTMLDivElement = document
-    .querySelector(".main-title-toggle")
-    ?.querySelector(".fas")! as HTMLDivElement;
-
-  _isToggled: boolean = false;
+  private isToggled: boolean = false;
 
   constructor() {
-    this._toggleBtnEl.addEventListener(
-      "click",
-      this._onToggleMainTitle.bind(this)
-    );
+    this.mainTitleEl = document.querySelector(
+      ".main-title"
+    )! as HTMLHeadingElement;
+
+    this.toggleBtnEl = document.querySelector(
+      ".main-title-toggle"
+    )! as HTMLHeadingElement;
+
+    this.arrowEl = document
+      .querySelector(".main-title-toggle")
+      ?.querySelector(".fas")! as HTMLSpanElement;
+
+    this.toggleBtnEl.addEventListener("click", this.onToggleMainTitle.bind(this));
   }
 
-  _onToggleMainTitle(): void {
-    this._mainTitleEl.classList.toggle("hidden");
-    if (this._isToggled) {
-      this._isToggled = false;
-      this._arrowEl.classList.remove("fa-arrow-down");
-      this._arrowEl.classList.add("fa-arrow-up");
+  /**
+   *
+   */
+  private onToggleMainTitle(): void {
+    this.mainTitleEl.classList.toggle("hidden");
+
+    if (this.isToggled) {
+      this.arrowEl.classList.remove("fa-arrow-down");
+      this.arrowEl.classList.add("fa-arrow-up");
     } else {
-      this._isToggled = true;
-      this._arrowEl.classList.add("fa-arrow-down");
-      this._arrowEl.classList.remove("fa-arrow-up");
+      this.arrowEl.classList.add("fa-arrow-down");
+      this.arrowEl.classList.remove("fa-arrow-up");
     }
+
+    this.isToggled = !this.isToggled;
   }
 }
 
