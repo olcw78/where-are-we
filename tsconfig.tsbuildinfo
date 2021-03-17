@@ -202,8 +202,8 @@
         "affectsGlobalScope": false
       },
       "./src/util/config.ts": {
-        "version": "511cc109b6f0fceffe7fb271fcd027827ad4379dc524ca3ae0e3a614c989dfc6",
-        "signature": "9be75142b677372b90aea61686503acb9cf4e3584f320d54a645d2c019f70dbc",
+        "version": "1a0e0af2c5db25f48cf60729d2fa1014f86c49445454ab416b2b6282542bf1c1",
+        "signature": "ba83ce4f609895523f8a25201206eccf3c28916b9d0b30f79c255eaf76aad1c6",
         "affectsGlobalScope": false
       },
       "./src/util/callback-chain.ts": {
@@ -217,7 +217,7 @@
         "affectsGlobalScope": false
       },
       "./src/authentication/login/login.ts": {
-        "version": "de32fc48b3c15f426c0881ec733acd0df3098588c99b139c809c50ef31eb6edc",
+        "version": "1a0777de9165ef477cacd2a04bb8949a929b22163e3fa60caf705e4db5890fa9",
         "signature": "040054abd4330119ee25d269c935e0bc6be7b713a2f40cda6964a194c956a900",
         "affectsGlobalScope": false
       },
