@@ -1,13 +1,29 @@
+/**
+ * Delete chain to detect the trigger and affect on the every callbacks.
+ */
 class CallbackChain {
-  _callbacks: Function[] = [];
+  private callbacks: Function[];
 
-  register(fn: Function) {
-    this._callbacks.push(fn);
-    return this;
+  constructor() {
+    this.callbacks = []; // init with empty array.
   }
 
+  /**
+   * Register the callback function.
+   * @param fn callback function.
+   * @param args additional arguments.
+   * @returns function chaining.
+   */
+  register(fn: Function, ...args: any[]): CallbackChain {
+    this.callbacks.push((...args: any[]) => fn(...args));
+    return this;
+  }
+  /**
+   * Invoke all callback chain.
+   * @returns function chaining.
+   */
   invoke() {
-    this._callbacks.forEach((fn: Function) => fn());
+    this.callbacks.forEach((fn: Function) => fn());
     return this;
   }
 }

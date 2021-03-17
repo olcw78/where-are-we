@@ -47,7 +47,7 @@
     <title>Where Are We?</title>
 
     <!-- scss -->
-    <link type="text/css" rel="stylesheet" href="./css/main.scss" />
+    <link rel="stylesheet" href="./css/main.scss" />
 
     <!-- javascript -->
     <!-- font awesome(icon) -->
@@ -63,7 +63,7 @@
       src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=k51u0l3bfo"
     ></script>
 
-    <script type="module" src="../src/frontend/entry.ts" defer></script>
+    <script type="module" src="./src/entry.ts" defer></script>
   </head>
 
   <body>
@@ -85,8 +85,8 @@
 
           <!-- <form action="/login" method="POST"> -->
           <form>
-            <label>아이디</label>
-            <input type="text" placeholder="아이디 입력해듀데요..." />
+            <label>아이디(E-mail)</label>
+            <input type="text" placeholder="아이디(or E-mail) 입력해듀데요..." />
 
             <label>비밀번호</label>
             <input type="password" placeholder="비밀번호 입력해듀데요..." />

@@ -4,11 +4,11 @@ import "./hot-reload";
 // feature import
 import MapLoader from "./map/map-loader";
 import Curtain from "./util/curtain";
-import Login from "./authentication/login";
-import Signup from "./authentication/signup";
 import Footer from "./footer/footer";
-import SideBar from "./side-bar/side-bar";
 import MainTitle from "./main-title/main-title";
+import Auth from "./authentication/Auth";
+// import Signup from "./authentication/signup/Signup";
+import SideBar from "./side-bar/side-bar";
 
 window.addEventListener("load", MapLoader.onLoadWebsite);
 
@@ -16,30 +16,26 @@ window.addEventListener("load", MapLoader.onLoadWebsite);
 Footer.init();
 
 // main title toggler
-const title = new MainTitle();
+const mainTitle = new MainTitle();
 
 // add login features
-const login = new Login();
+const auth = new Auth();
 
-login.registerOnLogin(() => {
+auth.registerOnLogin(() => {
   Curtain.toggleCurtain("map", true);
   Curtain.toggleCurtain("side-bar", true);
 });
 
-login.registerOnLogout(() => {
+auth.registerOnLogout(() => {
   Curtain.toggleCurtain("map", false);
   Curtain.toggleCurtain("side-bar", false);
 });
 
 // add signup features
 // TODO: no more operations with Signup, except for showing/hiding signup screen
-const signup = new Signup();
+// const signup = new Signup();
 
 // sidebar initialization
 const sideBar = new SideBar();
-login.registerOnLogin(() => {
-  sideBar.show();
-});
-login.registerOnLogout(() => {
-  sideBar.hide();
-});
+auth.registerOnLogin(() => sideBar.show());
+auth.registerOnLogout(() => sideBar.hide());
