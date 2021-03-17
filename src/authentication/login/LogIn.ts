@@ -51,10 +51,24 @@ class LogIn {
    * perform login.
    */
   async login(): Promise<void> {
+    const idOrEmail: string = this.loginIDorEmailEl.value;
+    const isEmail = /[a-zA-Z0-9.-]+@[a-zA-Z0-9]+.(com|net|ch|kr|.)+/.test(
+      idOrEmail
+    );
+    const pw: string = this.loginPasswordEl.value;
+
+    const loginInfo: {
+      id?: string;
+      string?: string;
+      pw: string;
+    } = Object.assign(
+      { pw },
+      isEmail ? { email: idOrEmail } : { id: idOrEmail }
+    );
+    console.log(loginInfo);
+
     // 1. request login
-    // const login = await axios.post(`${baseURL}/login`, {
-    //   /** data */
-    // });
+    const login = await axios.post(`${baseURL}/login`, loginInfo);
 
     // load username from the cookie
     let userName: string = "";
