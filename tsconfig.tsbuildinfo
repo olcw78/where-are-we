@@ -161,7 +161,7 @@
         "signature": "2eb6d4a0bb51c8ec446eea3e8a9aff37847a0d053d72c2bcfa58b94437df964f",
         "affectsGlobalScope": false
       },
-      "./src/map/map-loader.ts": {
+      "./src/map/maploader.ts": {
         "version": "fe8ddbd0c6b0aa321fcbd42e6b63984e19bceb8d21629fc62f5f0500ee71f190",
         "signature": "883d9c1c68ea4ec2b7e0a1d7e84405e738f0ba238d776ac3166196558a1b8fc9",
         "affectsGlobalScope": false
@@ -181,9 +181,14 @@
         "signature": "6f40f123e5ceb8a81a85bf0b2925275781baa7010e8bdacc2b53914c473d24fe",
         "affectsGlobalScope": false
       },
-      "./src/main-title/main-title.ts": {
+      "./src/maintitle/maintitle.ts": {
         "version": "1057ee19a11a3adc81d04692b64690d073bd195d14cc8475ecd8223588c7b78e",
         "signature": "65b151342bd1dee3d97943f79f067fcf1245ec7f6d0c25949c14323d29e920e1",
+        "affectsGlobalScope": false
+      },
+      "./src/side-bar/side-bar.ts": {
+        "version": "e233035394b6eff7a154f87d02359a65fb0135cb80bada9e838dea1f2f107508",
+        "signature": "2cbd73b956755dcfb58905228f2509e53438078943ea05dc8cb9b81f23a1d273",
         "affectsGlobalScope": false
       },
       "./src/authentication/eauthstatus.ts": {
@@ -207,66 +212,66 @@
         "affectsGlobalScope": false
       },
       "./src/authentication/tyauthuiupdater.ts": {
-        "version": "6c906c85a81c9bd541a413cf5f876f30d5d041ae471ca8e9bd360b3972e56faf",
-        "signature": "9b28b8d92795d6d3c2df5eb644d1c31859011a2417f5993908a6b72cc792c0fd",
+        "version": "2347a219ff5005b981558022cc4bfe2dce424dba2a3b38387835dc0496a0095e",
+        "signature": "67bb2cbcb6fd5cd3dcf91e887ca4a72060af3125ef8ffc73e603a306b5de6acd",
         "affectsGlobalScope": false
       },
       "./src/authentication/login/login.ts": {
-        "version": "42c81b4118744a282e94cd3f3c5b2056fe8a58989cea24b403c099ea0a32e83f",
-        "signature": "42d9e5a31657a497485f962b11926549a9172817d6129477158d58a594f40b87",
+        "version": "e05229850af147c9d2fce4392ae51e0fa9ef537993cfbe5fd1045fcd60ac38b8",
+        "signature": "040054abd4330119ee25d269c935e0bc6be7b713a2f40cda6964a194c956a900",
         "affectsGlobalScope": false
       },
       "./src/authentication/login/autologin.ts": {
-        "version": "71a30ed709dcebc5d46a511d635af7f94f6eb36b76fe061b4c6d8328c24ea19c",
+        "version": "f0ea648303a4fd07982b74fee482012481acc1aaef11b6b98676aa3fba0fb7c2",
         "signature": "9714c245881bec61b1e63ea77eab76898a919785618dfcac71312ee77fb53b31",
         "affectsGlobalScope": false
       },
       "./src/authentication/logout/logout.ts": {
-        "version": "3cf9cc3225d09693ef75bc43d9b7e794fab86112525376752a7301770242a737",
+        "version": "0971c826bb2c281b671f11384c6eda1d4e43fe4fbe8266f53b7ed3998f62a4a7",
         "signature": "35dd4a0bedc49644b16d15e0839f9bab31f5230fb630f660576d21182e85cf5f",
         "affectsGlobalScope": false
       },
-      "./src/authentication/auth.ts": {
-        "version": "190a05cca23120c7cd389fe6ececcc08422ab13be401121cdf2248f70d4f584f",
-        "signature": "458938418a761f847b6f6142dad57cf4d68acbc9bcf9bbbe93cc4f7c126bc705",
-        "affectsGlobalScope": false
-      },
-      "./src/side-bar/side-bar.ts": {
-        "version": "e233035394b6eff7a154f87d02359a65fb0135cb80bada9e838dea1f2f107508",
-        "signature": "2cbd73b956755dcfb58905228f2509e53438078943ea05dc8cb9b81f23a1d273",
-        "affectsGlobalScope": false
-      },
-      "./src/entry.ts": {
-        "version": "3f46af22378760342f65e53988e4d5952fb15baba34e20747df3c58c354b96d0",
-        "signature": "9b88fd6676c8cc7bb111bb0ee129598d119ef17af9ac8d3db25cff6c90c077a7",
+      "./src/signup/signuppopup.ts": {
+        "version": "9b192ef047127472de50e6086fef937461ddb665c6b2a754c8f051c9126b8dea",
+        "signature": "a9a38dc72ce9e4cfda79043d8c6ecfb155bf4a81a3c483bda2f8794a7f989c54",
         "affectsGlobalScope": false
       },
       "./src/authentication/signup/signup.ts": {
-        "version": "d9bf013bafe21f17770bbf1ca61844b0ba29a5c3c2a0cbdef48cb3121d5fc13b",
-        "signature": "d77ba318eb5fb57216b4e9758c26f96c5325197cfa709b02a7c26c0f958d65d3",
+        "version": "dbcf09ad4e0b0044c0a6a7857337665448352f51f7938e91f6c3ebfa2a888bf0",
+        "signature": "edd3ddc29aa87ccfc5e707dd2c35e34b97cf8a29c95a6803accbcb7de9ae4367",
         "affectsGlobalScope": false
       },
-      "./src/authentication/signup/signuppanel.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "./src/authentication/about/about.ts": {
+        "version": "c0162d70719e4a895291d25c0e26b1c29a742d52068b970116fb6ce2a0e2b45f",
+        "signature": "4c6a46917d04109dc5761f91c2950429131dc41d99b99b2fff4dde976d1e54ae",
         "affectsGlobalScope": false
       },
-      "./src/map/map-helper.ts": {
+      "./src/authentication/auth.ts": {
+        "version": "6998e395ce227c63c08879247781da2c56afbeff67e87e81746b03627a487731",
+        "signature": "423b23859799c45bd5d0f9be1d1443fd88ef77e28dea7f5ae93b46261fc6c48f",
+        "affectsGlobalScope": false
+      },
+      "./src/entry.ts": {
+        "version": "0e416b0e21384850c43341ccfcbebb43504d6188cb74320d714b20f6b171997c",
+        "signature": "9b88fd6676c8cc7bb111bb0ee129598d119ef17af9ac8d3db25cff6c90c077a7",
+        "affectsGlobalScope": false
+      },
+      "./src/map/maphelper.ts": {
         "version": "6ee23230e73ccedf09debd321063654407fcfa38401d2eb1262cb639e3d58283",
         "signature": "3701697048fd7b8faf82bf1b416f38678697b32ab68a70152632c27292ea62c7",
         "affectsGlobalScope": false
       },
-      "./src/map/map-lock.ts": {
+      "./src/map/maplock.ts": {
         "version": "89734808549645b92ebb416c9dc8062f29a298035a4cde6951b0727d633cbdda",
         "signature": "ca7fb48df08137f79c6df7bdbfe00a6bb4cdda8b97bf32b60c286f27b6481217",
         "affectsGlobalScope": false
       },
-      "./src/map/map-marker.ts": {
+      "./src/map/mapmarker.ts": {
         "version": "d27438cd3e5494554bc48a43fc757f3bf94982bbb4294606a911cea4a92e156f",
         "signature": "79cb56aece2e40e6f2c89bd416d6dcb9cd740e487fd823638cc0917785edfc44",
         "affectsGlobalScope": false
       },
-      "./src/map/map-zoom.ts": {
+      "./src/map/mapzoom.ts": {
         "version": "53eeaca9e2c27aa74dd88a91f3eecafa623ce08fa98ec78901a850c3762cc1d5",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
@@ -770,10 +775,12 @@
         "./node_modules/@types/regenerator-runtime/index.d.ts"
       ],
       "./src/authentication/auth.ts": [
+        "./src/authentication/about/about.ts",
         "./src/authentication/eauthstatus.ts",
         "./src/authentication/login/autologin.ts",
         "./src/authentication/login/login.ts",
-        "./src/authentication/logout/logout.ts"
+        "./src/authentication/logout/logout.ts",
+        "./src/authentication/signup/signup.ts"
       ],
       "./src/authentication/login/autologin.ts": [
         "./src/authentication/eauthstatus.ts"
@@ -790,6 +797,9 @@
         "./src/authentication/tyauthuiupdater.ts",
         "./src/util/callback-chain.ts"
       ],
+      "./src/authentication/signup/signup.ts": [
+        "./src/signup/signuppopup.ts"
+      ],
       "./src/authentication/tyauthuiupdater.ts": [
         "./src/authentication/eauthstatus.ts"
       ],
@@ -797,8 +807,8 @@
         "./node_modules/@types/regenerator-runtime/index.d.ts",
         "./src/authentication/auth.ts",
         "./src/footer/footer.ts",
-        "./src/main-title/main-title.ts",
-        "./src/map/map-loader.ts",
+        "./src/maintitle/maintitle.ts",
+        "./src/map/maploader.ts",
         "./src/side-bar/side-bar.ts",
         "./src/util/curtain.ts"
       ],
@@ -808,7 +818,7 @@
       "./src/map/infowindowwrapper.ts": [
         "./src/map/navermap.ts"
       ],
-      "./src/map/map-loader.ts": [
+      "./src/map/maploader.ts": [
         "./src/map/infowindowwrapper.ts",
         "./src/map/navermap.ts"
       ],
@@ -1059,6 +1069,9 @@
         "./src/authentication/tyauthuiupdater.ts",
         "./src/util/callback-chain.ts"
       ],
+      "./src/authentication/signup/signup.ts": [
+        "./src/signup/signuppopup.ts"
+      ],
       "./src/authentication/tyauthuiupdater.ts": [
         "./src/authentication/eauthstatus.ts"
       ],
@@ -1068,7 +1081,7 @@
       "./src/footer/footer.ts": [
         "./src/footer/cardtype.ts"
       ],
-      "./src/map/map-loader.ts": [
+      "./src/map/maploader.ts": [
         "./src/map/infowindowwrapper.ts"
       ]
     },
@@ -1150,27 +1163,28 @@
       "./node_modules/@types/q/index.d.ts",
       "./node_modules/@types/regenerator-runtime/index.d.ts",
       "./node_modules/axios/index.d.ts",
+      "./src/authentication/about/about.ts",
       "./src/authentication/auth.ts",
       "./src/authentication/eauthstatus.ts",
       "./src/authentication/login/autologin.ts",
       "./src/authentication/login/login.ts",
       "./src/authentication/logout/logout.ts",
       "./src/authentication/signup/signup.ts",
-      "./src/authentication/signup/signuppanel.ts",
       "./src/authentication/tyauthuiupdater.ts",
       "./src/entry.ts",
       "./src/footer/cardtype.ts",
       "./src/footer/footer.ts",
       "./src/hot-reload.ts",
-      "./src/main-title/main-title.ts",
+      "./src/maintitle/maintitle.ts",
       "./src/map/infowindowwrapper.ts",
-      "./src/map/map-helper.ts",
-      "./src/map/map-loader.ts",
-      "./src/map/map-lock.ts",
-      "./src/map/map-marker.ts",
-      "./src/map/map-zoom.ts",
+      "./src/map/maphelper.ts",
+      "./src/map/maploader.ts",
+      "./src/map/maplock.ts",
+      "./src/map/mapmarker.ts",
+      "./src/map/mapzoom.ts",
       "./src/map/navermap.ts",
       "./src/side-bar/side-bar.ts",
+      "./src/signup/signuppopup.ts",
       "./src/util/callback-chain.ts",
       "./src/util/config.ts",
       "./src/util/curtain.ts",

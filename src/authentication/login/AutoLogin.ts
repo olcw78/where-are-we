@@ -12,6 +12,7 @@ class AutoLogin {
     this.autoLoginCheckBoxEl = document.getElementById(
       "check-auto-login"
     )! as HTMLInputElement;
+
     // retrieve and update checkbox from saved status of the auto login
     this.autoLoginCheckBoxEl.checked =
       localStorage.getItem("isAutoLoginChecked") === "yes";

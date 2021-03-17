@@ -13,13 +13,7 @@ nav {
       justify-content: center;
     }
 
-    label {
-      margin-right: 10px;
-      align-self: center;
-      font-weight: 700;
-    }
-
-    button.btn--signup {
+    form.login-form {
       display: none;
 
       &.active {
@@ -27,7 +21,21 @@ nav {
       }
     }
 
-    #input-id {
+    form.logout-form {
+      display: none;
+      
+      &.active {
+        display: flex;
+      }
+    }
+
+    label {
+      margin-right: 10px;
+      align-self: center;
+      font-weight: 700;
+    }
+
+    .login-id {
       margin-right: 10px;
     }
 
@@ -38,15 +46,6 @@ nav {
     form input[type="password"] {
       margin-right: 10px;
     }
-
-    #input-pw {
-      margin-right: 10px;
-    }
-  }
-
-  div {
-    display: flex;
-    justify-content: center;
 
     p {
       margin-right: 10px;

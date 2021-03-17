@@ -2,6 +2,8 @@ import { EAuthStatus } from "./EAuthStatus";
 import LogIn from "./login/LogIn";
 import AutoLogin from "./login/AutoLogin";
 import LogOut from "./logout/LogOut";
+import Signup from "./signup/Signup";
+import About from "./about/About";
 
 class Auth {
   /**
@@ -17,33 +19,39 @@ class Auth {
   private autoLogin: AutoLogin;
   /** Logout module */
   private logOut: LogOut;
+  /** SignUp module */
+  private signUp: Signup;
+  /** About module */
+  private about: About;
   /**
-   * Login elements position for after login or logout.
+   *
    */
-  private authUIPositionEl: HTMLDivElement;
+  private loginFormEl: HTMLFormElement;
   /**
-   * Signup button when
+   *
    */
-  private openSignupBtnEl: HTMLButtonElement;
+  private logoutFormEl: HTMLFormElement;
 
   constructor() {
     // initial auth status is logged out
     this.authStatus = EAuthStatus.LOGGED_OUT;
 
     // init modules
-    this.logIn = new LogIn(this.update);
+    this.logIn = new LogIn(this.update.bind(this));
     this.autoLogin = new AutoLogin(this.logIn.login);
-    this.logOut = new LogOut(this.update);
+    this.logOut = new LogOut(this.update.bind(this));
+    this.signUp = new Signup();
+    this.about = new About();
 
-    // bind dom
-    this.authUIPositionEl = document.getElementById(
-      "login-form-pos"
-    )! as HTMLDivElement;
+    this.loginFormEl = document.querySelector(
+      ".login-form"
+    )! as HTMLFormElement;
 
-    this.openSignupBtnEl = document.querySelector(
-      ".btn--signup"
-    )! as HTMLButtonElement;
+    this.logoutFormEl = document.querySelector(
+      ".logout-form"
+    )! as HTMLFormElement;
 
+    // init logic
     this.autoLogin.autoLogin();
   }
 
@@ -75,48 +83,62 @@ class Auth {
   }
   /**
    *
-   * @param authStatus
-   * @param newAuthUIEl
+   * @param status select where to update.
+   * @param newAuthUIEl new updated Element that is going to be used.
    */
-  private update(authStatus: EAuthStatus, newAuthUIEl: HTMLElement): void {
+  private update(status: EAuthStatus): void {
+    // private update(status: EAuthStatus, updateAuthEl: HTMLElement): void {
     // 1. update auth status.
-    this.authStatus = authStatus;
+    this.authStatus = status;
 
-    switch (authStatus) {
+    this.toggleLoginAndLogoutForm();
+    switch (status) {
       case EAuthStatus.LOGGED_IN:
-        this.updateAuthUIHTML(newAuthUIEl as HTMLDivElement);
-        // hide the signup button on;
-        this.toggleSignupBtn(false);
+        //
         break;
 
       case EAuthStatus.LOGGED_OUT:
-        this.updateAuthUIHTML(newAuthUIEl as HTMLFormElement);
-        // show the signup button
-        this.toggleSignupBtn(true);
+        //
         break;
     }
   }
 
-  private updateAuthUIHTML(newAuthUIEl: HTMLElement): void {
-    this.authUIPositionEl.innerHTML = "";
-    this.authUIPositionEl.insertBefore(
-      newAuthUIEl as HTMLDivElement,
-      this.authUIPositionEl.firstChild
-    );
-  }
-
-  /**
-   * Toggle the visibility of the Signup button so you don't need to
-   * register again when you login and logout
-   * @param {*} isOn
-   */
-  private toggleSignupBtn(isOn: boolean): void {
-    if (isOn) {
-      this.openSignupBtnEl.classList.add("active");
-    } else {
-      this.openSignupBtnEl.classList.remove("active");
-    }
+  private toggleLoginAndLogoutForm(): void {
+    this.loginFormEl.classList.toggle("active");
+    this.logoutFormEl.classList.toggle("active");
   }
 }
 
 export default Auth;
+
+//  Login elements position for after login or logout.
+// private authUIPositionEl: HTMLDivElement;
+// bind dom
+// this.authUIPositionEl = document.getElementById(
+//   "login-form-pos"
+// )! as HTMLDivElement;
+// private update(status: EAuthStatus, updateAuthEl: HTMLElement): void {
+//   // 1. update auth status.
+//   this.authStatus = status;
+//   switch (status) {
+//     case EAuthStatus.LOGGED_IN:
+//       // this.updateAuthUIHTML(updateAuthEl as HTMLDivElement);
+//       // hide the signup button on;
+//       // this.signUp.popup.toggleSignupBtn(false);
+//       // this.logOut.toggleLogOutBtn(true);
+//       break;
+//     case EAuthStatus.LOGGED_OUT:
+//       // this.updateAuthUIHTML(updateAuthEl as HTMLFormElement);
+//       // show the signup button
+//       // this.signUp.popup.toggleSignupBtn(true);
+//       // this.logOut.toggleLogOutBtn(false);
+//       break;
+//   }
+// }
+//
+// private updateAuthUIHTML<T extends HTMLElement>(updateAuthEl: T): void {
+//   this.authUIPositionEl.innerHTML = "";
+//   this.authUIPositionEl.insertBefore(
+//     updateAuthEl,
+//     this.authUIPositionEl.firstChild
+//
