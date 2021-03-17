@@ -76,11 +76,11 @@
     </header>
 
     <nav>
-      <section id="auth">
-        <!-- 1. login -->
+      <section class="auth">
+        <!-- 1. login form -->
         <form class="login-form active">
           <label>자동 로그인</label>
-          <input type="checkbox" id="check-auto-login" />
+          <input type="checkbox" class="check-auto-login" />
 
           <label>아이디(E-mail)</label>
           <input
@@ -94,7 +94,7 @@
           <input
             type="password"
             placeholder="비밀번호 입력해듀데요..."
-            id="login-password"
+            class="login-password"
           />
           <button type="button" class="btn btn--primary login-btn">
             로그인
@@ -102,6 +102,7 @@
           <button type="button" class="btn btn--signup signup-btn">가입</button>
         </form>
 
+        <!-- 2. logout form -->
         <form class="logout-form">
           <p>안녕하세요</p>
           <button type="button" class="btn btn--primary about-btn">정보</button>

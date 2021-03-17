@@ -222,7 +222,7 @@
         "affectsGlobalScope": false
       },
       "./src/authentication/login/autologin.ts": {
-        "version": "f0ea648303a4fd07982b74fee482012481acc1aaef11b6b98676aa3fba0fb7c2",
+        "version": "0653ac449ba513662bfa6cb9326fdf9e7b830d9282ffac5d00d86d8946f20868",
         "signature": "9714c245881bec61b1e63ea77eab76898a919785618dfcac71312ee77fb53b31",
         "affectsGlobalScope": false
       },

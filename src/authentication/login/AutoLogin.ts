@@ -9,8 +9,8 @@ class AutoLogin {
   private loginCallback: () => Promise<void>;
 
   constructor(loginCallback: () => Promise<void>) {
-    this.autoLoginCheckBoxEl = document.getElementById(
-      "check-auto-login"
+    this.autoLoginCheckBoxEl = document.querySelector(
+      ".check-auto-login"
     )! as HTMLInputElement;
 
     // retrieve and update checkbox from saved status of the auto login
