@@ -246,8 +246,13 @@
         "signature": "9ccb0aae1ffbd0bb9d93576caeff5150877859420b40c1f2cd178abe73ac5e2b",
         "affectsGlobalScope": false
       },
+      "./src/util/form-checker.ts": {
+        "version": "0cd412c7be61baa4d83d3e75d75522739a26cc23ac9b17cf599059548bed58f3",
+        "signature": "ad624efe480161b2e20533a20b1a2493467cf071b59741ef607483826f6163ec",
+        "affectsGlobalScope": false
+      },
       "./src/authentication/signup/signup.ts": {
-        "version": "22ba84ee9a61bf3c67157abeb351f9e3b611d14fc0f2e2d959d5ce73ae60eedb",
+        "version": "f0868422c6484fe10491f9b9c1dd0a4a5c58c06b1d1a40e36162a9b29e23ba9d",
         "signature": "dfdcdc69c17c572d44bccb361fea0cc67f7bb0b30fd77ee6c095ee98c90ab002",
         "affectsGlobalScope": false
       },
@@ -285,11 +290,6 @@
         "version": "53eeaca9e2c27aa74dd88a91f3eecafa623ce08fa98ec78901a850c3762cc1d5",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
-      },
-      "./src/util/form-checker.ts": {
-        "version": "774654706fe0ad533c32c62131492b620edc4492add10a91c2352a69f5752d33",
-        "signature": "a620e7bf13a0ce8d70c4c9e1bb3201491f1232378b73be3306025e37402b3894",
-        "affectsGlobalScope": true
       },
       "./src/util/helper.ts": {
         "version": "84aae9c10840a4abfc133a02e915a2df2948727a10e611e7a021378a2baaf56b",
@@ -819,7 +819,8 @@
         "./node_modules/axios/index.d.ts",
         "./src/authentication/logout/tyusersignupdata.ts",
         "./src/signup/signuppopup.ts",
-        "./src/util/config.ts"
+        "./src/util/config.ts",
+        "./src/util/form-checker.ts"
       ],
       "./src/authentication/tyauthuiupdater.ts": [
         "./src/authentication/eauthstatus.ts",
@@ -1194,19 +1195,7 @@
       "./src/authentication/login/tyuserlogindata.ts",
       "./src/authentication/logout/logout.ts",
       "./src/authentication/logout/tyusersignupdata.ts",
-      [
-        "./src/authentication/signup/signup.ts",
-        [
-          {
-            "file": "./src/authentication/signup/signup.ts",
-            "start": 1675,
-            "length": 6,
-            "code": 2322,
-            "category": 1,
-            "messageText": "Type 'undefined' is not assignable to type 'boolean'."
-          }
-        ]
-      ],
+      "./src/authentication/signup/signup.ts",
       "./src/authentication/tyauthuiupdater.ts",
       "./src/entry.ts",
       "./src/footer/cardtype.ts",

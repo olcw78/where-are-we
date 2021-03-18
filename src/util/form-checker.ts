@@ -1,5 +1,38 @@
 class FormChecker {
   /**
+   * (throw error)
+   * prevent whitespace(blank) of comparer target string.
+   * @param comparer
+   */
+  private static checkEmpty(comparer: string | null): void {
+    if (
+      !comparer ||
+      comparer === "undefined" ||
+      FormChecker.isEmpty(comparer)
+    ) {
+      throw new Error(`Form is empty: ${comparer}`);
+    }
+  }
+
+  static isEmpty(comparer: string | null): boolean {
+    return comparer === "";
+  }
+  /**
+   * ID within a general id format.
+   * e.g. english letters (lowercase, uppercase) (o)
+   *      numbers (o)
+   *      korean letters (x)
+   *      french letters / Les lettres français avec l'accent (x)
+   *      special characters (x)
+   * @param comparer
+   * @returns
+   */
+  static isValidID(comparer: string | null): boolean {
+    FormChecker.checkEmpty(comparer);
+    const regex = /^[a-zA-Z0-9]$/;
+    return regex.test(comparer!);
+  }
+  /**
    * email within a general email format.
    * e.g. highp@naver.com
    *      james1231@gmail.com
@@ -8,9 +41,10 @@ class FormChecker {
    * @param comparer
    * @returns
    */
-  static isValidEmail(comparer: string): boolean {
+  static isValidEmail(comparer: string | null): boolean {
+    FormChecker.checkEmpty(comparer);
     const regex = /^[a-zA-Z0-9.-]+@[a-zA-Z0-9]+.[com|net|ch|kr|gg|.]+$/;
-    return regex.test(comparer);
+    return regex.test(comparer!);
   }
   /**
    * user name within a general name (english/korean/french).
@@ -21,9 +55,10 @@ class FormChecker {
    * @param comparer
    * @returns
    */
-  static isValidUserName(comparer: string): boolean {
+  static isValidUserName(comparer: string | null): boolean {
+    FormChecker.checkEmpty(comparer);
     const regex = /^[a-zA-Z가-힣 éÉèÈçÇàÀâÂêÊîÎôÔûÛïÏ]$/;
-    return regex.test(comparer);
+    return regex.test(comparer!);
   }
   /**
    * phone number within a usual korean format.
@@ -34,13 +69,14 @@ class FormChecker {
    * @returns
    */
   static isValidPhoneNumber(
-    comparer: string,
+    comparer: string | null,
     withNationalCode: boolean = false
   ): boolean {
+    FormChecker.checkEmpty(comparer);
     const regex = withNationalCode
       ? /^+[0-9]{3}{2,3}-[0-9]{3,4}-[0-9]{3,4}$/
       : /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}$/;
-    return regex.test(comparer);
+    return regex.test(comparer!);
   }
   /**
    * password wihtin a permission.
@@ -53,8 +89,11 @@ class FormChecker {
    * space/blank (x)
    * @param comparer
    */
-  static isValidPassword(comparer: string): boolean {
+  static isValidPassword(comparer: string | null): boolean {
+    FormChecker.checkEmpty(comparer);
     const regex = /^[a-zA-Z0-9!@#^&*]$/;
-    return regex.test(comparer);
+    return regex.test(comparer!);
   }
 }
+
+export default FormChecker;
