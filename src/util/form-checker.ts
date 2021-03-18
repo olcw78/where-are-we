@@ -74,8 +74,8 @@ class FormChecker {
   ): boolean {
     FormChecker.checkEmpty(comparer);
     const regex = withNationalCode
-      ? /^+[0-9]{3}{2,3}-[0-9]{3,4}-[0-9]{3,4}$/
-      : /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}$/;
+      ? /^+[0-9]{3}{2,3}[0-9]{3,4}[0-9]{3,4}$/
+      : /^[0-9]{2,3}[0-9]{3,4}[0-9]{3,4}$/;
     return regex.test(comparer!);
   }
   /**

@@ -8,34 +8,34 @@ class Signup {
   /**
    *
    */
-  private signupPopup: SignupPopup;
+  private readonly signupPopup: SignupPopup;
   get popup(): SignupPopup {
     return this.signupPopup;
   }
   /**
    *
    */
-  private signupIDEl: HTMLInputElement;
+  private readonly signupIDEl: HTMLInputElement;
   /**
    *
    */
-  private signupPasswordEl: HTMLInputElement;
+  private readonly signupPasswordEl: HTMLInputElement;
   /**
    *
    */
-  private signupPasswordConfirmEl: HTMLInputElement;
+  private readonly signupPasswordConfirmEl: HTMLInputElement;
   /**
    *
    */
-  private signupUserNameEl: HTMLInputElement;
+  private readonly signupUserNameEl: HTMLInputElement;
   /**
    *
    */
-  private signupEmailEl: HTMLInputElement;
+  private readonly signupEmailEl: HTMLInputElement;
   /**
    *
    */
-  private signupPhoneNumEl: HTMLInputElement;
+  private readonly signupPhoneNumEl: HTMLInputElement;
 
   constructor() {
     // instantiate
