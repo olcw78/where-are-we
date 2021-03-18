@@ -5,16 +5,15 @@ class FormChecker {
    * @param comparer
    */
   private static checkEmpty(comparer: string | null): void {
-    if (
-      !comparer ||
-      comparer === "undefined" ||
-      FormChecker.isEmpty(comparer)
-    ) {
+    if (comparer === "undefined") {
+      throw new Error(`Form is empty: ${comparer}`);
+    }
+    if (FormChecker.isEmpty(comparer!)) {
       throw new Error(`Form is empty: ${comparer}`);
     }
   }
 
-  static isEmpty(comparer: string | null): boolean {
+  static isEmpty(comparer: string): boolean {
     return comparer === "";
   }
   /**
@@ -29,7 +28,7 @@ class FormChecker {
    */
   static isValidID(comparer: string | null): boolean {
     FormChecker.checkEmpty(comparer);
-    const regex = /^[a-zA-Z0-9]$/;
+    const regex = /[\w\d\S]{4,}/;
     return regex.test(comparer!);
   }
   /**
@@ -43,7 +42,7 @@ class FormChecker {
    */
   static isValidEmail(comparer: string | null): boolean {
     FormChecker.checkEmpty(comparer);
-    const regex = /^[a-zA-Z0-9.-]+@[a-zA-Z0-9]+.[com|net|ch|kr|gg|.]+$/;
+    const regex = /[\w\d\S.-]+@\w\d\S]+.[com|net|ch|kr|gg|.]+/;
     return regex.test(comparer!);
   }
   /**
@@ -57,7 +56,8 @@ class FormChecker {
    */
   static isValidUserName(comparer: string | null): boolean {
     FormChecker.checkEmpty(comparer);
-    const regex = /^[a-zA-Z가-힣 éÉèÈçÇàÀâÂêÊîÎôÔûÛïÏ]$/;
+    //éÉèÈçÇàÀâÂêÊîÎôÔûÛïÏ
+    const regex = /[\D\w\s]{2,}/;
     return regex.test(comparer!);
   }
   /**
@@ -74,8 +74,8 @@ class FormChecker {
   ): boolean {
     FormChecker.checkEmpty(comparer);
     const regex = withNationalCode
-      ? /^+[0-9]{3}{2,3}[0-9]{3,4}[0-9]{3,4}$/
-      : /^[0-9]{2,3}[0-9]{3,4}[0-9]{3,4}$/;
+      ? /+[\d]{2,3}[\d]{3,4}[\d]{3,4}/
+      : /[\d]{2,3}[\d]{3,4}[\d]{3,4}/;
     return regex.test(comparer!);
   }
   /**
@@ -91,7 +91,7 @@ class FormChecker {
    */
   static isValidPassword(comparer: string | null): boolean {
     FormChecker.checkEmpty(comparer);
-    const regex = /^[a-zA-Z0-9!@#^&*]$/;
+    const regex = /[\w\d!@#^&*]{8,}/;
     return regex.test(comparer!);
   }
 }

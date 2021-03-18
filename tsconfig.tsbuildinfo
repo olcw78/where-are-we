@@ -237,23 +237,23 @@
         "affectsGlobalScope": false
       },
       "./src/signup/signuppopup.ts": {
-        "version": "1876adf25fb2b732e2bfe05330f787b3599eec99930ba2947e0359695a9483a9",
-        "signature": "d9a019cc192673199a928cd493f9ed4618797598258d07c1033a897385f2c8ba",
+        "version": "66d6c7ca263172b951c6de57826e870e7bf4b2afad624fbe538eda4fd9aebcf9",
+        "signature": "c77a8baa418c01f474ef165a22aba5ac54fd0a4f0a049328ecc387229b2f8c3a",
         "affectsGlobalScope": false
       },
       "./src/authentication/logout/tyusersignupdata.ts": {
-        "version": "1b716fe5652473924fc3e0c118c6806c8047079701fae51190bb5aed2d80a174",
-        "signature": "9ccb0aae1ffbd0bb9d93576caeff5150877859420b40c1f2cd178abe73ac5e2b",
+        "version": "0b9bff9b8a48c4e2e0947024b41f5c05817cc5f57943c20f57c641c06d1c291d",
+        "signature": "487c7d5178b59934061d277930f57d135c8b74b3d4b4c5658da68f07c31f7f80",
         "affectsGlobalScope": false
       },
       "./src/util/form-checker.ts": {
-        "version": "d8e5c43c12870f0989e39c533e8160c257435a46e46fe6406f598fd92cdbff56",
-        "signature": "ad624efe480161b2e20533a20b1a2493467cf071b59741ef607483826f6163ec",
+        "version": "3080873aff55b3eb4f81677630e6892f1a9a1aca5e1c32934327fcb39eef41f0",
+        "signature": "ad4ec51b387371a107df662a78a79eb138fcff6e067fd309a4ad5a91a0e140b6",
         "affectsGlobalScope": false
       },
       "./src/authentication/signup/signup.ts": {
-        "version": "a1e481428364a9107e469bf41f7fa62cc0e764ff8d002bc4b3e489535bbeed15",
-        "signature": "c4b3b35e2ef50dfcbebc46689533f5b3a90c800dae3cf7c8502760a3e7ba9779",
+        "version": "bb86b1b320ab7671f3db0b3935dd944fa3a17dc8eb3919bbb328a1db74f35a2d",
+        "signature": "1d149d57339b74bd570576655537732b74a4d1f4ecc7de5d4544cce67f2fcf04",
         "affectsGlobalScope": false
       },
       "./src/authentication/about/about.ts": {
@@ -544,6 +544,7 @@
       "sourceMap": true,
       "outDir": "./dist",
       "rootDir": "./src",
+      "noEmitOnError": true,
       "strict": true,
       "noImplicitAny": false,
       "noImplicitReturns": true,

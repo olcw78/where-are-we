@@ -3,11 +3,16 @@ class SignupPopup {
   // private closeSignupPopupEl: HTMLDivElement;
 
   /** Signup Popup. */
-  private signupPopupEl: HTMLDivElement;
+  private readonly signupPopupEl: HTMLDivElement;
   /** Open Signup Button */
-  private openSignupBtnEl: HTMLButtonElement;
+  private readonly openSignupBtnEl: HTMLButtonElement;
   /**  */
-  private cancelBtnEl: HTMLButtonElement;
+  private readonly cancelBtnEl: HTMLButtonElement;
+  private readonly submitSignupBtnEl: HTMLButtonElement;
+
+  get getSubmitSignupBtnEl(): HTMLButtonElement {
+    return this.submitSignupBtnEl;
+  }
 
   // _onSignupSucceed = new CallbackChain();
   // get onSignupSucceed() {
@@ -25,11 +30,15 @@ class SignupPopup {
     )! as HTMLDivElement;
 
     this.openSignupBtnEl = document.querySelector(
-      ".btn--signup"
+      ".signup-btn"
     )! as HTMLButtonElement;
 
-    this.cancelBtnEl = document.getElementById(
-      "signup-cancel"
+    this.cancelBtnEl = document.querySelector(
+      ".signup-cancel"
+    )! as HTMLButtonElement;
+
+    this.submitSignupBtnEl = document.querySelector(
+      ".signup-submit"
     )! as HTMLButtonElement;
 
     // // signup close button

@@ -59,41 +59,74 @@ class Signup {
     this.signupEmailEl = document.querySelector(
       ".signup-email"
     )! as HTMLInputElement;
+    this.signupEmailEl.addEventListener("change", (e: any): void => {
+      console.log(e.target.value);
+    });
 
     this.signupPhoneNumEl = document.querySelector(
       ".signup-phonenum"
     )! as HTMLInputElement;
+
+    this.signupPopup.getSubmitSignupBtnEl.addEventListener(
+      "click",
+      this.signUp.bind(this)
+    );
   }
 
   async signUp(): Promise<void> {
+    // TODO: need to checkout if the html input pattern doesn't work for the
+    // legacy browsers, in that case, what should I do for a plan B.
+
     // 1. Check Form
-    if (!FormChecker.isValidID(this.signupIDEl.textContent)) {
-      // check ID
-    }
+    // if (!FormChecker.isValidID(this.signupIDEl.value)) {
+    //   // check ID
+    //   console.log(`Invalid ID! ${this.signupIDEl.value}`);
+    // }
 
-    if (!FormChecker.isValidUserName(this.signupUserNameEl.textContent)) {
-      // check userName
-    }
+    // if (!FormChecker.isValidUserName(this.signupUserNameEl.value)) {
+    //   // check userName
+    //   console.log(`Invalid user name! ${this.signupUserNameEl.value}`);
+    // }
 
-    if (!FormChecker.isValidEmail(this.signupEmailEl.textContent)) {
-      // check email
-    }
+    // if (!FormChecker.isValidEmail(this.signupEmailEl.value)) {
+    //   // check email
+    //   console.log(`Invalid email! ${this.signupEmailEl.value}`);
+    // }
 
-    if (!FormChecker.isValidPhoneNumber(this.signupPhoneNumEl.textContent)) {
-      // check phone number
-    }
+    // if (!FormChecker.isValidPhoneNumber(this.signupPhoneNumEl.value)) {
+    //   // check phone number
+    //   console.log(`Invalid phone number! ${this.signupPhoneNumEl.value}`);
+    // }
 
-    // check passwordConfirm is same as password
-    if (!FormChecker.isValidPassword(this.signupPasswordEl.textContent)) {
-      // check password
-    }
+    // // check passwordConfirm is same as password
+    // if (
+    //   this.isPasswordConfirmSame(
+    //     this.signupPasswordEl.value,
+    //     this.signupPasswordConfirmEl.value
+    //   )
+    // ) {
+    //   // check password double times
+    // }
+    // if (!FormChecker.isValidPassword(this.signupPasswordEl.value)) {
+    //   // check password
+    //   console.log(`Invalid password! ${this.signupPasswordEl.value}`);
+    // }
 
-    const data = {};
+    const data: TyUserSignupData = {
+      email: this.signupEmailEl.value!.trim(),
+      id: this.signupIDEl.value!.trim(),
+      username: this.signupUserNameEl.value!.trim(),
+      password: this.signupPasswordEl.value!.trim(),
+      phonenum: this.signupPhoneNumEl.value!.trim(),
+    };
 
-    const signUpReq = await axios.post(`${baseURL}/signup`, data);
+    await axios.post(`${baseURL}/signup`, data);
   }
 
-  isPasswordConfirmSame(password: string): boolean {
+  isPasswordConfirmSame(
+    password: string | null,
+    passwordConfirm: string | null
+  ): boolean {
     return true;
   }
 }
