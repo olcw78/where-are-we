@@ -1,6 +1,7 @@
 class SignupPopup {
   /** Closing Signup Button. */
-  private closeSignupPopupEl: HTMLDivElement;
+  // private closeSignupPopupEl: HTMLDivElement;
+
   /** Signup Popup. */
   private signupPopupEl: HTMLDivElement;
   /** Open Signup Button */
@@ -15,9 +16,9 @@ class SignupPopup {
 
   constructor() {
     // bind dom
-    this.closeSignupPopupEl = document.querySelector(
-      ".signup-popup-close"
-    )! as HTMLDivElement;
+    // this.closeSignupPopupEl = document.querySelector(
+    //   ".signup-popup-close"
+    // )! as HTMLDivElement;
 
     this.signupPopupEl = document.querySelector(
       ".signup-popup-bg"
@@ -31,11 +32,11 @@ class SignupPopup {
       "signup-cancel"
     )! as HTMLButtonElement;
 
-    // signup close button
-    this.closeSignupPopupEl.addEventListener(
-      "click",
-      this.toggleSignupBtn.bind(this, false)
-    );
+    // // signup close button
+    // this.closeSignupPopupEl.addEventListener(
+    //   "click",
+    //   this.toggleSignupBtn.bind(this, false)
+    // );
 
     this.cancelBtnEl.addEventListener(
       "click",

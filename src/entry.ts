@@ -16,6 +16,10 @@ window.addEventListener("load", MapLoader.onLoadWebsite);
 // add html templates - footer
 Footer.init();
 
+const curtain = new Curtain();
+curtain.registerCurtains("map");
+curtain.registerCurtains("side-bar");
+
 // main title toggler
 const mainTitle = new MainTitle();
 // side bar
@@ -25,12 +29,13 @@ const sideBar = new SideBar();
 const auth = new Auth();
 
 auth.registerOnLogin(() => {
-  Curtain.toggleCurtain("map", true);
-  Curtain.toggleCurtain("side-bar", true);
+  curtain.setCurtainVisibility("map", true);
+  curtain.setCurtainVisibility("side-bar", true);
 });
+
 auth.registerOnLogout(() => {
-  Curtain.toggleCurtain("map", false);
-  Curtain.toggleCurtain("side-bar", false);
+  curtain.setCurtainVisibility("map", false);
+  curtain.setCurtainVisibility("side-bar", false);
 });
 
 // sidebar initialization

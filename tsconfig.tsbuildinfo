@@ -167,8 +167,8 @@
         "affectsGlobalScope": false
       },
       "./src/util/curtain.ts": {
-        "version": "302b80c2b228534107b7fd4a58e64bc3b2b6efb78be9c02a1b902d6cc8bcc7e2",
-        "signature": "5705079189710353833c8f9c294a667498f1f270f60d29a0d1d587904f53cfbf",
+        "version": "a6e3b905599d1690876e5094821f80e3d545aa8dd4d55899ef71da0a841ea66f",
+        "signature": "cfa9217c1da7ea89fccb857368811913d2549df854c6ad524e22c1418608495d",
         "affectsGlobalScope": false
       },
       "./src/footer/cardtype.ts": {
@@ -182,7 +182,7 @@
         "affectsGlobalScope": false
       },
       "./src/maintitle/maintitle.ts": {
-        "version": "1057ee19a11a3adc81d04692b64690d073bd195d14cc8475ecd8223588c7b78e",
+        "version": "93d89e724ea2402d7a63314676184036ce45732ea95a410e87e070af333ae8b5",
         "signature": "65b151342bd1dee3d97943f79f067fcf1245ec7f6d0c25949c14323d29e920e1",
         "affectsGlobalScope": false
       },
@@ -211,18 +211,18 @@
         "signature": "d8b22928a06fc6317691547cbed506823f39fd54c95a5524fc1b9e86c7a030c8",
         "affectsGlobalScope": false
       },
-      "./src/authentication/tyuserloginresult.ts": {
-        "version": "4907e0c814da5e9865e0ed5d2b598c55f117978a8ba936cd69611fff6114056a",
-        "signature": "f315ca1580af5f950ab00151b06e3e1b81778c401379fab3eef16d80b000800e",
+      "./src/authentication/login/tyuserlogindata.ts": {
+        "version": "31308f04b785ec41db4dda0e5bcda5d05447bf116e9042629676bba42abc8d6b",
+        "signature": "f05832451899b949882c30eff328eb16bd439c9a0d5d593c120d8c275ad67644",
         "affectsGlobalScope": false
       },
       "./src/authentication/tyauthuiupdater.ts": {
-        "version": "03adace8ae6fae132239d4436549b106784e6f71052830920ef0dab082ba724a",
-        "signature": "24f01613660b915763d45ac8d80665deb408358d04e6935de23beeef4270e25a",
+        "version": "39bfc9d62383d201c1fee80278b86d19489d806ba2f759917da01e1328f2c684",
+        "signature": "9332f8e320bc6d47d9964ea7a3b41b58c3489e0778de2b2e8228a1c2b08d5d1e",
         "affectsGlobalScope": false
       },
       "./src/authentication/login/login.ts": {
-        "version": "502fab8c2fd5b07a1d44edfb9772054d4042a015dd58cd84a78eccad309b7605",
+        "version": "7bcc7aca2b0a2ab874d871a546af44dad27bc91ec1a46f220e408adf875f84b5",
         "signature": "040054abd4330119ee25d269c935e0bc6be7b713a2f40cda6964a194c956a900",
         "affectsGlobalScope": false
       },
@@ -232,18 +232,23 @@
         "affectsGlobalScope": false
       },
       "./src/authentication/logout/logout.ts": {
-        "version": "a387c7e7bdb5cc1ceefdf2b8646be4d2bdb82168d89472f34575207913bdc40c",
-        "signature": "1a33055637a8004b11b397ac1f5743af1572aa62b3930789a0ae69cec946f8fe",
+        "version": "9c79bdc8941d5964994350fbc54ef53b4a8d2ea87b47b2fdd867f190b3d57249",
+        "signature": "6b479e898c99e33ffa7a86248d53be7486072a3c11b4525cbe666d4c47bfec05",
         "affectsGlobalScope": false
       },
       "./src/signup/signuppopup.ts": {
-        "version": "9b192ef047127472de50e6086fef937461ddb665c6b2a754c8f051c9126b8dea",
-        "signature": "a9a38dc72ce9e4cfda79043d8c6ecfb155bf4a81a3c483bda2f8794a7f989c54",
+        "version": "1876adf25fb2b732e2bfe05330f787b3599eec99930ba2947e0359695a9483a9",
+        "signature": "d9a019cc192673199a928cd493f9ed4618797598258d07c1033a897385f2c8ba",
+        "affectsGlobalScope": false
+      },
+      "./src/authentication/logout/tyusersignupdata.ts": {
+        "version": "1b716fe5652473924fc3e0c118c6806c8047079701fae51190bb5aed2d80a174",
+        "signature": "9ccb0aae1ffbd0bb9d93576caeff5150877859420b40c1f2cd178abe73ac5e2b",
         "affectsGlobalScope": false
       },
       "./src/authentication/signup/signup.ts": {
-        "version": "dbcf09ad4e0b0044c0a6a7857337665448352f51f7938e91f6c3ebfa2a888bf0",
-        "signature": "edd3ddc29aa87ccfc5e707dd2c35e34b97cf8a29c95a6803accbcb7de9ae4367",
+        "version": "22ba84ee9a61bf3c67157abeb351f9e3b611d14fc0f2e2d959d5ce73ae60eedb",
+        "signature": "dfdcdc69c17c572d44bccb361fea0cc67f7bb0b30fd77ee6c095ee98c90ab002",
         "affectsGlobalScope": false
       },
       "./src/authentication/about/about.ts": {
@@ -252,12 +257,12 @@
         "affectsGlobalScope": false
       },
       "./src/authentication/auth.ts": {
-        "version": "a078e6c3f2197b697076936d75c1c268304eb194a75007bfe43343c1f05e1bc4",
+        "version": "5a6ee7dd096a5dabdff17b4bf983e095049f40ef6be224aeb13f07d3e8b124d1",
         "signature": "423b23859799c45bd5d0f9be1d1443fd88ef77e28dea7f5ae93b46261fc6c48f",
         "affectsGlobalScope": false
       },
       "./src/entry.ts": {
-        "version": "0e416b0e21384850c43341ccfcbebb43504d6188cb74320d714b20f6b171997c",
+        "version": "9dbe4d7bfe06019721fd953ee7188a01e76fc5735074f90c156a32990d1356a9",
         "signature": "9b88fd6676c8cc7bb111bb0ee129598d119ef17af9ac8d3db25cff6c90c077a7",
         "affectsGlobalScope": false
       },
@@ -280,6 +285,11 @@
         "version": "53eeaca9e2c27aa74dd88a91f3eecafa623ce08fa98ec78901a850c3762cc1d5",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
+      },
+      "./src/util/form-checker.ts": {
+        "version": "774654706fe0ad533c32c62131492b620edc4492add10a91c2352a69f5752d33",
+        "signature": "a620e7bf13a0ce8d70c4c9e1bb3201491f1232378b73be3306025e37402b3894",
+        "affectsGlobalScope": true
       },
       "./src/util/helper.ts": {
         "version": "84aae9c10840a4abfc133a02e915a2df2948727a10e611e7a021378a2baaf56b",
@@ -784,10 +794,10 @@
         "./src/authentication/eauthstatus.ts",
         "./src/authentication/login/autologin.ts",
         "./src/authentication/login/login.ts",
+        "./src/authentication/login/tyuserlogindata.ts",
         "./src/authentication/logout/logout.ts",
         "./src/authentication/signup/signup.ts",
-        "./src/authentication/tyauthuiupdater.ts",
-        "./src/authentication/tyuserloginresult.ts"
+        "./src/authentication/tyauthuiupdater.ts"
       ],
       "./src/authentication/login/autologin.ts": [
         "./src/authentication/eauthstatus.ts"
@@ -795,8 +805,8 @@
       "./src/authentication/login/login.ts": [
         "./node_modules/axios/index.d.ts",
         "./src/authentication/eauthstatus.ts",
+        "./src/authentication/login/tyuserlogindata.ts",
         "./src/authentication/tyauthuiupdater.ts",
-        "./src/authentication/tyuserloginresult.ts",
         "./src/util/callback-chain.ts",
         "./src/util/config.ts"
       ],
@@ -806,11 +816,14 @@
         "./src/util/callback-chain.ts"
       ],
       "./src/authentication/signup/signup.ts": [
-        "./src/signup/signuppopup.ts"
+        "./node_modules/axios/index.d.ts",
+        "./src/authentication/logout/tyusersignupdata.ts",
+        "./src/signup/signuppopup.ts",
+        "./src/util/config.ts"
       ],
       "./src/authentication/tyauthuiupdater.ts": [
         "./src/authentication/eauthstatus.ts",
-        "./src/authentication/tyuserloginresult.ts"
+        "./src/authentication/login/tyuserlogindata.ts"
       ],
       "./src/entry.ts": [
         "./node_modules/@types/regenerator-runtime/index.d.ts",
@@ -1083,7 +1096,7 @@
       ],
       "./src/authentication/tyauthuiupdater.ts": [
         "./src/authentication/eauthstatus.ts",
-        "./src/authentication/tyuserloginresult.ts"
+        "./src/authentication/login/tyuserlogindata.ts"
       ],
       "./src/entry.ts": [
         "./node_modules/@types/regenerator-runtime/index.d.ts"
@@ -1178,10 +1191,23 @@
       "./src/authentication/eauthstatus.ts",
       "./src/authentication/login/autologin.ts",
       "./src/authentication/login/login.ts",
+      "./src/authentication/login/tyuserlogindata.ts",
       "./src/authentication/logout/logout.ts",
-      "./src/authentication/signup/signup.ts",
+      "./src/authentication/logout/tyusersignupdata.ts",
+      [
+        "./src/authentication/signup/signup.ts",
+        [
+          {
+            "file": "./src/authentication/signup/signup.ts",
+            "start": 1675,
+            "length": 6,
+            "code": 2322,
+            "category": 1,
+            "messageText": "Type 'undefined' is not assignable to type 'boolean'."
+          }
+        ]
+      ],
       "./src/authentication/tyauthuiupdater.ts",
-      "./src/authentication/tyuserloginresult.ts",
       "./src/entry.ts",
       "./src/footer/cardtype.ts",
       "./src/footer/footer.ts",
@@ -1199,6 +1225,7 @@
       "./src/util/callback-chain.ts",
       "./src/util/config.ts",
       "./src/util/curtain.ts",
+      "./src/util/form-checker.ts",
       "./src/util/helper.ts"
     ]
   },

@@ -40,25 +40,32 @@ class LogOut {
     // bind the logout button
     this.logoutBtnEl.addEventListener("click", this.logOut.bind(this));
   }
-
+  /**
+   * perform logout.
+   */
   private logOut(): void {
     this.authUIUpdater(EAuthStatus.LOGGED_OUT);
+    // TODO: Tidy all the remaining informations as the security purpose or resources efficiency.
     // invoke the onLogout() callback
     this.onLogout.invoke();
   }
-
+  /**
+   * update the introduction after login.
+   * @param content user name as a login result.
+   */
   updateIntroductionParagraph(content: string): void {
     const template = `<p class="introduction--username">${content.trim()} !</p>`;
+
     const introductionNode = document.createElement("p");
     introductionNode.innerHTML = "안녕하세요";
     introductionNode.setAttribute("class", "introduction");
     introductionNode.insertAdjacentHTML("beforeend", template);
+
     this.introductionParagraphEl.innerHTML = "";
     this.introductionParagraphEl.insertBefore(
       introductionNode,
       this.introductionParagraphEl.firstChild
     );
-    // this.introductionParagraphEl.textContent = `안녕하세요 ${content.trim()} 님`;
   }
 }
 

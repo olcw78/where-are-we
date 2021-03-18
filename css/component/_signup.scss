@@ -62,7 +62,7 @@
 
       text-align: start;
       margin-top: 30px;
-      padding-bottom: 20px;      
+      padding-bottom: 20px;
 
       @include put-line-separator(bottom);
     }
@@ -92,29 +92,29 @@
     }
   }
 
-  .signup-popup-body .signup-popup-close {
-    position: absolute;
-    top: -1.2%;
-    left: 97%;
-
-    width: 30px;
-    height: 30px;
-
-    background: #fff;
-    border: 3px solid rgb(100, 100, 100);
-    border-radius: 40px;
-
-    font-size: 25px;
-    font-weight: 700;
-    text-align: center;
-
-    margin: 0;
-    padding: 0;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
+  // .signup-popup-body .signup-popup-close {
+  //   position: absolute;
+  //   top: -1.2%;
+  //   left: 97%;
+  //
+  //   width: 30px;
+  //   height: 30px;
+  //
+  //   background: #fff;
+  //   border: 3px solid rgb(100, 100, 100);
+  //   border-radius: 40px;
+  //
+  //   font-size: 25px;
+  //   font-weight: 700;
+  //   text-align: center;
+  //
+  //   margin: 0;
+  //   padding: 0;
+  //
+  //   &:hover {
+  //     cursor: pointer;
+  //   }
+  // }
 
   .signup-popup-body .btn {
     margin-top: 15px;

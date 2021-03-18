@@ -5,7 +5,7 @@ import LogOut from "./logout/LogOut";
 import Signup from "./signup/Signup";
 import About from "./about/About";
 import TyUpdateAuthUI from "./TyAuthUIUpdater";
-import TyUserLoginResult from "./TyUserLoginResult";
+import TyUserLoginData from "./login/TyUserLoginData";
 
 class Auth {
   /**
@@ -88,7 +88,7 @@ class Auth {
    * @param status select where to update.
    * @param newAuthUIEl new updated Element that is going to be used.
    */
-  private update(status: EAuthStatus, loginResult?: TyUserLoginResult): void {
+  private update(status: EAuthStatus, loginResult?: TyUserLoginData): void {
     // private update(status: EAuthStatus, updateAuthEl: HTMLElement): void {
     // 1. update auth status.
     this.authStatus = status;

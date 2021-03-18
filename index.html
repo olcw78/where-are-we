@@ -104,7 +104,9 @@
 
         <!-- 2. logout form -->
         <form class="logout-form">
-          <p class="introduction">will have been being replacted with the login info</p>
+          <p class="introduction">
+            will have been being replacted with the login info
+          </p>
           <button type="button" class="btn btn--primary about-btn">정보</button>
           <button type="button" class="btn btn--logout logout-btn">
             로그아웃
@@ -118,7 +120,6 @@
         <!-- signup form -->
         <h2>회원 가입</h2>
 
-        <!-- <form action="/signup" method="POST" id="signup-form"> -->
         <form id="signup-form">
           <section class="signup">
             <div class="label-textfields">
@@ -128,9 +129,13 @@
             </div>
 
             <div class="textfields">
-              <input type="text" name="id" />
-              <input type="password" name="password" />
-              <input type="password" name="passwordConfirm" />
+              <input type="text" name="id" class="signup-id" />
+              <input type="password" name="password" class="signup-password" />
+              <input
+                type="password"
+                name="passwordConfirm"
+                class="signup-passwordConfirm"
+              />
             </div>
 
             <div class="label-textfields">
@@ -140,9 +145,9 @@
             </div>
 
             <div class="textfields">
-              <input type="text" name="name" />
-              <input type="email" name="email" />
-              <input type="tel" name="phoneNum" />
+              <input type="text" name="username" class="signup-username"/>
+              <input type="email" name="email" class="signup-email"/>
+              <input type="tel" name="phoneNum" class="signup-phonenum"/>
             </div>
           </section>
 
@@ -154,8 +159,7 @@
           </button>
         </form>
 
-        <!-- 닫기 버튼 -->
-        <div class="signup-popup-close">X</div>
+        <!--  -->
       </div>
     </div>
 

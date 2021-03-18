@@ -4,7 +4,7 @@ import { baseURL } from "../../util/config";
 import CallbackChain from "../../util/callback-chain";
 import { EAuthStatus } from "../EAuthStatus";
 import TyUpdateAuthUI from "../TyAuthUIUpdater";
-import TyUserLoginResult from "../TyUserLoginResult";
+import TyUserLoginData from "./TyUserLoginData";
 
 class LogIn {
   /**
@@ -70,10 +70,12 @@ class LogIn {
     // 1. request login
     const res = await axios.post(`${baseURL}/login`, loginInfo);
     // const { token } = res.data;
-    
-    console.log(res.data.data.user);
-    const data = Object.assign({}, { ...res.data.data.user }) as TyUserLoginResult;
+    const data = Object.assign(
+      {},
+      { ...res.data.data.user }
+    ) as TyUserLoginData;
     console.log(data);
+
     // load username from the cookie
     // let userName: string = "";
     // document.cookie

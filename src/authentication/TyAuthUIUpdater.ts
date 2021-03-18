@@ -1,5 +1,5 @@
 import { EAuthStatus } from "./EAuthStatus";
-import TyUserLoginResult from "./TyUserLoginResult";
+import TyUserLoginData from "./login/TyUserLoginData";
 /**
  * remote caller for updating the auth UI after by EAuthStatus.
  */
@@ -10,7 +10,7 @@ import TyUserLoginResult from "./TyUserLoginResult";
 
 type TyUpdateAuthUI = (
   authStatus: EAuthStatus,
-  loginResult?: TyUserLoginResult
+  loginResult?: TyUserLoginData
 ) => void | unknown;
 
 export default TyUpdateAuthUI;

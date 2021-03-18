@@ -38,13 +38,13 @@ class MainTitle {
       this.onToggleMainTitle.bind(this)
     );
   }
-
   /**
    * Triggered on clicking the button to toggle the main title.
    */
   private onToggleMainTitle(): void {
     // 1. update the main title area.
     this.mainTitleEl.classList.toggle("hidden");
+
     // 2. update the arrow icon.
     if (this.isToggled) {
       this.arrowEl.classList.remove("fa-arrow-down");
@@ -53,6 +53,7 @@ class MainTitle {
       this.arrowEl.classList.add("fa-arrow-down");
       this.arrowEl.classList.remove("fa-arrow-up");
     }
+
     // 3. update the toggled status
     this.isToggled = !this.isToggled;
   }

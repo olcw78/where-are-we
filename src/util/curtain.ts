@@ -1,12 +1,41 @@
+/**
+ * Control Curtain component by it is whther logged in or out.
+ */
 class Curtain {
-  static toggleCurtain(positionClassname: string, isConnected: boolean): void {
-    const pos: HTMLElement = document.querySelector(
-      `.${positionClassname}`
-    )! as HTMLElement;
+  /**
+   * registered curtain cache.
+   */
+  curtainPositionElArr: HTMLElement[];
 
+  constructor() {
+    this.curtainPositionElArr = [];
+  }
+  /**
+   * 
+   * @param newCurtainElClassName 
+   */
+  registerCurtains(...newCurtainElClassName: string[]) {
+    this.curtainPositionElArr.push(
+      document.querySelector(`.${newCurtainElClassName}`)! as HTMLElement
+    );
+  }
+
+  /**
+   * toggle curtain.
+   * @param curtainElClassName a class name of the target curtain.
+   * @param isConnected is logged in or out?
+   */
+  setCurtainVisibility(
+    curtainElClassName: string,
+    isConnected: boolean
+  ): void {
     isConnected
-      ? pos.classList.remove("curtain")
-      : pos.classList.add("curtain");
+      ? this.curtainPositionElArr[curtainElClassName].classList.remove(
+          "curtain"
+        )
+      : this.curtainPositionElArr[curtainElClassName].classList.add(
+          "curtain"
+        );
   }
 }
 

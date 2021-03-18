@@ -1,4 +1,4 @@
-type TyUserLoginResult = {
+type TyUserLoginData = {
   email: string;
   id: string;
   username: string;
@@ -7,7 +7,7 @@ type TyUserLoginResult = {
   _id: string;
 };
 
-export default TyUserLoginResult;
+export default TyUserLoginData;
 // data:
 //   user:
 //     email: "admini@gg.gg"
