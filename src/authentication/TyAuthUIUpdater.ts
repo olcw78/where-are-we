@@ -1,4 +1,5 @@
 import { EAuthStatus } from "./EAuthStatus";
+import TyUserLoginResult from "./TyUserLoginResult";
 /**
  * remote caller for updating the auth UI after by EAuthStatus.
  */
@@ -6,6 +7,10 @@ import { EAuthStatus } from "./EAuthStatus";
 //   authStatus: EAuthStatus,
 //   newAuthUIEl: HTMLElement
 // ) => void | unknown;
-type TyUpdateAuthUI = (authStatus: EAuthStatus) => void | unknown;
+
+type TyUpdateAuthUI = (
+  authStatus: EAuthStatus,
+  loginResult?: TyUserLoginResult
+) => void | unknown;
 
 export default TyUpdateAuthUI;

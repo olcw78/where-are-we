@@ -2,13 +2,25 @@ import CallbackChain from "../../util/callback-chain";
 import { EAuthStatus } from "../EAuthStatus";
 import TyUpdateAuthUI from "../TyAuthUIUpdater";
 
+/**
+ * LogOut module which controls the state of being logged in.
+ */
 class LogOut {
-  /** */
+  /**
+   * Logout btn.
+   */
   private logoutBtnEl: HTMLButtonElement;
-
-  /** */
+  /**
+   * Introduction paragraph after logged in.
+   */
+  private introductionParagraphEl: HTMLParagraphElement;
+  /**
+   * Triggered callback chain on logout.
+   */
   onLogout: CallbackChain;
-  /** */
+  /**
+   * Auth UI Updator.
+   */
   private authUIUpdater: TyUpdateAuthUI;
 
   constructor(authUIUpdater: TyUpdateAuthUI) {
@@ -21,6 +33,10 @@ class LogOut {
       ".logout-btn"
     )! as HTMLButtonElement;
 
+    this.introductionParagraphEl = document.querySelector(
+      ".introduction"
+    )! as HTMLParagraphElement;
+
     // bind the logout button
     this.logoutBtnEl.addEventListener("click", this.logOut.bind(this));
   }
@@ -29,6 +45,20 @@ class LogOut {
     this.authUIUpdater(EAuthStatus.LOGGED_OUT);
     // invoke the onLogout() callback
     this.onLogout.invoke();
+  }
+
+  updateIntroductionParagraph(content: string): void {
+    const template = `<p class="introduction--username">${content.trim()} !</p>`;
+    const introductionNode = document.createElement("p");
+    introductionNode.innerHTML = "안녕하세요";
+    introductionNode.setAttribute("class", "introduction");
+    introductionNode.insertAdjacentHTML("beforeend", template);
+    this.introductionParagraphEl.innerHTML = "";
+    this.introductionParagraphEl.insertBefore(
+      introductionNode,
+      this.introductionParagraphEl.firstChild
+    );
+    // this.introductionParagraphEl.textContent = `안녕하세요 ${content.trim()} 님`;
   }
 }
 

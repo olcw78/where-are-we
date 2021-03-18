@@ -4,6 +4,7 @@ import { baseURL } from "../../util/config";
 import CallbackChain from "../../util/callback-chain";
 import { EAuthStatus } from "../EAuthStatus";
 import TyUpdateAuthUI from "../TyAuthUIUpdater";
+import TyUserLoginResult from "../TyUserLoginResult";
 
 class LogIn {
   /**
@@ -65,24 +66,26 @@ class LogIn {
       { pw },
       isEmail ? { email: idOrEmail } : { id: idOrEmail }
     );
-    console.log(loginInfo);
 
     // 1. request login
     const res = await axios.post(`${baseURL}/login`, loginInfo);
-    console.log(res);
-
+    // const { token } = res.data;
+    
+    console.log(res.data.data.user);
+    const data = Object.assign({}, { ...res.data.data.user }) as TyUserLoginResult;
+    console.log(data);
     // load username from the cookie
-    let userName: string = "";
-    document.cookie
-      .trim()
-      .split(";")
-      .forEach((cookie: string) => {
-        const splitted: string[] = cookie.split("=");
-        if (splitted[0]?.trim() === "name") {
-          userName = splitted[1]?.trim() ?? "";
-        }
-      });
-    this.authUIUpdater(EAuthStatus.LOGGED_IN);
+    // let userName: string = "";
+    // document.cookie
+    //   .trim()
+    //   .split(";")
+    //   .forEach((cookie: string) => {
+    //     const splitted: string[] = cookie.split("=");
+    //     if (splitted[0]?.trim() === "name") {
+    //       userName = splitted[1]?.trim() ?? "";
+    //     }
+    //   });
+    this.authUIUpdater(EAuthStatus.LOGGED_IN, data);
     // invoke the onLogin() callback
     this.onLogin.invoke();
   }

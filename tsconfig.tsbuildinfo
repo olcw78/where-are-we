@@ -211,13 +211,18 @@
         "signature": "d8b22928a06fc6317691547cbed506823f39fd54c95a5524fc1b9e86c7a030c8",
         "affectsGlobalScope": false
       },
+      "./src/authentication/tyuserloginresult.ts": {
+        "version": "4907e0c814da5e9865e0ed5d2b598c55f117978a8ba936cd69611fff6114056a",
+        "signature": "f315ca1580af5f950ab00151b06e3e1b81778c401379fab3eef16d80b000800e",
+        "affectsGlobalScope": false
+      },
       "./src/authentication/tyauthuiupdater.ts": {
-        "version": "2347a219ff5005b981558022cc4bfe2dce424dba2a3b38387835dc0496a0095e",
-        "signature": "67bb2cbcb6fd5cd3dcf91e887ca4a72060af3125ef8ffc73e603a306b5de6acd",
+        "version": "03adace8ae6fae132239d4436549b106784e6f71052830920ef0dab082ba724a",
+        "signature": "24f01613660b915763d45ac8d80665deb408358d04e6935de23beeef4270e25a",
         "affectsGlobalScope": false
       },
       "./src/authentication/login/login.ts": {
-        "version": "1a0777de9165ef477cacd2a04bb8949a929b22163e3fa60caf705e4db5890fa9",
+        "version": "502fab8c2fd5b07a1d44edfb9772054d4042a015dd58cd84a78eccad309b7605",
         "signature": "040054abd4330119ee25d269c935e0bc6be7b713a2f40cda6964a194c956a900",
         "affectsGlobalScope": false
       },
@@ -227,8 +232,8 @@
         "affectsGlobalScope": false
       },
       "./src/authentication/logout/logout.ts": {
-        "version": "0971c826bb2c281b671f11384c6eda1d4e43fe4fbe8266f53b7ed3998f62a4a7",
-        "signature": "35dd4a0bedc49644b16d15e0839f9bab31f5230fb630f660576d21182e85cf5f",
+        "version": "a387c7e7bdb5cc1ceefdf2b8646be4d2bdb82168d89472f34575207913bdc40c",
+        "signature": "1a33055637a8004b11b397ac1f5743af1572aa62b3930789a0ae69cec946f8fe",
         "affectsGlobalScope": false
       },
       "./src/signup/signuppopup.ts": {
@@ -247,7 +252,7 @@
         "affectsGlobalScope": false
       },
       "./src/authentication/auth.ts": {
-        "version": "6998e395ce227c63c08879247781da2c56afbeff67e87e81746b03627a487731",
+        "version": "a078e6c3f2197b697076936d75c1c268304eb194a75007bfe43343c1f05e1bc4",
         "signature": "423b23859799c45bd5d0f9be1d1443fd88ef77e28dea7f5ae93b46261fc6c48f",
         "affectsGlobalScope": false
       },
@@ -780,7 +785,9 @@
         "./src/authentication/login/autologin.ts",
         "./src/authentication/login/login.ts",
         "./src/authentication/logout/logout.ts",
-        "./src/authentication/signup/signup.ts"
+        "./src/authentication/signup/signup.ts",
+        "./src/authentication/tyauthuiupdater.ts",
+        "./src/authentication/tyuserloginresult.ts"
       ],
       "./src/authentication/login/autologin.ts": [
         "./src/authentication/eauthstatus.ts"
@@ -789,6 +796,7 @@
         "./node_modules/axios/index.d.ts",
         "./src/authentication/eauthstatus.ts",
         "./src/authentication/tyauthuiupdater.ts",
+        "./src/authentication/tyuserloginresult.ts",
         "./src/util/callback-chain.ts",
         "./src/util/config.ts"
       ],
@@ -801,7 +809,8 @@
         "./src/signup/signuppopup.ts"
       ],
       "./src/authentication/tyauthuiupdater.ts": [
-        "./src/authentication/eauthstatus.ts"
+        "./src/authentication/eauthstatus.ts",
+        "./src/authentication/tyuserloginresult.ts"
       ],
       "./src/entry.ts": [
         "./node_modules/@types/regenerator-runtime/index.d.ts",
@@ -1073,7 +1082,8 @@
         "./src/signup/signuppopup.ts"
       ],
       "./src/authentication/tyauthuiupdater.ts": [
-        "./src/authentication/eauthstatus.ts"
+        "./src/authentication/eauthstatus.ts",
+        "./src/authentication/tyuserloginresult.ts"
       ],
       "./src/entry.ts": [
         "./node_modules/@types/regenerator-runtime/index.d.ts"
@@ -1171,6 +1181,7 @@
       "./src/authentication/logout/logout.ts",
       "./src/authentication/signup/signup.ts",
       "./src/authentication/tyauthuiupdater.ts",
+      "./src/authentication/tyuserloginresult.ts",
       "./src/entry.ts",
       "./src/footer/cardtype.ts",
       "./src/footer/footer.ts",

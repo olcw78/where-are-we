@@ -4,6 +4,8 @@ import AutoLogin from "./login/AutoLogin";
 import LogOut from "./logout/LogOut";
 import Signup from "./signup/Signup";
 import About from "./about/About";
+import TyUpdateAuthUI from "./TyAuthUIUpdater";
+import TyUserLoginResult from "./TyUserLoginResult";
 
 class Auth {
   /**
@@ -86,7 +88,7 @@ class Auth {
    * @param status select where to update.
    * @param newAuthUIEl new updated Element that is going to be used.
    */
-  private update(status: EAuthStatus): void {
+  private update(status: EAuthStatus, loginResult?: TyUserLoginResult): void {
     // private update(status: EAuthStatus, updateAuthEl: HTMLElement): void {
     // 1. update auth status.
     this.authStatus = status;
@@ -94,7 +96,13 @@ class Auth {
     this.toggleLoginAndLogoutForm();
     switch (status) {
       case EAuthStatus.LOGGED_IN:
-        //
+        // update the ui with the login result.
+        console.log(loginResult!);
+        const { username: userName } = loginResult!;
+        
+        // 1. to the updated login ui
+        this.logOut.updateIntroductionParagraph(userName);
+        // 2. to the about page
         break;
 
       case EAuthStatus.LOGGED_OUT:
