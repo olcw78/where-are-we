@@ -1217,6 +1217,12 @@
       "./src/util/curtain.ts",
       "./src/util/form-checker.ts",
       "./src/util/helper.ts"
+    ],
+    "affectedFilesPendingEmit": [
+      [
+        "./src/util/form-checker.ts",
+        1
+      ]
     ]
   },
   "version": "4.2.3"
