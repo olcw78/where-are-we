@@ -247,13 +247,13 @@
         "affectsGlobalScope": false
       },
       "./src/util/form-checker.ts": {
-        "version": "0cd412c7be61baa4d83d3e75d75522739a26cc23ac9b17cf599059548bed58f3",
+        "version": "d8e5c43c12870f0989e39c533e8160c257435a46e46fe6406f598fd92cdbff56",
         "signature": "ad624efe480161b2e20533a20b1a2493467cf071b59741ef607483826f6163ec",
         "affectsGlobalScope": false
       },
       "./src/authentication/signup/signup.ts": {
-        "version": "f0868422c6484fe10491f9b9c1dd0a4a5c58c06b1d1a40e36162a9b29e23ba9d",
-        "signature": "dfdcdc69c17c572d44bccb361fea0cc67f7bb0b30fd77ee6c095ee98c90ab002",
+        "version": "a1e481428364a9107e469bf41f7fa62cc0e764ff8d002bc4b3e489535bbeed15",
+        "signature": "c4b3b35e2ef50dfcbebc46689533f5b3a90c800dae3cf7c8502760a3e7ba9779",
         "affectsGlobalScope": false
       },
       "./src/authentication/about/about.ts": {
