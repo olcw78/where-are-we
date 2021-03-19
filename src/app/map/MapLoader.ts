@@ -3,7 +3,7 @@ import InfoWindowWrapper from "./InfoWindowWrapper";
 
 class MapLoader {
   // Props
-  private static initZoom: number = 15;
+  private static readonly initZoom: number = 15;
 
   // Instnaces
   private static map: any;

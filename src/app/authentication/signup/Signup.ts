@@ -6,15 +6,15 @@ import FormChecker from "../../util/Form-checker";
 
 class Signup {
   /**
-   *
+   * Signup popup holder
    */
   private readonly signupPopup: SignupPopup;
   get popup(): SignupPopup {
     return this.signupPopup;
   }
   /**
-   *
-   */
+   * 
+   */ 
   private readonly signupIDEl: HTMLInputElement;
   /**
    *
