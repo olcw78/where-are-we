@@ -1,11 +1,11 @@
 // const mongoose = require("mongoose");
 import mongoose from "mongoose";
 // const User = require("../model/user-model");
-import { User } from "../model/user-model";
+import { User } from "../model/User-model";
 // const AppError = require("../util/app-error");
-import AppError from "../util/app-error";
+import AppError from "../util/App-error";
 // const catchAsync = require("../util/async-catch");
-import { AsyncCatch } from "../util/async-catch";
+import { AsyncCatch } from "../util/Async-catch";
 
 // const login = catchAsync();
 

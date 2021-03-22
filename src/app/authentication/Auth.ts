@@ -1,10 +1,10 @@
 import { EAuthStatus } from "./EAuthStatus";
-import LogIn from "./login/LogIn";
+import Login from "./login/Login";
 import AutoLogin from "./login/AutoLogin";
-import LogOut from "./logout/LogOut";
+import Logout from "./logout/Logout";
 import Signup from "./signup/Signup";
 import About from "./about/About";
-import TyUpdateAuthUI from "./TyAuthUIUpdater";
+// import TyUpdateAuthUI from "./TyAuthUIUpdater";
 import TyUserLoginData from "./login/TyUserLoginData";
 
 class Auth {
@@ -15,23 +15,21 @@ class Auth {
   currentAuthStatus(): EAuthStatus {
     return this.authStatus;
   }
+
   /** Login module */
-  private logIn: LogIn;
+  private login: Login;
   /** AutoLogin module */
   private autoLogin: AutoLogin;
   /** Logout module */
-  private logOut: LogOut;
+  private logout: Logout;
   /** SignUp module */
-  private signUp: Signup;
+  private signup: Signup;
   /** About module */
   private about: About;
-  /**
-   *
-   */
+
+  /** Form that has all login info */
   private loginFormEl: HTMLFormElement;
-  /**
-   *
-   */
+  /** Form that has all logout info */
   private logoutFormEl: HTMLFormElement;
 
   constructor() {
@@ -39,10 +37,10 @@ class Auth {
     this.authStatus = EAuthStatus.LOGGED_OUT;
 
     // init modules
-    this.logIn = new LogIn(this.update.bind(this));
-    this.autoLogin = new AutoLogin(this.logIn.login);
-    this.logOut = new LogOut(this.update.bind(this));
-    this.signUp = new Signup();
+    this.login = new Login(this.updateAuth.bind(this));
+    this.autoLogin = new AutoLogin(this.login.performLogin);
+    this.logout = new Logout(this.updateAuth.bind(this));
+    this.signup = new Signup();
     this.about = new About();
 
     this.loginFormEl = document.querySelector(
@@ -62,38 +60,38 @@ class Auth {
    * @param fn callback function when the user is logged in.
    */
   registerOnLogin(fn: Function): void {
-    this.logIn.onLogin?.register(fn);
+    this.login.onLogin?.register(fn);
   }
   /**
    * register the callback function for logout.
    * @param fn callback function when the user is logged out.
    */
   registerOnLogout(fn: Function): void {
-    this.logOut.onLogout?.register(fn);
+    this.logout.onLogout?.register(fn);
   }
   /**
    * invoke the login callback chain.
    */
   invokeOnLogin(): void {
-    this.logIn.onLogin?.invoke();
+    this.login.onLogin?.invoke();
   }
   /**
    * invoke the logout callback chain.
    */
   invokeOnLogout(): void {
-    this.logOut.onLogout?.invoke();
+    this.logout.onLogout?.invoke();
   }
   /**
-   *
+   * Update the Auth by the standard of status
    * @param status select where to update.
    * @param newAuthUIEl new updated Element that is going to be used.
    */
-  private update(status: EAuthStatus, loginResult?: TyUserLoginData): void {
-    // private update(status: EAuthStatus, updateAuthEl: HTMLElement): void {
+  private updateAuth(status: EAuthStatus, loginResult?: TyUserLoginData): void {
     // 1. update auth status.
     this.authStatus = status;
 
     this.toggleLoginAndLogoutForm();
+
     switch (status) {
       case EAuthStatus.LOGGED_IN:
         // update the ui with the login result.
@@ -101,7 +99,7 @@ class Auth {
         const { username: userName } = loginResult!;
 
         // 1. to the updated login ui
-        this.logOut.updateIntroductionParagraph(userName);
+        this.logout.updateIntroductionParagraph(userName);
         // 2. to the about page
         break;
 

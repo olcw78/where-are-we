@@ -5,15 +5,15 @@ class MainTitle {
   /**
    * Main title Area that being toggled.
    */
-  private mainTitleEl: HTMLHeadingElement;
+  private readonly mainTitleEl: HTMLHeadingElement;
   /**
    * Triggering toggling the main title area.
    */
-  private toggleBtnEl: HTMLDivElement;
+  private readonly toggleBtnEl: HTMLDivElement;
   /**
    * Visual UI for whether being toggled or not.
    */
-  private arrowEl: HTMLSpanElement;
+  private readonly arrowEl: HTMLSpanElement;
   /**
    * The status flag whether being toggled or not.
    */
@@ -21,18 +21,19 @@ class MainTitle {
 
   constructor() {
     // bind dom
-    this.mainTitleEl = document.querySelector(
-      ".main-title"
-    )! as HTMLHeadingElement;
+    this.mainTitleEl = <HTMLHeadingElement>(
+      document.querySelector(".main-title")!
+    );
 
-    this.toggleBtnEl = document.querySelector(
-      ".main-title-toggle"
-    )! as HTMLHeadingElement;
+    this.toggleBtnEl = <HTMLHeadingElement>(
+      document.querySelector(".main-title-toggle")!
+    );
 
     this.arrowEl = document
       .querySelector(".main-title-toggle")
       ?.querySelector(".fas")! as HTMLSpanElement;
 
+    // bind event
     this.toggleBtnEl.addEventListener(
       "click",
       this.onToggleMainTitle.bind(this)

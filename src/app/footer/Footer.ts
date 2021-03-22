@@ -12,18 +12,13 @@ class Footer {
         `;
     }
 
-    const node: HTMLUListElement = document.createElement(
-      "ul"
-    )! as HTMLUListElement;
-    node.setAttribute("class", "info");
-    node.innerHTML = "";
-    node.insertAdjacentHTML("beforeend", template);
+    const basePostionEl = <HTMLUListElement>document.createElement("ul")!;
+    basePostionEl.setAttribute("class", "info");
+    basePostionEl.innerHTML = "";
+    basePostionEl.insertAdjacentHTML("beforeend", template);
 
-    const footer: HTMLElement = document.querySelector(
-      "footer"
-    )! as HTMLElement;
-    // footer.appendChild(node);
-    footer.insertBefore(node, footer.firstChild);
+    const footerEl = <HTMLElement>document.querySelector("footer")!;
+    footerEl.insertBefore(basePostionEl, footerEl.firstChild);
   }
 
   static init(): void {

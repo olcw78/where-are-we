@@ -1,7 +1,7 @@
 import {
   HandleUncaughtException,
   HandleUnhandledRejection,
-} from "./controller/error-ctrl";
+} from "./controller/Error-ctrl";
 HandleUncaughtException();
 
 import mongoose from "mongoose";
@@ -12,12 +12,14 @@ class Server {
   private readonly app: App;
   private readonly dbURL: string;
   private readonly envPath: string;
+  private readonly portNum: number;
 
   constructor() {
     this.app = new App();
     this.envPath = `${__dirname}/config.env`;
     dotenv.config({ path: this.envPath });
 
+    this.portNum = +process.env.PORT!;
     this.dbURL = process.env.DATABASE!.replace(
       "<PASSWORD>",
       process.env.DATABASE_PASSWORD!
@@ -37,8 +39,8 @@ class Server {
   }
 
   Start() {
-    const server = this.app.getApp.listen(process.env.PORT!, () => {
-      console.log(`App is running on port ${process.env.PORT!}...`);
+    const server = this.app.getApp.listen(this.portNum!, () => {
+      console.log(`App is running on port ${this.portNum!}...`);
     });
     HandleUnhandledRejection(server);
 

@@ -1,12 +1,12 @@
 import axios from "axios";
 
-import { baseURL } from "../../util/config";
-import CallbackChain from "../../util/callback-chain";
+import { BASE_URL } from "../../util/Config";
+import CallbackChain from "../../util/Callback-chain";
 import { EAuthStatus } from "../EAuthStatus";
 import TyUpdateAuthUI from "../TyAuthUIUpdater";
 import TyUserLoginData from "./TyUserLoginData";
 
-class LogIn {
+class Login {
   /**
    * Login button that trigger the login process.
    */
@@ -34,41 +34,48 @@ class LogIn {
     this.onLogin = new CallbackChain();
 
     // bind dom
-    this.loginBtnEl = document.querySelector(".login-btn")! as HTMLInputElement;
+    this.loginBtnEl = <HTMLInputElement>document.querySelector(".login-btn")!;
 
-    this.loginIDorEmailEl = document.querySelector(
-      ".login-id"
-    )! as HTMLInputElement;
+    this.loginIDorEmailEl = <HTMLInputElement>(
+      document.querySelector(".login-id")!
+    );
 
-    this.loginPasswordEl = document.querySelector(
-      ".login-password"
-    )! as HTMLInputElement;
+    this.loginPasswordEl = <HTMLInputElement>(
+      document.querySelector(".login-password")!
+    );
 
     // bind the login button
-    this.loginBtnEl.addEventListener("click", this.login.bind(this));
+    this.loginBtnEl.addEventListener("click", this.performLogin.bind(this));
   }
 
   /**
    * perform login.
    */
-  async login(): Promise<void> {
-    const idOrEmail: string = this.loginIDorEmailEl.value;
-    const isEmail = /[a-zA-Z0-9.-]+@[a-zA-Z0-9]+.[com|net|ch|kr|gg|.]+/.test(
-      idOrEmail
-    );
+  async performLogin(): Promise<void> {
+    const idOrEmail: string = this.loginIDorEmailEl.value ?? "";
+    // early return
+    if (idOrEmail === "") {
+      return;
+    }
+
+    // fill up the login info
+    const regex: RegExp = /[a-zA-Z0-9.-]+@[a-zA-Z0-9]+.[com|net|ch|kr|gg|.]+/;
+    const isEmail: boolean = regex.test(idOrEmail);
     const pw: string = this.loginPasswordEl.value;
 
-    const loginInfo: {
+    type TyLoginInfo = {
       id?: string;
       string?: string;
       pw: string;
-    } = Object.assign(
+    };
+
+    const loginInfo: TyLoginInfo = Object.assign(
       { pw },
-      isEmail ? { email: idOrEmail } : { id: idOrEmail }
+      isEmail ? { email: idOrEmail } : { id: idOrEmail } // push id or Email after check by regex.
     );
 
     // 1. request login
-    const res = await axios.post(`${baseURL}/login`, loginInfo);
+    const res = await axios.post(`${BASE_URL}/login`, loginInfo);
     // const { token } = res.data;
     const data = Object.assign(
       {},
@@ -76,24 +83,13 @@ class LogIn {
     ) as TyUserLoginData;
     console.log(data);
 
-    // load username from the cookie
-    // let userName: string = "";
-    // document.cookie
-    //   .trim()
-    //   .split(";")
-    //   .forEach((cookie: string) => {
-    //     const splitted: string[] = cookie.split("=");
-    //     if (splitted[0]?.trim() === "name") {
-    //       userName = splitted[1]?.trim() ?? "";
-    //     }
-    //   });
     this.authUIUpdater(EAuthStatus.LOGGED_IN, data);
     // invoke the onLogin() callback
     this.onLogin.invoke();
   }
 }
 
-export default LogIn;
+export default Login;
 
 // async login(): Promise<void> {
 // 1. request login
@@ -133,3 +129,14 @@ export default LogIn;
 //     this.loginBtnEl.classList.remove("active");
 //   }
 // }
+// load username from the cookie
+// let userName: string = "";
+// document.cookie
+//   .trim()
+//   .split(";")
+//   .forEach((cookie: string) => {
+//     const splitted: string[] = cookie.split("=");
+//     if (splitted[0]?.trim() === "name") {
+//       userName = splitted[1]?.trim() ?? "";
+//     }
+//   });

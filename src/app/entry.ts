@@ -1,11 +1,11 @@
-// import "regenerator-runtime";
-// import "./hot-reload";
+import "regenerator-runtime";
+import "./util/hot-reload";
 
 // feature import
 import MapLoader from "./map/MapLoader";
 // import MapLock from "./map/MapLock";
 
-import Curtain from "./util/curtain";
+import Curtain from "./util/Curtain";
 import Footer from "./footer/Footer";
 import MainTitle from "./mainTitle/MainTitle";
 import SideBar from "./side-bar/side-bar";
@@ -29,12 +29,12 @@ const sideBar = new SideBar();
 // add auth(login/logout/signup) features
 const auth = new Auth();
 
-auth.registerOnLogin(() => {
+auth.registerOnLogin(function showCurtainBeforeLogin() {
   curtain.setCurtainVisibility("map", true);
   curtain.setCurtainVisibility("side-bar", true);
 });
 
-auth.registerOnLogout(() => {
+auth.registerOnLogout(function hideCurtainAfterLogout() {
   curtain.setCurtainVisibility("map", false);
   curtain.setCurtainVisibility("side-bar", false);
 });

@@ -1,7 +1,8 @@
 import naver from "./NaverMap";
 
 class InfoWindowWrapper {
-  private infoWnd: any;
+  private readonly infoWnd: any;
+
   getInfoWnd(): any {
     return this.infoWnd;
   }
@@ -17,10 +18,10 @@ class InfoWindowWrapper {
    * @param lng
    */
   load(map: any, lat: number, lng: number): void {
-    this.infoWnd.setContent(
+    this.infoWnd?.setContent(
       `<div style="padding:20px;"><p>latitude: ${lat} <br /> latitude: ${lng}</p></div>`
     );
-    this.infoWnd.open(map, { lat, lng });
+    this.infoWnd?.open(map, { lat, lng });
   }
 
   /**

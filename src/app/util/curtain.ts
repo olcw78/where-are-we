@@ -5,7 +5,7 @@ class Curtain {
   /**
    * registered curtain cache.
    */
-  curtainPositionElArr: Map<string, HTMLElement>;
+  private readonly curtainPositionElArr: Map<string, HTMLElement>;
 
   constructor() {
     this.curtainPositionElArr = new Map();
@@ -14,7 +14,11 @@ class Curtain {
    *
    * @param newCurtainElClassName
    */
-  registerCurtains(...newCurtainElClassName: string[]) {
+  registerCurtains(...newCurtainElClassName: string[]): void {
+    if (!newCurtainElClassName) {
+      return;
+    }
+
     newCurtainElClassName.forEach((curtain) => {
       this.curtainPositionElArr.set(
         curtain,
@@ -29,6 +33,9 @@ class Curtain {
    * @param isConnected is logged in or out?
    */
   setCurtainVisibility(curtainElClassName: string, isConnected: boolean): void {
+    if (curtainElClassName === "") {
+      return;
+    }
     if (isConnected) {
       this.curtainPositionElArr
         .get(curtainElClassName)!

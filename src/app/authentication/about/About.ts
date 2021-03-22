@@ -1,14 +1,14 @@
 class About {
-  private aboutBtnEl: HTMLButtonElement;
+  /** */
+  private readonly aboutBtnEl: HTMLButtonElement;
 
   constructor() {
-    this.aboutBtnEl = document.querySelector(
-      ".about-btn"
-    )! as HTMLButtonElement;
+    // bind dom
+    this.aboutBtnEl = <HTMLButtonElement>document.querySelector(".about-btn")!;
 
-    this.aboutBtnEl.addEventListener("click", () => {
-      console.log("About button clicked!");
-    });
+    // this.aboutBtnEl.addEventListener("click", () => {
+    //   console.log("About button clicked!");
+    // });
   }
 }
 

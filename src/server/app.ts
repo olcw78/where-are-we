@@ -9,8 +9,8 @@ import bodyParser from "body-parser";
 import cors from "cors"; // Allow cors
 import path from "path"; // get path for static filing. -> ./dist
 
-import { router } from "./router/user-route";
-import errCtrl from "./controller/error-ctrl";
+import { router } from "./router/User-route";
+import errCtrl from "./controller/Error-ctrl";
 
 class App {
   private readonly app: any;

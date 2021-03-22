@@ -1,11 +1,11 @@
-import CallbackChain from "../../util/callback-chain";
+import CallbackChain from "../../util/Callback-chain";
 import { EAuthStatus } from "../EAuthStatus";
-import TyUpdateAuthUI from "../TyAuthUIUpdater";
+import IUpdateAuthUI from "../TyAuthUIUpdater";
 
 /**
  * LogOut module which controls the state of being logged in.
  */
-class LogOut {
+class Logout {
   /**
    * Logout btn.
    */
@@ -21,9 +21,9 @@ class LogOut {
   /**
    * Auth UI Updator.
    */
-  private authUIUpdater: TyUpdateAuthUI;
+  private authUIUpdater: IUpdateAuthUI;
 
-  constructor(authUIUpdater: TyUpdateAuthUI) {
+  constructor(authUIUpdater: IUpdateAuthUI) {
     // instantiate
     this.authUIUpdater = authUIUpdater;
     this.onLogout = new CallbackChain();
@@ -69,7 +69,7 @@ class LogOut {
   }
 }
 
-export default LogOut;
+export default Logout;
 
 // private logOut(): void {
 // changed form after logout

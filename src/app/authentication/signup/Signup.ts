@@ -1,40 +1,26 @@
 import axios from "axios";
-import { baseURL } from "../../util/config";
+import { BASE_URL } from "../../util/Config";
 import SignupPopup from "../../signup/SignupPopup";
 import TyUserSignupData from "../logout/TyUserSignupData";
 import FormChecker from "../../util/Form-checker";
 
 class Signup {
-  /**
-   * Signup popup holder
-   */
+  /** Signup popup holder */
   private readonly signupPopup: SignupPopup;
   getSignupPopup(): SignupPopup {
     return this.signupPopup;
   }
-  /**
-   * 
-   */ 
+  /**  */
   private readonly signupIDEl: HTMLInputElement;
-  /**
-   *
-   */
+  /**  */
   private readonly signupPasswordEl: HTMLInputElement;
-  /**
-   *
-   */
+  /**  */
   private readonly signupPasswordConfirmEl: HTMLInputElement;
-  /**
-   *
-   */
+  /**  */
   private readonly signupUserNameEl: HTMLInputElement;
-  /**
-   *
-   */
+  /**  */
   private readonly signupEmailEl: HTMLInputElement;
-  /**
-   *
-   */
+  /**  */
   private readonly signupPhoneNumEl: HTMLInputElement;
 
   constructor() {
@@ -42,35 +28,32 @@ class Signup {
     this.signupPopup = new SignupPopup();
 
     // bind dom
-    this.signupIDEl = document.querySelector(".signup-id")! as HTMLInputElement;
+    this.signupIDEl = <HTMLInputElement>document.querySelector(".signup-id")!;
 
-    this.signupPasswordEl = document.querySelector(
-      ".signup-password"
-    )! as HTMLInputElement;
-
-    this.signupPasswordConfirmEl = document.querySelector(
-      ".signup-passwordConfirm"
-    )! as HTMLInputElement;
-
-    this.signupUserNameEl = document.querySelector(
-      ".signup-username"
-    )! as HTMLInputElement;
-
-    this.signupEmailEl = document.querySelector(
-      ".signup-email"
-    )! as HTMLInputElement;
-    this.signupEmailEl.addEventListener("change", (e: any): void => {
-      console.log(e.target.value);
-    });
-
-    this.signupPhoneNumEl = document.querySelector(
-      ".signup-phonenum"
-    )! as HTMLInputElement;
-
-    this.signupPopup.getSubmitSignupBtnEl().addEventListener(
-      "click",
-      this.signUp.bind(this)
+    this.signupPasswordEl = <HTMLInputElement>(
+      document.querySelector(".signup-password")!
     );
+
+    this.signupPasswordConfirmEl = <HTMLInputElement>(
+      document.querySelector(".signup-passwordConfirm")!
+    );
+
+    this.signupUserNameEl = <HTMLInputElement>(
+      document.querySelector(".signup-username")!
+    );
+
+    this.signupEmailEl = <HTMLInputElement>(
+      document.querySelector(".signup-email")!
+    );
+
+    this.signupPhoneNumEl = <HTMLInputElement>(
+      document.querySelector(".signup-phonenum")!
+    );
+
+    // bind the event
+    this.signupPopup
+      .getSubmitSignupBtnEl()
+      .addEventListener("click", this.signUp.bind(this));
   }
 
   async signUp(): Promise<void> {
@@ -120,7 +103,7 @@ class Signup {
       phonenum: this.signupPhoneNumEl.value!.trim(),
     };
 
-    await axios.post(`${baseURL}/signup`, data);
+    await axios.post(`${BASE_URL}/signup`, data);
   }
 
   isPasswordConfirmSame(

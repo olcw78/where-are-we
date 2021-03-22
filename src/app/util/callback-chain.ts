@@ -2,7 +2,7 @@
  * Delete chain to detect the trigger and affect on the every callbacks.
  */
 class CallbackChain {
-  private callbacks: Function[];
+  private readonly callbacks: Function[];
 
   constructor() {
     this.callbacks = []; // init with empty array.
@@ -15,15 +15,16 @@ class CallbackChain {
    * @returns function chaining.
    */
   register(fn: Function, ...args: any[]): CallbackChain {
-    this.callbacks.push((...args: any[]) => fn(...args));
+    this.callbacks.push(fn(...args));
     return this;
   }
   /**
    * Invoke all callback chain.
+   * @params args additional arguments.
    * @returns function chaining.
    */
-  invoke() {
-    this.callbacks.forEach((fn: Function) => fn());
+  invoke(...args: any[]): CallbackChain {
+    this.callbacks.forEach((fn: Function) => fn(...args));
     return this;
   }
 }
