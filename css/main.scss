@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+
+@import "./etc/reset";
+@import "./etc/cfg";
+
+@import "./markup/header";
+@import "./markup/title";
+@import "./markup/nav";
+@import "./markup/side-bar";
+@import "./markup/footer";
+
+@import "./map/map";
+// @import "./map/map-zoom";
+@import "./map/map-drag-lock";
+
+@import "./component/signup";
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#app {
+  display: flex;
+}

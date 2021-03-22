@@ -5,9 +5,7 @@
   "default": "index.html",
   "scripts": {
     "start": "parcel ./index.html",
-    "build": "parcel build ./index.html --dist-dir ./dist",
-    "serve": "nodemon ./dist/server.js",
-    "dev": "concurrently -k \"tsc -p ./src/app/ -w\" \"tsc -p ./src/server/ -w\" \"nodemon ./dist/server/server.js\""
+    "dev": "concurrently -k \"tsc -p ./src/app/ -w\" \"tsc -p ./src/server/ -w\" \"nodemon ./dist/server/server.js\" \"parcel ./index.html\" "
   },
   "author": "Yoonsang Lee",
   "license": "ISC",
@@ -40,7 +38,6 @@
     "morgan": "^1.10.0",
     "nodemailer": "^6.4.17",
     "regenerator-runtime": "^0.13.7",
-    "scss": "^0.2.4",
     "slugify": "^1.4.6",
     "validator": "^13.5.2",
     "xss-clean": "^0.1.1"
@@ -52,7 +49,8 @@
     "@types/regenerator-runtime": "^0.13.0",
     "concurrently": "^6.0.0",
     "prettier": "^2.2.1",
-    "sass": "^1.32.2",
+    "sass": "^1.32.8",
+    "scss": "^0.2.4",
     "typescript": "^4.2.3"
   }
 }

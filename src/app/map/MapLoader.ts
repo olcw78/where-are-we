@@ -7,12 +7,12 @@ class MapLoader {
 
   // Instnaces
   private static map: any;
-  static get getMap(): any {
+  static getMap(): any {
     return MapLoader.map;
   }
 
   private static infoWndWrapper: InfoWindowWrapper;
-  static get getInfWndWrapper(): InfoWindowWrapper {
+  static getInfWndWrapper(): InfoWindowWrapper {
     return MapLoader.infoWndWrapper;
   }
 

@@ -1,0 +1,62 @@
+@import "../etc/cfg";
+
+.side-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  width: 30vw;
+  height: 100vh;
+  position: relative;  
+
+  @include put-line-separator(left);
+  @include put-line-separator(bottom);
+
+  .side-bar {
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+    box-sizing: border-box;
+
+    position: inherit;
+    font-size: 2rem;
+
+    &.curtain {
+      color: black;
+
+      display: flex;
+      // flex-grow: 0;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .side-bar .add-new-person {
+    position: relative;
+
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+
+    top: 0px;
+    // width: 70%;
+
+    margin: 15px 25px;
+    padding: 25px 45px;
+    box-sizing: border-box;
+
+    border: 5px dashed #000;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+
+    transition: 0.4s ease;
+
+    i.fa-plus-square {
+      margin-right: 20px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      top: -10px;
+    }
+  }
+}

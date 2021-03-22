@@ -7,6 +7,7 @@ const xss = require("xss-clean"); // Sanitize data against XSS attack
 import hpp from "hpp"; // Prevent parameter pollution
 import bodyParser from "body-parser";
 import cors from "cors"; // Allow cors
+import path from "path"; // get path for static filing. -> ./dist
 
 import { router } from "./router/user-route";
 import errCtrl from "./controller/error-ctrl";
@@ -38,10 +39,10 @@ class App {
     this.app.use("/", limiter);
 
     // 3. Development logging
-    process.env.NODE_ENV !== process.env.NODE_ENV?.trim() || "development";
-    if (process.env.NODE_ENV === "development") {
-      this.app.use(morgan("dev"));
-    }
+    // process.env.NODE_ENV !== process.env.NODE_ENV?.trim() || "development";
+    // if (process.env.NODE_ENV === "development") {
+    // }
+    this.app.use(morgan("dev"));
 
     // Body parser, reading data from body into req.body
     // this.app.use(express.json({ limit: "10kb" }));
@@ -70,9 +71,7 @@ class App {
     // this.app.use(cors());
 
     // static files
-    // const staticFilePath = path.resolve(`${__dirname}/../public`);
-    // const frontPath = path.join(__dirname, "../dist");
-    // this.app.use(express.static(frontPath));
+    // this.app.use("/app", express.static(path.join(__dirname, "../app")));
 
     // routers
     this.app.use("/", router);

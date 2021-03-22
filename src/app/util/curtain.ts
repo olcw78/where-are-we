@@ -5,19 +5,22 @@ class Curtain {
   /**
    * registered curtain cache.
    */
-  curtainPositionElArr: HTMLElement[];
+  curtainPositionElArr: Map<string, HTMLElement>;
 
   constructor() {
-    this.curtainPositionElArr = [];
+    this.curtainPositionElArr = new Map();
   }
   /**
-   * 
-   * @param newCurtainElClassName 
+   *
+   * @param newCurtainElClassName
    */
   registerCurtains(...newCurtainElClassName: string[]) {
-    this.curtainPositionElArr.push(
-      document.querySelector(`.${newCurtainElClassName}`)! as HTMLElement
-    );
+    newCurtainElClassName.forEach((curtain) => {
+      this.curtainPositionElArr.set(
+        curtain,
+        document.querySelector(`.${curtain}`)! as HTMLElement
+      );
+    });
   }
 
   /**
@@ -25,17 +28,16 @@ class Curtain {
    * @param curtainElClassName a class name of the target curtain.
    * @param isConnected is logged in or out?
    */
-  setCurtainVisibility(
-    curtainElClassName: string,
-    isConnected: boolean
-  ): void {
-    isConnected
-      ? this.curtainPositionElArr[curtainElClassName].classList.remove(
-          "curtain"
-        )
-      : this.curtainPositionElArr[curtainElClassName].classList.add(
-          "curtain"
-        );
+  setCurtainVisibility(curtainElClassName: string, isConnected: boolean): void {
+    if (isConnected) {
+      this.curtainPositionElArr
+        .get(curtainElClassName)!
+        .classList.remove("curtain");
+    } else {
+      this.curtainPositionElArr
+        .get(curtainElClassName)!
+        .classList.add("curtain");
+    }
   }
 }
 

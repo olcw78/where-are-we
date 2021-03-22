@@ -1,0 +1,52 @@
+@import "../etc/cfg";
+
+footer {
+  margin-top: 5px;
+
+  .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card {
+      text-align: center;
+      font-size: 130%;
+      font-weight: 700;
+      display: flex;
+
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      box-sizing: border-box;
+      margin: 5px 15px 5px 0px;
+
+      .card-layout {
+        padding: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .card-title {
+      font-size: 32px;
+    }
+
+    .card-content {
+      font-size: 25px;
+      font-weight: 300;
+      background: linear-gradient(to right, #e5e5e5, #fff);
+    }
+  }
+
+  #copyright {
+    display: block;
+    font-size: 1.2em;
+    text-align: center;
+
+    @include put-line-separator(top);
+    box-sizing: border-box;
+
+    margin-top: 5px;
+    // margin-bottom: 100px;
+  }
+}

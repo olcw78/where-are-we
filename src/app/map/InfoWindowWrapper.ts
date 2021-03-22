@@ -2,7 +2,7 @@ import naver from "./NaverMap";
 
 class InfoWindowWrapper {
   private infoWnd: any;
-  get getInfoWnd(): any {
+  getInfoWnd(): any {
     return this.infoWnd;
   }
 

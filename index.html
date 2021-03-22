@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="author" content="yoonsang Lee" />
+    <meta name="description" content="..." />
+
+    <meta
+      name="viewport"
+      content="width=device-width, 
+                                   height=device-height,
+                                   initial-scale=1.0,
+                                   user-scalable=no,
+                                   maximum-scale=1.0,
+                                   minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- http://ogp.me/ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="WhereAreWe" />
+    <meta property="og:title" content="Let's meet at there" />
+    <meta property="og:description" content="..." />
+    <meta property="og:image" content="./img/logo_200x200.png" />
+    <!-- <meta property="og:url" content="https://github.com"> -->
+
+    <!-- https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="WhereAreWe" />
+    <meta property="twitter:title" content="Let's meet at there" />
+    <meta property="twitter:description" content="..." />
+    <meta property="twitter:image" content="./img/logo_200x200.png" />
+    <!-- <meta property="twitter:url" content="https://github.com"> -->
+
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="./img/logo_200x200.png"
+      type="image/x-icon"
+    />
+
+    <!-- scss -->
+    <link rel="stylesheet" href="./css/main.scss" />
+
+    <!-- font awesome(icon) -->
+    <script
+      async
+      src="https://kit.fontawesome.com/bfbd1bc052.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- map sdk -->
+    <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=k51u0l3bfo"
+    ></script>
+
+    <script type="module" src="./dist/app/entry.js" defer></script>
+
+    <title>Where Are We?</title>
+  </head>
+
+  <body>
+    <!-- main title (logo and caligraphy image) -->
+    <header>
+      <h1 class="main-title"></h1>
+      <div class="main-title-toggle">
+        <i class="fas fa-arrow-up"></i>
+      </div>
+    </header>
+
+    <nav>
+      <section class="auth">
+        <!-- 1. login form -->
+        <form class="login-form active">
+          <label>자동 로그인</label>
+          <input type="checkbox" class="check-auto-login" />
+
+          <label>아이디(E-mail)</label>
+          <input
+            type="text"
+            placeholder="아이디(or E-mail) 입력해듀데요..."
+            class="login-id"
+            autofocus
+          />
+
+          <label>비밀번호</label>
+          <input
+            type="password"
+            placeholder="비밀번호 입력해듀데요..."
+            class="login-password"
+          />
+          <button type="button" class="btn btn--primary login-btn">
+            로그인
+          </button>
+          <button type="button" class="btn btn--signup signup-btn">가입</button>
+        </form>
+
+        <!-- 2. logout form -->
+        <form class="logout-form">
+          <p class="introduction">
+            will have been being replacted with the login info
+          </p>
+          <button type="button" class="btn btn--primary about-btn">정보</button>
+          <button type="button" class="btn btn--logout logout-btn">
+            로그아웃
+          </button>
+        </form>
+      </section>
+    </nav>
+
+    <div class="signup-popup-bg">
+      <div class="signup-popup-body">
+        <!-- signup form -->
+        <h2>회원 가입</h2>
+
+        <form id="signup-form">
+          <section class="signup">
+            <div class="label-textfields">
+              <p>ID</p>
+              <p>비밀번호</p>
+              <p>비밀번호 확인</p>
+            </div>
+
+            <div class="textfields">
+              <input
+                type="text"
+                name="id"
+                pattern="[\w\d\S]{4,}"
+                title="소문자 알파벳, 대문자 알파벳, 숫자 만 입력 가능합니다. 4자리 이상이어야 합니다."
+                class="signup-id"
+              />
+              <input
+                type="password"
+                name="password"
+                pattern="[\w\d\S!@#^&*]{8,}"
+                title="소문자 알파벳, 대문자 알파벳, 숫자, 특수문자(!@#^&*) 만 입력 가능합니다."
+                class="signup-password"
+              />
+              <input
+                type="password"
+                name="passwordConfirm"
+                pattern="[\w\d\S!@#^&*]{8,}"
+                title="소문자 알파벳, 대문자 알파벳, 숫자, 특수문자(!@#^&*) 만 입력 가능합니다."
+                class="signup-passwordConfirm"
+              />
+              <!-- <p>두 입력한 비밀번호가 같지 않습니다.</p> -->
+            </div>
+
+            <div class="label-textfields">
+              <p>이름</p>
+              <p>이메일</p>
+              <p>연락처</p>
+            </div>
+
+            <div class="textfields">
+              <input
+                type="text"
+                name="username"
+                pattern="[\w\D\s]{2,}"
+                title="소문자 알파벳, 한글 만
+              사용가능합니다."
+                class="signup-username"
+              />
+              <!-- Vous êtes permis d'utiliser seule les lettres
+              minuscules de l'alphabet, les lettres coréens et les symboles d'accent français -->
+
+              <input
+                type="email"
+                name="email"
+                pattern="[\w\d\S.-]+@[\w\d\S]+.[com|net|ch|kr|gg|.]+"
+                title="이메일 폼으로 입력해 주시길 바랍니다. e.g. gg123@naver.com, james9232@gmail.com"
+                class="signup-email"
+              />
+              <input
+                type="tel"
+                name="phoneNum"
+                pattern="[01]{2,3}[\d\S\W]{3,4}[\d\S\W]{3,4}"
+                title="전화번호 폼으로 입력해 주시길 바랍니다."
+                class="signup-phonenum"
+              />
+              <label>(- 없이 입력)</label>
+            </div>
+          </section>
+
+          <button type="button" class="btn btn--signup signup-submit">
+            가입
+          </button>
+          <button type="button" class="btn btn--cancel signup-cancel">
+            취소
+          </button>
+        </form>
+
+        <!--  -->
+      </div>
+    </div>
+
+    <!-- root container -->
+    <div id="root-container">
+      <section id="app">
+        <!-- 1. map display -->
+        <section class="map-contaier">
+          <!-- 1-1. map curtain-->
+          <!-- Need to login! <i class="fas fa-plug"></i> -->
+          <div class="map"></div>
+
+          <!-- 1-2. drag lock -->
+          <div class="drag-lock">
+            <!-- unlocked -->
+            <i class="fas fa-lock-open drag-pos"></i>
+            <!-- locked -->
+            <!-- <i class="fas fa-lock drag-pos drag-locked"></i> -->
+          </div>
+        </section>
+
+        <!-- 2. side bar -->
+        <section class="side-bar-container">
+          <div class="side-bar curtain">
+            <div>로그인 해주세요! <i class="fas fa-plug"></i></div>
+
+            <!-- <ul class="add-new-person">
+              <li>
+                <i class="fas fa-plus-square"></i>친구의 위치를 적어주세요!
+              </li>
+            </ul> -->
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <!-- 1. info card goes here by fragment insertion! -->
+      <!-- 2. copyright -->
+      <div id="copyright">© Copyright to Yoonsang Lee. 2021</div>
+    </footer>
+  </body>
+</html>

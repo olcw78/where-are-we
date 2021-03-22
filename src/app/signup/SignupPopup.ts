@@ -10,7 +10,7 @@ class SignupPopup {
   private readonly cancelBtnEl: HTMLButtonElement;
   private readonly submitSignupBtnEl: HTMLButtonElement;
 
-  get getSubmitSignupBtnEl(): HTMLButtonElement {
+  getSubmitSignupBtnEl(): HTMLButtonElement {
     return this.submitSignupBtnEl;
   }
 

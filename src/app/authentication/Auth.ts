@@ -12,7 +12,7 @@ class Auth {
    * Current Authentication Status whether you are logged in or out.
    */
   private authStatus: EAuthStatus;
-  get currentAuthStatus(): EAuthStatus {
+  currentAuthStatus(): EAuthStatus {
     return this.authStatus;
   }
   /** Login module */
@@ -99,7 +99,7 @@ class Auth {
         // update the ui with the login result.
         console.log(loginResult!);
         const { username: userName } = loginResult!;
-        
+
         // 1. to the updated login ui
         this.logOut.updateIntroductionParagraph(userName);
         // 2. to the about page

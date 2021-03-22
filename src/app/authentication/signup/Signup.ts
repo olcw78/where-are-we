@@ -9,7 +9,7 @@ class Signup {
    * Signup popup holder
    */
   private readonly signupPopup: SignupPopup;
-  get popup(): SignupPopup {
+  getSignupPopup(): SignupPopup {
     return this.signupPopup;
   }
   /**
@@ -67,7 +67,7 @@ class Signup {
       ".signup-phonenum"
     )! as HTMLInputElement;
 
-    this.signupPopup.getSubmitSignupBtnEl.addEventListener(
+    this.signupPopup.getSubmitSignupBtnEl().addEventListener(
       "click",
       this.signUp.bind(this)
     );
