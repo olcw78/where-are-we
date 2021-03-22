@@ -3,4 +3,5 @@ dist
 .parcel-cache
 .DS_Store
 .cache
+.history/
 config.env
