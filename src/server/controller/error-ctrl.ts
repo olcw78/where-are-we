@@ -1,7 +1,7 @@
 // const http = require("http");
 import http from "http";
 // const AppError = require("../util/app-error");
-import AppError from "../util/app-error";
+import AppError from "../util/App-error";
 
 export const HandleUncaughtException = () => {
   process.on("uncaughtException", (err: Error): void => {

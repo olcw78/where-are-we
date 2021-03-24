@@ -3,6 +3,7 @@ import { baseURL } from "../../util/config";
 import SignupPopup from "../../signup/SignupPopup";
 import TyUserSignupData from "../logout/TyUserSignupData";
 import FormChecker from "../../util/Form-checker";
+import InfoWindowWrapper from "map/InfoWindowWrapper";
 
 class Signup {
   /**
@@ -13,8 +14,8 @@ class Signup {
     return this.signupPopup;
   }
   /**
-   * 
-   */ 
+   *
+   */
   private readonly signupIDEl: HTMLInputElement;
   /**
    *
@@ -67,10 +68,9 @@ class Signup {
       ".signup-phonenum"
     )! as HTMLInputElement;
 
-    this.signupPopup.getSubmitSignupBtnEl().addEventListener(
-      "click",
-      this.signUp.bind(this)
-    );
+    this.signupPopup
+      .getSubmitSignupBtnEl()
+      .addEventListener("click", this.signUp.bind(this));
   }
 
   async signUp(): Promise<void> {
@@ -120,7 +120,14 @@ class Signup {
       phonenum: this.signupPhoneNumEl.value!.trim(),
     };
 
-    await axios.post(`${baseURL}/signup`, data);
+    const signupResult: any = await axios.post(`${baseURL}/signup`, data);
+    console.log(signupResult);
+    
+    if (signupResult.data.status === "success") {
+      this.signupPopup.toggleSignupBtn(false);
+    } else {
+      throw new Error("Signup failed!");
+    }
   }
 
   isPasswordConfirmSame(

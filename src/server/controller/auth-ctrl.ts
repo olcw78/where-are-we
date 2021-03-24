@@ -1,18 +1,11 @@
-// const jwt = require("jsonwebtoken");
 import jwt from "jsonwebtoken";
-// const { promisify } = require("util");
 import { promisify } from "util";
-// const process = require("process");
 import process from "process";
-// const crypto = require("crypto");
 import crypto from "crypto";
-
-// const User = require("../model/user-model");
 import { User } from "../model/user-model";
-// const catchAsync = require("../util/async-catch");
 import { AsyncCatch } from "../util/async-catch";
 
-import AppError from "../util/app-error";
+import AppError from "../util/App-error";
 
 const signToken = (id: string) => {
   return jwt.sign({ id }, process.env.JWT_SECRET!, {
