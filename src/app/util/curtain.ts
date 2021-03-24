@@ -22,7 +22,7 @@ class Curtain {
       );
     });
   }
-
+  
   /**
    * toggle curtain.
    * @param curtainElClassName a class name of the target curtain.

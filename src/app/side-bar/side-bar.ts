@@ -1,12 +1,7 @@
-import Curtain from "../util/curtain";
-
 class SideBar {
   private readonly sideBarCurtainEl: HTMLElement;
-  private readonly curtain: Curtain;
 
   constructor() {
-    this.curtain = new Curtain();
-
     this.sideBarCurtainEl = <HTMLElement>document.querySelector(".side-bar")!;
   }
 

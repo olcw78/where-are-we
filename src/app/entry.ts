@@ -1,11 +1,10 @@
-// import "regenerator-runtime";
-// import "./hot-reload";
+import "regenerator-runtime";
+import "./hot-reload";
 
 // feature import
 import MapLoader from "./map/MapLoader";
 // import MapLock from "./map/MapLock";
 
-import Curtain from "./util/curtain";
 import Footer from "./footer/Footer";
 import MainTitle from "./mainTitle/MainTitle";
 import SideBar from "./side-bar/side-bar";

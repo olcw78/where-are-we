@@ -1,14 +1,19 @@
-@import '../etc/cfg';
+@import "../etc/cfg";
 
 .drag-lock {
   position: absolute;
   right: 20px;
-  
-  top: 250px;  
+
+  top: 250px;
   z-index: 1;
-  font-size: 120%;  
+  font-size: 120%;
+  visibility: visible;
 
   .drag-pos {
-    transition: 2s;    
-  }    
+    transition: 2s;
+  }
+
+  &.curtain {
+    visibility: hidden;
+  }
 }

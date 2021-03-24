@@ -5,7 +5,8 @@
   "default": "index.html",
   "scripts": {
     "start": "parcel ./index.html",
-    "dev": "concurrently -k \"tsc -p ./src/app/ -w\" \"tsc -p ./src/server/ -w\" \"nodemon ./dist/server/server.js\" \"parcel ./index.html\" "
+    "dev-app": "concurrently -k \"tsc -p ./src/app/ -w\" \"parcel ./index.html\" ",
+    "dev-server": "concurrently -k \"tsc -p ./src/server/ -w\" \"nodemon ./dist/server/server.js\" "
   },
   "author": "Yoonsang Lee",
   "license": "ISC",

@@ -1,11 +1,9 @@
-import Curtain from "../util/curtain";
 import naver from "./NaverMap";
 import InfoWindowWrapper from "./InfoWindowWrapper";
 
 class MapLoader {
   // Props
   private readonly initZoom: number;
-  private readonly curtain: Curtain;
 
   private mapEl: HTMLDivElement;
 
@@ -22,7 +20,6 @@ class MapLoader {
 
   constructor() {
     this.initZoom = 15;
-    this.curtain = new Curtain();
     this.mapEl = <HTMLDivElement>document.querySelector(".map")!;
   }
   /**
@@ -36,7 +33,10 @@ class MapLoader {
     // init fields
     this.infoWndWrapper = new InfoWindowWrapper();
 
-    navigator.geolocation.getCurrentPosition(this.onLoad, this.onError);
+    navigator.geolocation.getCurrentPosition(
+      this.onLoad.bind(this),
+      this.onError.bind(this)
+    );
   }
 
   /**

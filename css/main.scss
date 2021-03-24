@@ -3,17 +3,22 @@
 @import "./etc/reset";
 @import "./etc/cfg";
 
+// markup
 @import "./markup/header";
 @import "./markup/title";
 @import "./markup/nav";
 @import "./markup/side-bar";
 @import "./markup/footer";
 
+// map
 @import "./map/map";
 // @import "./map/map-zoom";
 @import "./map/map-drag-lock";
 
+// component
 @import "./component/signup";
+@import "./component/loading";
+@import "./component/curtain";
 
 body {
   font-family: "Noto Sans KR", sans-serif;

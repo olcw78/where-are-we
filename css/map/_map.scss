@@ -9,16 +9,8 @@
   @include put-line-separator(bottom);
 
   .map {
-    visibility: visible;
-
     width: 100%;
-
-    margin: 5px;
-    box-sizing: border-box;
-
-    &.curtain {
-      visibility: hidden;
-    }
+    font-size: 2rem;
   }
 }
 
