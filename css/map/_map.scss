@@ -9,14 +9,16 @@
   @include put-line-separator(bottom);
 
   .map {
+    visibility: visible;
+
     width: 100%;
 
     margin: 5px;
     box-sizing: border-box;
-  }
 
-  .map.curtain {
-    visibility: hidden;
+    &.curtain {
+      visibility: hidden;
+    }
   }
 }
 

@@ -12,14 +12,11 @@ import SideBar from "./side-bar/side-bar";
 
 import Auth from "./authentication/Auth";
 
-window.addEventListener("load", MapLoader.onLoadWebsite);
+const map = new MapLoader();
+// window.addEventListener("load", map.onLoadWebsite);
 
 // add html templates - footer
 Footer.init();
-
-const curtain = new Curtain();
-curtain.registerCurtains("map");
-curtain.registerCurtains("side-bar");
 
 // main title toggler
 const mainTitle = new MainTitle();
@@ -30,15 +27,11 @@ const sideBar = new SideBar();
 const auth = new Auth();
 
 auth.registerOnLogin(() => {
-  curtain.setCurtainVisibility("map", true);
-  curtain.setCurtainVisibility("side-bar", true);
+  map.show();
+  sideBar.show();
 });
 
 auth.registerOnLogout(() => {
-  curtain.setCurtainVisibility("map", false);
-  curtain.setCurtainVisibility("side-bar", false);
+  map.hide();
+  sideBar.hide();
 });
-
-// sidebar initialization
-auth.registerOnLogin(() => sideBar.show());
-auth.registerOnLogout(() => sideBar.hide());

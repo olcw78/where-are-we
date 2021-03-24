@@ -1,21 +1,24 @@
+import Curtain from "../util/curtain";
+
 class SideBar {
-  private sideBarCurtainEl: HTMLElement;
+  private readonly sideBarCurtainEl: HTMLElement;
+  private readonly curtain: Curtain;
 
   constructor() {
-    this.sideBarCurtainEl = document.querySelector(".side-bar")! as HTMLElement;
+    this.curtain = new Curtain();
+
+    this.sideBarCurtainEl = <HTMLElement>document.querySelector(".side-bar")!;
   }
 
   // _populateBoilerPlate(): void {}
 
-  show() {
+  show(): void {
     const template = `
       <li>
         <i class="fas fa-plus-square"></i>사람을 추가하세요!
       </li>`;
 
-    const node: HTMLUListElement = document.createElement(
-      "ul"
-    )! as HTMLUListElement;
+    const node = <HTMLUListElement>document.createElement("ul")!;
 
     node.setAttribute("class", "add-new-person");
     node.innerHTML = "";
@@ -27,10 +30,10 @@ class SideBar {
     this.toggleSidebar(true);
   }
 
-  hide() {
+  hide(): void {
     const template = `로그인 해주세요! <i class="fas fa-plug"></i>`;
 
-    const node = document.createElement("div");
+    const node = <HTMLDivElement>document.createElement("div")!;
     node.setAttribute("class", "side-bar curtain");
     node.innerHTML = "";
     node.insertAdjacentHTML("beforeend", template);
