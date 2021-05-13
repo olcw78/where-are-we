@@ -1,4 +1,4 @@
-import "regenerator-runtime";
+// import "/regenerator-runtime";
 import "./hot-reload";
 
 // feature import

@@ -4,8 +4,8 @@ import {
 } from "./controller/error-ctrl";
 HandleUncaughtException();
 
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import mongoose from "mongoose"; // ORM <- mongoDB
+import dotenv from "dotenv"; // node.js .env
 import App from "./app";
 
 class Server {

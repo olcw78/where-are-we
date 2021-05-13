@@ -18,6 +18,7 @@ class CallbackChain {
     this.callbacks.push((...args: any[]) => fn(...args));
     return this;
   }
+  
   /**
    * Invoke all callback chain.
    * @returns function chaining.

@@ -8,6 +8,8 @@ import { AsyncCatch } from "../util/async-catch";
 import AppError from "../util/App-error";
 
 const signToken = (id: string) => {
+  console.log(process.env.JWT_SECRET!, process.env.JWT_EXPIRES_IN);
+
   return jwt.sign({ id }, process.env.JWT_SECRET!, {
     expiresIn: process.env.JWT_EXPIRES_IN!,
   });
@@ -26,7 +28,7 @@ const createAndSendToken = (user: any, statusCode: number, res: any) => {
   //   cookieOptions.secure = true;
   // }
 
-  // res.cookie("jwt", token, cookieOptions);
+  res.cookie("jwt", token, cookieOptions);
 
   // Remove the password from the output
   user.password = undefined;

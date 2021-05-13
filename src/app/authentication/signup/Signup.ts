@@ -121,8 +121,8 @@ class Signup {
     };
 
     const signupResult: any = await axios.post(`${baseURL}/signup`, data);
-    console.log(signupResult);
-    
+    // console.log(signupResult);
+
     if (signupResult.data.status === "success") {
       this.signupPopup.toggleSignupBtn(false);
     } else {

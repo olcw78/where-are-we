@@ -71,7 +71,7 @@ class App {
     // this.app.use(cors());
 
     // static files
-    // this.app.use("/app", express.static(path.join(__dirname, "../app")));
+    // this.app.use("/static", express.static(path.join(__dirname, "../")));
 
     // routers
     this.app.use("/", router);
